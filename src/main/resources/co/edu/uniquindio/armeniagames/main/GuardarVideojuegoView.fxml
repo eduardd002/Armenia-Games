@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.GuardarVideojuegoController">
+   <children>
+      <Pane id="panel" prefHeight="450.0" prefWidth="650.0">
+         <children>
+            <Button id="btn" fx:id="btnGuardar" disable="true" layoutX="276.0" layoutY="390.0" mnemonicParsing="false" onAction="#guardar" text="Guardar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label id="LabelText" layoutX="90.0" layoutY="70.0" text="Código:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtUnidades" disable="true" layoutX="393.0" layoutY="335.0" onKeyTyped="#eventoText6" />
+            <Label id="LabelText" layoutX="90.0" layoutY="150.0" text="Precio (unidad):" textFill="WHITE" />
+            <Label id="LabelText" layoutX="90.0" layoutY="230.0" text="Genero:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="90.0" layoutY="310.0" text="Clasificación:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="393.0" layoutY="70.0" text="Nombre:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="393.0" layoutY="150.0" text="Formato:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="393.0" layoutY="230.0" text="Año de lanzamiento:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="393.0" layoutY="310.0" text="Unidades disponibles:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtCodigo" layoutX="90.0" layoutY="95.0" onKeyTyped="#eventoText" prefHeight="25.0" prefWidth="149.0" />
+            <ComboBox id="txt" fx:id="comboTipoFormatoVideojuego" disable="true" layoutX="393.0" layoutY="175.0" onAction="#eventoComboBox" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <TextField id="txt" fx:id="txtNombre" disable="true" layoutX="393.0" layoutY="95.0" onKeyTyped="#eventoText2" />
+            <TextField id="txt" fx:id="txtPrecio" disable="true" layoutX="90.0" layoutY="175.0" onKeyTyped="#eventoText3" />
+            <TextField id="txt" fx:id="txtClasificacion" disable="true" layoutX="90.0" layoutY="335.0" onKeyTyped="#eventoText5" />
+            <TextField id="txt" fx:id="txtAnioLanzamiento" disable="true" layoutX="393.0" layoutY="255.0" onKeyTyped="#eventoText4" />
+            <Button id="btn" fx:id="btnSalir" layoutX="592.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ComboBox id="txt" fx:id="comboGeneroVideojuego" disable="true" layoutX="90.0" layoutY="255.0" onAction="#eventoComboBox2" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+         </children>
+         <stylesheets>
+            <URL value="@AplicacionStyle.css" />
+            <URL value="@CrudStyle.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+</AnchorPane>

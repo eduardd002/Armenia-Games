@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="panel" prefHeight="497.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.LoginController">
+   <children>
+      <Pane id="panel" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <Label id="Text" layoutX="347.0" layoutY="102.0" text="INICIO DE SESIÓN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOlvidoClave" layoutX="374.0" layoutY="404.0" onMousePressed="#recuperarClave" text="¿Olvidaste tu contraseña?" textFill="#d4cb12" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Button id="btn" fx:id="btnRegistro" layoutX="473.0" layoutY="350.0" mnemonicParsing="false" onAction="#registro" text="Registrarse" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="btn" fx:id="btnIngresar" disable="true" layoutX="366.0" layoutY="350.0" mnemonicParsing="false" onAction="#ingresar" text="Ingresar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="335.0" layoutY="190.0" text="Tipo Usuario:" textFill="WHITE" />
+            <ComboBox id="txt" fx:id="comboUsuario" layoutX="425.0" layoutY="179.0" onAction="#eventoCombo" prefHeight="39.0" prefWidth="224.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <Label layoutX="335.0" layoutY="245.0" text="Correo:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtUsuario" disable="true" layoutX="425.0" layoutY="237.0" onKeyTyped="#eventoText" />
+            <Label layoutX="335.0" layoutY="300.0" text="Contraseña:" textFill="WHITE" />
+            <PasswordField id="txt" fx:id="txtContrasenia" disable="true" layoutX="425.0" layoutY="292.0" onKeyTyped="#eventoText2" />
+            <Button id="btn" fx:id="btnChat" layoutX="18.0" layoutY="13.0" mnemonicParsing="false" onAction="#chat" prefHeight="30.0" prefWidth="47.0">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/chatbot.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button id="btn" fx:id="btnSalir" layoutX="637.0" layoutY="17.0" mnemonicParsing="false" onAction="#salir">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/salir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <ImageView fitHeight="173.0" fitWidth="161.0" layoutX="74.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../logo/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+         <stylesheets>
+            <URL value="@AplicacionStyle.css" />
+            <URL value="@LoginStyle.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+</AnchorPane>

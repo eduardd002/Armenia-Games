@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.RecuperarClaveController">
+   <children>
+      <Pane id="panel" prefHeight="511.0" prefWidth="700.0">
+         <children>
+            <Button id="btn" fx:id="btnSalir" layoutX="644.0" layoutY="11.0" mnemonicParsing="false" onAction="#salir">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/Volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label id="LabelText" layoutX="84.0" layoutY="72.0" text="Documento:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="412.0" layoutY="72.0" text="Tipo de usuario:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtDocumento" layoutX="84.0" layoutY="97.0" onKeyTyped="#eventoText" />
+            <ComboBox id="txt" fx:id="comboTipoUsuario" disable="true" layoutX="412.0" layoutY="97.0" onAction="#eventoComboBox" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <Label id="LabelText" layoutX="84.0" layoutY="207.0" text="Nombre:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="412.0" layoutY="207.0" text="Apellido:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtNombre" disable="true" layoutX="84.0" layoutY="232.0" />
+            <TextField id="txt" fx:id="txtApellido" disable="true" layoutX="412.0" layoutY="232.0" />
+            <TextField id="txt" fx:id="txtCorreo" disable="true" layoutX="82.0" layoutY="312.0" />
+            <Label id="LabelText" layoutX="84.0" layoutY="287.0" text="Correo:" textFill="WHITE" />
+            <Button id="btn" fx:id="btnBuscar" disable="true" layoutX="323.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscar" text="Buscar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="btn" fx:id="btnCambiar" disable="true" layoutX="310.0" layoutY="450.0" mnemonicParsing="false" onAction="#cambiar" text="Restablecer">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label id="LabelText" layoutX="412.0" layoutY="367.0" text="Confirme la contraseña:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtConfirmacion" disable="true" layoutX="412.0" layoutY="392.0" onKeyTyped="#eventoText3" />
+            <Label id="LabelText" layoutX="412.0" layoutY="287.0" text="Telefono" textFill="WHITE" />
+            <Label id="LabelText" layoutX="84.0" layoutY="367.0" text="Contraseña:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtClave" disable="true" layoutX="84.0" layoutY="392.0" onKeyTyped="#eventoText2" />
+            <TextField id="txt" fx:id="txtTelefono" disable="true" layoutX="412.0" layoutY="312.0" />
+         </children>
+         <stylesheets>
+            <URL value="@AplicacionStyle.css" />
+            <URL value="@RegistroCambiarClave.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+</AnchorPane>

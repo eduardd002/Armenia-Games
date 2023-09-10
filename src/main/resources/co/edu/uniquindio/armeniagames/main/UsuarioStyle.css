@@ -1,0 +1,18 @@
+#txt{
+	-fx-pref-width: 180px;
+	-fx-pref-height: 30px;
+	-fx-background-radius: 25 25 25 25;
+	-fx-border-radius: 25 25 25 25;
+    -fx-border-width: 1.8px;
+}
+
+#txtDos{
+	-fx-pref-width: 70px;
+	-fx-pref-height: 30px;
+	-fx-border-color: white;
+	-fx-txtDos-color: white;
+	-fx-background-color: transparent;
+	-fx-background-radius: 0 25 0 25;
+	-fx-border-radius: 0 25 0 25;
+    -fx-border-width: 1.8px;
+}

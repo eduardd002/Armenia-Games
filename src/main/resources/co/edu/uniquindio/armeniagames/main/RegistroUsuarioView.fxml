@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.RegistroUsuarioController">
+   <children>
+      <Pane id="panel" prefHeight="500.0" prefWidth="700.0" stylesheets="@AplicacionStyle.css">
+         <children>
+            <Label id="LabelText" contentDisplay="CENTER" layoutX="489.0" layoutY="167.0" prefHeight="25.0" prefWidth="76.0" text="Jugador" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label id="LabelText" layoutX="95.0" layoutY="163.0" prefHeight="34.0" prefWidth="138.0" text="Administrador" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label id="LabelText" layoutX="201.0" layoutY="62.0" prefHeight="35.0" prefWidth="299.0" text="Selecione el tipo de registro" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button id="btn" fx:id="btnSalir" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/salir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <RadioButton fx:id="radioJugador" layoutX="444.0" layoutY="250.0" mnemonicParsing="false" onAction="#eventoJugador">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/jugador.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <RadioButton fx:id="radioAdministrador" layoutX="80.0" layoutY="250.0" mnemonicParsing="false" onAction="#eventoAdministrador">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/administrador.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

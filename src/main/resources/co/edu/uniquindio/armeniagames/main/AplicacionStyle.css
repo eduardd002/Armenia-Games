@@ -1,0 +1,11 @@
+#panel{
+	-fx-background-color: #4F53E1;
+}
+
+#btn{
+	-fx-border-width: 1px;
+	-fx-background-color: transparent;
+	-fx-border-color: black;
+	-fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+}

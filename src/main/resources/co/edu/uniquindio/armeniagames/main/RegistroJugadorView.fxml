@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="501.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.RegistroJugadorController">
+   <children>
+      <TabPane id="panel" prefHeight="501.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab>
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="700.0">
+                     <children>
+                        <Pane layoutY="-1.0" prefHeight="469.0" prefWidth="700.0">
+                           <children>
+                              <Label id="LabelText" layoutX="87.0" layoutY="60.0" text="Documento de identidad:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtDocumento" layoutX="87.0" layoutY="80.0" onKeyTyped="#eventoText" />
+                              <Label id="LabelText" layoutX="87.0" layoutY="130.0" text="Apellido(s):" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtApellido" disable="true" layoutX="87.0" layoutY="150.0" onKeyTyped="#eventoText3" />
+                              <Label id="LabelText" layoutX="87.0" layoutY="200.0" text="Genero:" textFill="WHITE" />
+                              <ComboBox id="txt" fx:id="comboTipoGenero" disable="true" layoutX="87.0" layoutY="220.0" onAction="#eventoComboBox" prefWidth="150.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ComboBox>
+                              <TextField id="txt" fx:id="txtTelefono" disable="true" layoutX="87.0" layoutY="290.0" onKeyTyped="#eventoText5" />
+                              <Label id="LabelText" layoutX="87.0" layoutY="270.0" text="Telefono:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="87.0" layoutY="340.0" text="Contraseña:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtContrasenia" disable="true" layoutX="87.0" layoutY="360.0" onKeyTyped="#eventoText7" />
+                              <Label id="LabelText" layoutX="416.0" layoutY="200.0" text="Estado civil:" textFill="WHITE" />
+                              <CheckBox fx:id="checkLey" disable="true" layoutX="213.0" layoutY="414.0" mnemonicParsing="false" onAction="#eventoCheck">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <TextField id="txt" fx:id="txtConfirmacion" disable="true" layoutX="416.0" layoutY="360.0" onKeyTyped="#eventoText8" />
+                              <TextField id="txt" fx:id="txtCorreo" disable="true" layoutX="416.0" layoutY="290.0" onKeyTyped="#eventoText6" />
+                              <ComboBox id="txt" fx:id="comboEstado" disable="true" layoutX="416.0" layoutY="220.0" onAction="#eventoComboBox2" prefWidth="150.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ComboBox>
+                              <Label id="LabelText" layoutX="416.0" layoutY="340.0" text="Confirme la contraseña:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="416.0" layoutY="270.0" text="Correo electronico:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtNombre" disable="true" layoutX="416.0" layoutY="80.0" onKeyTyped="#eventoText2" />
+                              <Label id="LabelText" layoutX="416.0" layoutY="60.0" text="Nombre(s):" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="416.0" layoutY="130.0" text="Fecha de nacimiento:" textFill="WHITE" />
+                              <Button id="btn" fx:id="btnRegresar" layoutX="645.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresar" prefHeight="27.0" prefWidth="8.0">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../logo/salir.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <DatePicker id="txt" fx:id="dateNacimiento" disable="true" editable="false" layoutX="416.0" layoutY="150.0" onAction="#eventoText4" prefHeight="25.0" prefWidth="148.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></DatePicker>
+                              <Label layoutX="237.0" layoutY="414.0" text="Acepto la ley de protección de datos." textFill="WHITE" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="15.0" prefWidth="244.0" text="Datos Basicos">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
+               </graphic>
+          </Tab>
+            <Tab>
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="700.0">
+                     <children>
+                        <Pane layoutX="-7.0" layoutY="1.0" prefHeight="467.0" prefWidth="700.0">
+                           <children>
+                              <CheckBox fx:id="checkLey2" disable="true" layoutX="242.0" layoutY="413.0" mnemonicParsing="false" onAction="#eventoCheck2" />
+                              <ComboBox id="txt" fx:id="comboTipoCuenta" disable="true" layoutX="90.0" layoutY="270.0" onAction="#eventoComboBox3" prefWidth="150.0" />
+                              <Label id="LabelText" layoutX="90.0" layoutY="320.0" text="Titular:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtTitular" disable="true" layoutX="90.0" layoutY="340.0" onKeyTyped="#eventoText10" />
+                              <TextField id="txt" fx:id="txtCuenta" disable="true" layoutX="410.0" layoutY="270.0" onKeyTyped="#eventoText9" />
+                              <Label id="LabelText" layoutX="410.0" layoutY="320.0" text="Fecha de caducidad:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="410.0" layoutY="250.0" text="Numero de cuenta:" textFill="WHITE" />
+                              <DatePicker id="txt" fx:id="dateCaducidad" disable="true" editable="false" layoutX="410.0" layoutY="340.0" onAction="#eventoText11" />
+                              <Label layoutX="262.0" layoutY="413.0" text="Haré un uso adecuado de mis finanzas." textFill="WHITE" />
+                              <RadioButton fx:id="radioDavivienda" layoutX="90.0" layoutY="50.0" mnemonicParsing="false" onAction="#eventoRadioDavivienda">
+                                 <graphic>
+                                    <ImageView fitHeight="63.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../logo/davivienda.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </RadioButton>
+                              <RadioButton fx:id="radioBancolombia" layoutX="410.0" layoutY="21.0" mnemonicParsing="false" onAction="#eventoRadioBancolombia">
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../logo/bamcolombia.png" />
+                                       </image></ImageView>
+                                 </graphic>
+                              </RadioButton>
+                              <RadioButton fx:id="radioOccidente" layoutX="90.0" layoutY="150.0" mnemonicParsing="false" onAction="#eventoRadioOccidente">
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../logo/occidente.png" />
+                                       </image></ImageView>
+                                 </graphic>
+                              </RadioButton>
+                              <RadioButton fx:id="radioBogota" layoutX="410.0" layoutY="160.0" mnemonicParsing="false" onAction="#eventoRadioBogota">
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../logo/bogota.png" />
+                                       </image></ImageView>
+                                 </graphic>
+                              </RadioButton>
+                           </children>
+                        </Pane>
+                        <Label id="LabelText" layoutX="90.0" layoutY="250.0" text="Tipo de Cuenta:" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+              </content>
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="15.0" prefWidth="185.0" text="Datos De Pago">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
+               </graphic>
+            </Tab>
+          <Tab>
+            <content>
+              <AnchorPane id="paneFondo" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="467.0" prefWidth="700.0">
+                           <children>
+                              <Label layoutX="83.0" layoutY="80.0" prefHeight="15.0" prefWidth="129.0" text="Tipo de Residencia:" textFill="WHITE" />
+                              <ComboBox id="txt" fx:id="comboResidencia" disable="true" layoutX="83.0" layoutY="110.0" onAction="#eventoComboBox4" prefWidth="150.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ComboBox>
+                              <Label id="LabelText" layoutX="83.0" layoutY="185.0" text="Barrio:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtBarrio" disable="true" layoutX="83.0" layoutY="215.0" onKeyTyped="#eventoText13" />
+                              <Label id="LabelText" layoutX="83.0" layoutY="290.0" text="Departamento:" textFill="WHITE" />
+                              <ComboBox id="txt" fx:id="comboDepartamento" disable="true" layoutX="83.0" layoutY="320.0" onAction="#eventoDepartamento" prefWidth="150.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ComboBox>
+                              <Label id="LabelText" layoutX="425.0" layoutY="80.0" text="Codigo Postal:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtPostal" disable="true" layoutX="425.0" layoutY="110.0" onKeyTyped="#eventoText12" />
+                              <TextField id="txt" fx:id="txtDireccion" disable="true" layoutX="425.0" layoutY="215.0" onKeyTyped="#eventoText14" />
+                              <Label id="LabelText" layoutX="425.0" layoutY="185.0" text="Direccion:" textFill="WHITE" />
+                              <ComboBox id="txt" fx:id="comboMunicipio" disable="true" layoutX="425.0" layoutY="320.0" onAction="#eventoComboBox5" prefWidth="150.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ComboBox>
+                              <Label id="LabelText" layoutX="425.0" layoutY="290.0" text="Municipio:" textFill="WHITE" />
+                              <Button id="btn" fx:id="btnRegistro" disable="true" layoutX="309.0" layoutY="399.0" mnemonicParsing="false" onAction="#registro" text="Registrarse" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                           </children></Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="15.0" prefWidth="199.0" text="Datos de Envio">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
+               </graphic>
+          </Tab>
+        </tabs>
+         <stylesheets>
+            <URL value="@AplicacionStyle.css" />
+            <URL value="@RegistroStyle.css" />
+         </stylesheets>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,2 @@
+1004960772--Eduard--Pineda--2002-07-31--Soltero--Masculino--pinedaj@gmail.com--123--123--Jugador--315756646--Davivienda--Corriente--987--Yo--2023-09-09--Urbana--630003--Torre 13 apartamento 402--San Jose--Quindio--Armenia--0--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\logo\usuario.png
+987654321--Michael--Jordan--2023-09-18--Casado--Masculino--jordan@gmail.com--123--123--Jugador--3216549878--Davivienda--Corriente--987--El--2023-09-21--Rural--630002--Bulls--Chicago--Caldas--Filadelfia--0--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\logo\usuario.png

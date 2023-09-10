@@ -1,0 +1,7 @@
+#txt{
+	-fx-pref-width: 200px;
+	-fx-pref-height: 31px;
+	-fx-background-radius: 25 25 25 25;
+	-fx-border-radius: 25 25 25 25;
+    -fx-border-width: 2.2px;
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.RegistroAdministradorController">
+   <children>
+      <Pane id="panel" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <TextField id="txt" fx:id="txtNombre" disable="true" layoutX="407.0" layoutY="80.0" onKeyTyped="#eventoText2" />
+            <Label id="LabelText" layoutX="407.0" layoutY="60.0" text="Nombre(s):" textFill="WHITE" />
+            <Label id="LabelText" layoutX="407.0" layoutY="130.0" text="Fecha de nacimiento:" textFill="WHITE" />
+            <ComboBox id="txt" fx:id="comboTipoGenero" disable="true" layoutX="87.0" layoutY="220.0" onAction="#eventoComboBox" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <TextField id="txt" fx:id="txtCorreo" disable="true" layoutX="407.0" layoutY="290.0" onKeyTyped="#eventoText6" />
+            <TextField id="txt" fx:id="txtConfirmacion" disable="true" layoutX="407.0" layoutY="360.0" onKeyTyped="#eventoText8" />
+            <Label id="LabelText" layoutX="87.0" layoutY="200.0" text="Genero:" textFill="WHITE" />
+            <Button id="btn" fx:id="btnRegistro" disable="true" layoutX="265.0" layoutY="460.0" mnemonicParsing="false" onAction="#registro" text="Registrarse" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label id="LabelText" layoutX="407.0" layoutY="200.0" text="Estado civil:" textFill="WHITE" />
+            <ComboBox id="txt" fx:id="comboEstado" disable="true" layoutX="407.0" layoutY="220.0" onAction="#eventoComboBox2" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <CheckBox fx:id="checkLey" disable="true" layoutX="200.0" layoutY="414.0" mnemonicParsing="false" onAction="#eventoCheck">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></CheckBox>
+            <Text id="LabelText" fx:id="lblLey" disable="true" fill="WHITE" layoutX="221.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acepto la ley de protección de datos." />
+            <Label id="LabelText" layoutX="407.0" layoutY="340.0" text="Confirme la contraseña:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="407.0" layoutY="270.0" text="Correo electronico:" textFill="WHITE" />
+            <DatePicker id="txt" fx:id="dateNacimiento" disable="true" editable="false" layoutX="407.0" layoutY="150.0" onAction="#eventoText4">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></DatePicker>
+            <Label id="LabelText" layoutX="87.0" layoutY="60.0" text="Documento de identidad:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtDocumento" layoutX="87.0" layoutY="80.0" onKeyTyped="#eventoText" />
+            <Label id="LabelText" layoutX="87.0" layoutY="340.0" text="Contraseña:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtContrasenia" disable="true" layoutX="87.0" layoutY="360.0" onKeyTyped="#eventoText7" />
+            <Label id="LabelText" layoutX="87.0" layoutY="270.0" text="Telefono:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtTelefono" disable="true" layoutX="87.0" layoutY="290.0" onKeyTyped="#eventoText5" />
+            <Button id="btn" fx:id="btnRegresar" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresar">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/salir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label id="LabelText" layoutX="87.0" layoutY="130.0" text="Apellido(s):" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtApellido" disable="true" layoutX="87.0" layoutY="150.0" onKeyTyped="#eventoText3" prefHeight="39.0" />
+         </children>
+         <stylesheets>
+            <URL value="@AplicacionStyle.css" />
+            <URL value="@RegistroStyle.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+</AnchorPane>
