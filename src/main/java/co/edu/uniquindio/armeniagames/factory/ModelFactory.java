@@ -1,7 +1,6 @@
 package co.edu.uniquindio.armeniagames.factory;
 import co.edu.uniquindio.armeniagames.constant.MensajesExcepcionConstant;
 import co.edu.uniquindio.armeniagames.constant.MensajesInformacionConstant;
-import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.exception.*;
 import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
@@ -88,10 +87,6 @@ public class ModelFactory {
         } catch (UsuarioNoExisteException | JugadorNoExisteException | AdministradorNoExisteException e) {
             persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_INGRESO_USUARIO);
             mostrarMensaje("Notificacion Ingreso", "Ingreso No Autorizado", mensajesExcepcionConstant.ERROR_INGRESO_USUARIO,
-                    Alert.AlertType.ERROR);
-        } catch (CuentaBloqueadaException e) {
-            persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_CUENTA_BLOQUEADA);
-            mostrarMensaje("Notificacion Ingreso", "Ingreso No Autorizado", mensajesExcepcionConstant.ERROR_CUENTA_BLOQUEADA,
                     Alert.AlertType.ERROR);
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_GENERAL);
@@ -566,15 +561,28 @@ public class ModelFactory {
         return videojuego;
     }
 
+    public void establecerIntentos(String correo) {
+
+        try {
+            getTienda().establecerIntentos(correo);
+            persistencia.guardarJugador(getListaJugadores());
+            persistencia.guardaRegistroLog("Intento Actualizado", 1, mensajesInformacionConstant.INFORMACION_INTENTO_AUMENTADO);
+        } catch (Exception e) {
+            persistencia.guardaRegistroLog("Intento No Actualizado", 3,
+                    mensajesExcepcionConstant.ERROR_INTENTO_NO_ACTUALIZADO + e.getMessage());
+        }
+    }
+
     public void bloquearCuenta(String correo) {
 
         try {
             getTienda().bloquearCuenta(correo);
             persistencia.guardarJugador(getListaJugadores());
-            persistencia.guardaRegistroLog("Cuenta Bloqueada", 3, mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA);
+        } catch (CuentaBloqueadaException e) {
+            persistencia.guardaRegistroLog("Cuenta Bloqueada", 2, mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA);
             mostrarMensaje("Notificacion Bloqueo", "Cuenta Bloqueada",
                     mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA, Alert.AlertType.WARNING);
-        } catch (Exception e) {
+        } catch (IOException e) {
             persistencia.guardaRegistroLog("Cuenta No Bloqueada", 3,
                     mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
             mostrarMensaje("Notificación Bloqueo", "Cuenta No Bloqueada", mensajesExcepcionConstant.ERROR_GENERAL,

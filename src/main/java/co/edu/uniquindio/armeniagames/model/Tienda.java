@@ -3,7 +3,6 @@ package co.edu.uniquindio.armeniagames.model;
 import co.edu.uniquindio.armeniagames.enumm.TipoRestriccion;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.exception.*;
-import co.edu.uniquindio.armeniagames.interfacce.TiendaService;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class Tienda{
     public Tienda() {
     }
 
-    public boolean validarUsuario(Usuario usu) throws IOException, CuentaBloqueadaException {
+    public boolean validarUsuario(Usuario usu) throws IOException {
 
         boolean esCorrecto = false;
         ArrayList<Administrador> administrador = persistencia.cargarAdministrador();
@@ -35,9 +34,6 @@ public class Tienda{
                         && jug.getTipoUsuario().equals(usu.getTipoUsuario())) {
                     esCorrecto = true;
                     break;
-                }else if(jug.getTipoRestriccion().equals(TipoRestriccion.DENEGADO)){
-                    esCorrecto = false;
-                    throw new CuentaBloqueadaException();
                 }
             }
         }
@@ -94,7 +90,7 @@ public class Tienda{
     }
 
     public boolean iniciarSesion(Usuario usuario)
-            throws IOException, UsuarioNoExisteException, CuentaBloqueadaException {
+            throws IOException, UsuarioNoExisteException {
 
         if (validarUsuario(usuario)) {
             return true;
@@ -605,18 +601,32 @@ public class Tienda{
         return claveCambiadaConExito;
     }
 
-    public void bloquearCuenta(String correo) {
+    public void establecerIntentos(String correo) {
 
         Jugador jugador;
-
         jugador = obtenerJugador2(correo);
 
         if (jugador != null) {
-
+            int var = jugador.getIntentos();
             for (int i = 0; i < getListaJugadores().size(); i++) {
                 if (getListaJugadores().get(i).getCorreo().equals(correo)) {
-                    jugador.setTipoRestriccion(TipoRestriccion.DENEGADO);
-                    getListaJugadores().set(i, jugador);
+                    jugador.setIntentos(var+=1);
+                }
+            }
+        }
+    }
+
+    public void bloquearCuenta(String correo) throws CuentaBloqueadaException {
+        Jugador jugador;
+        jugador = obtenerJugador2(correo);
+
+        if (jugador != null) {
+            for (int i = 0; i < getListaJugadores().size(); i++) {
+                if (getListaJugadores().get(i).getCorreo().equals(correo)) {
+                    if(jugador.getIntentos() > 2){
+                        jugador.setTipoRestriccion(TipoRestriccion.DENEGADO);
+                        throw new CuentaBloqueadaException();
+                    }
                 }
             }
         }

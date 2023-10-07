@@ -18,6 +18,7 @@ public class MensajesInformacionConstant {
     public final String INFORMACION_JUGADOR_ACTUALIZADO = "El jugador se ha actualizado exitosamente";
     public final String INFORMACION_JUGADOR_ELIMINADO = "El jugador se ha eliminado exitosamente";
     public final String INFORMACION_CAMBIAR_CLAVE = "La clave se ha cambiado exitosamente";
+    public final String INFORMACION_INTENTO_AUMENTADO = "El intento se ha aumentado";
     public final String INFORMACION_BLOQUEO_CUENTA = "La cuenta se ha bloqueado";
     public final String INFORMACION_DESBLOQUEO_CUENTA = "La cuenta se ha desbloqueado correctamente";
     public final  String INFORMACION_INVENTARIO_ACTUALIZADO = "El inventario se ha actualizado exitosamente";

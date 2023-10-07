@@ -17,6 +17,7 @@ public class MensajesExcepcionConstant {
     public final String ERROR_INGRESO_USUARIO = "Este usuario no se encuentra registrado";
     public final String ERROR_VIDEOJUEGO_YA_EXISTE = "El videojuego ya se encuentra registrado";
     public final String ERROR_VIDEOJUEGO_NO_EXISTE = "El videojuego no se encuentra registrado";
+    public final String ERROR_INTENTO_NO_ACTUALIZADO = "El intento no ha sido actualizado";
     public final String ERROR_VIDEOJUEGO_NO_ACTUALIZADO = "El videojuego no se ha actualizado existosamente";
     public final String ERROR_VIDEOJUEGO_NO_DEVUELTO = "El videojuego no se ha devuelto existosamente";
     public final String ERROR_ADMINISTRADOR_NO_ACTUALIZADO = "El administrador no se ha actualizado existosamente";
