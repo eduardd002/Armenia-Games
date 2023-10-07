@@ -7,6 +7,7 @@ public class Usuario extends Persona{
 
     private String correo, confirmacionClave, clave, telefono;
 
+    private TipoRestriccion tipoRestriccion;
     private TipoUsuario tipoUsuario;
 
     private String imagen;
@@ -23,6 +24,14 @@ public class Usuario extends Persona{
 
     public String getClave() {
         return clave;
+    }
+
+    public TipoRestriccion getTipoRestriccion() {
+        return tipoRestriccion;
+    }
+
+    public void setTipoRestriccion(TipoRestriccion tipoRestriccion) {
+        this.tipoRestriccion = tipoRestriccion;
     }
 
     public String getConfirmacionClave() {

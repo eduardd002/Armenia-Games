@@ -19,8 +19,6 @@ public class Jugador extends Usuario{
     private TipoResidencia tipoResidencia;
     private int videojuegosComprados, intentos;
 
-    private TipoRestriccion tipoRestriccion;
-
     public Jugador(){}
 
     public TipoCuenta getTipoCuenta() {
@@ -73,14 +71,6 @@ public class Jugador extends Usuario{
 
     public String getDireccion() {
         return direccion;
-    }
-
-    public TipoRestriccion getTipoRestriccion() {
-        return tipoRestriccion;
-    }
-
-    public void setTipoRestriccion(TipoRestriccion tipoRestriccion) {
-        this.tipoRestriccion = tipoRestriccion;
     }
 
     public void setDireccion(String direccion) {

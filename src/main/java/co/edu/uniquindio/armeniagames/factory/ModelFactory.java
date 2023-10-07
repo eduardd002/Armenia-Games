@@ -89,7 +89,10 @@ public class ModelFactory {
             persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_INGRESO_USUARIO);
             mostrarMensaje("Notificacion Ingreso", "Ingreso No Autorizado", mensajesExcepcionConstant.ERROR_INGRESO_USUARIO,
                     Alert.AlertType.ERROR);
-            //usuarioAuxiliar = usu;
+        } catch (CuentaBloqueadaException e) {
+            persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_CUENTA_BLOQUEADA);
+            mostrarMensaje("Notificacion Ingreso", "Ingreso No Autorizado", mensajesExcepcionConstant.ERROR_CUENTA_BLOQUEADA,
+                    Alert.AlertType.ERROR);
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_GENERAL);
             mostrarMensaje("Notificacion Ingreso", "Ingreso No Autorizado", mensajesExcepcionConstant.ERROR_GENERAL,
@@ -547,8 +550,6 @@ public class ModelFactory {
         return cambio;
     }
 
-    //df
-
     public Videojuego obtenerVideojuego(String codigo) {
 
         Videojuego videojuego = new Videojuego();
@@ -565,7 +566,37 @@ public class ModelFactory {
         return videojuego;
     }
 
-    //df
+    public void bloquearCuenta(String correo) {
+
+        try {
+            getTienda().bloquearCuenta(correo);
+            persistencia.guardarJugador(getListaJugadores());
+            persistencia.guardaRegistroLog("Cuenta Bloqueada", 3, mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA);
+            mostrarMensaje("Notificacion Bloqueo", "Cuenta Bloqueada",
+                    mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA, Alert.AlertType.WARNING);
+        } catch (Exception e) {
+            persistencia.guardaRegistroLog("Cuenta No Bloqueada", 3,
+                    mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
+            mostrarMensaje("Notificación Bloqueo", "Cuenta No Bloqueada", mensajesExcepcionConstant.ERROR_GENERAL,
+                    Alert.AlertType.ERROR);
+        }
+    }
+
+    public void desbloquearCuenta(Jugador jugador) {
+
+        try {
+            getTienda().desbloquearCuenta(jugador);
+            persistencia.guardarJugador(getListaJugadores());
+            persistencia.guardaRegistroLog("Cuenta Desbloqueada", 1, mensajesInformacionConstant.INFORMACION_JUGADOR_ACTUALIZADO);
+            mostrarMensaje("Notificacion Desbloqueo", "Jugador Desbloqueado",
+                    mensajesInformacionConstant.INFORMACION_DESBLOQUEO_CUENTA, Alert.AlertType.INFORMATION);
+        } catch (Exception e) {
+            persistencia.guardaRegistroLog("Cuenta No Desbloqueada", 3,
+                    mensajesExcepcionConstant.ERROR_JUGADOR_NO_ACTUALIZADO + e.getMessage());
+            mostrarMensaje("Notificacion Desbloqueo", "Jugador No Desbloqueado",
+                    mensajesExcepcionConstant.ERROR_DESBLOQUEO_CUENTA, Alert.AlertType.ERROR);
+        }
+    }
 
     public int generarNum(){
         return getTienda().generarNumAleatorio();
@@ -601,42 +632,6 @@ public class ModelFactory {
         Optional<ButtonType> action = alert.showAndWait();
 
         return action.get() == ButtonType.OK;
-    }
-
-    public Administrador obtenerAdministrador(String documento) {
-
-        Administrador administrador = null;
-
-        try {
-            administrador = getTienda().mostrarDatosAdministrador(documento);
-            persistencia.guardaRegistroLog("Administrador Encontrado", 1, mensajesInformacionConstant.INFORMACION_ADMINISTRADOR_EXISTE);
-            usuarioAuxiliar = administrador;
-        } catch (AdministradorNoExisteException e) {
-            persistencia.guardaRegistroLog("Administrador No Encontrado", 3,
-                    mensajesExcepcionConstant.ERROR_ADMINISTRADOR_NO_EXISTE + e.getMessage());
-            mostrarMensaje("Notificacion Busqueda", "Administrador No Encontrado", mensajesExcepcionConstant.ERROR_ADMINISTRADOR_NO_EXISTE,
-                    Alert.AlertType.ERROR);
-
-        }
-        return administrador;
-    }
-
-    public Jugador obtenerJugador(String documento) {
-
-        Jugador jugador = null;
-
-        try {
-            jugador = getTienda().mostrarDatosJugador(documento);
-            persistencia.guardaRegistroLog("Jugador Encontrado", 1, mensajesInformacionConstant.INFORMACION_JUGADOR_EXISTE);
-            usuarioAuxiliar = jugador;
-        } catch (JugadorNoExisteException e) {
-            persistencia.guardaRegistroLog("Jugador No Encontrado", 3,
-                    mensajesExcepcionConstant.ERROR_JUGADOR_NO_EXISTE + e.getMessage());
-            mostrarMensaje("Notificacion Busqueda", "Jugador No Encontrado", mensajesExcepcionConstant.ERROR_JUGADOR_NO_EXISTE,
-                    Alert.AlertType.ERROR);
-
-        }
-        return jugador;
     }
 
     public Jugador traerJugadorEnvioYPago(String documento) {

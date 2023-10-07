@@ -25,6 +25,7 @@ public class LoginController implements Initializable {
 
     public Main main = new Main();
     public LoginSubcontroller subcontroller;
+    private static int contador;
     private final ObservableList<TipoUsuario> listaTipoUsuario = FXCollections.observableArrayList();
 
     @FXML
@@ -115,6 +116,9 @@ public class LoginController implements Initializable {
                 subcontroller.email(mensajes.MENSAJE_INICIO_SESION, mensajes.MENSAJE_INICIO_SESION_CUERPO, email, imgJug);
                 main.cargarVentanaJugador();
                 cerrarVentana(btnIngresar);
+            }else{
+                contador++;
+                bloquearCuenta(txtUsuario.getText());
             }
         }else if(tipo.equals(TipoUsuario.Administrador)) {
             if (usuario != null) {
@@ -122,6 +126,12 @@ public class LoginController implements Initializable {
                 main.cargarVentanaAdministrador();
                 cerrarVentana(btnIngresar);
             }
+        }
+    }
+
+    public void bloquearCuenta(String correo){
+        if(contador == 3) {
+            subcontroller.bloquearCuenta(correo);
         }
     }
 

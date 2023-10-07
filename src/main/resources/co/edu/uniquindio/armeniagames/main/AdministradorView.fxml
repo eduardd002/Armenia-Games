@@ -152,7 +152,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView id="Tabla" fx:id="tablaJugadores" layoutX="52.0" layoutY="38.0" prefHeight="379.0" prefWidth="582.0">
+                              <TableView id="Tabla" fx:id="tablaJugadores" layoutX="52.0" layoutY="38.0" prefHeight="349.0" prefWidth="582.0">
                                 <columns>
                                   <TableColumn id="TablaInterna" fx:id="colNOmbreJugador" prefWidth="66.66666030883789" text="Nombre" />
                                   <TableColumn id="TablaInterna" fx:id="colApellidoJugador" prefWidth="76.00005340576172" text="Apellido" />
@@ -162,6 +162,7 @@
                                     <TableColumn fx:id="colRestriccion" prefWidth="127.33334350585938" text="Restriccion" />
                                 </columns>
                               </TableView>
+                              <Button id="btn" fx:id="btnDesbloquear" layoutX="287.0" layoutY="409.0" mnemonicParsing="false" onAction="#desbloquear" text="Desbloquear cuenta" textFill="WHITE" />
                            </children>
                         </AnchorPane>
                      </content>

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.armeniagames.subcontroller;
 
+import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.Tienda;
 import co.edu.uniquindio.armeniagames.model.Usuario;
@@ -16,6 +17,10 @@ public class LoginSubcontroller {
 
     public void email(String titulo, String cuerpo, String correo, String img) {
         factoryController.correo(titulo, cuerpo, correo, img);
+    }
+
+    public void bloquearCuenta(String correo) {
+        factoryController.bloquearCuenta(correo);
     }
 
     public Usuario login(Usuario usuario) {

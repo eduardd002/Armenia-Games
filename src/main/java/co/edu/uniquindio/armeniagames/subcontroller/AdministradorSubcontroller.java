@@ -23,6 +23,10 @@ public class AdministradorSubcontroller {
         return factoryController.eliminarAdministrador(documento);
     }
 
+    public void desbloquearCuenta(Jugador jugador) {
+        factoryController.desbloquearCuenta(jugador);
+    }
+
     public ArrayList<Videojuego> obtenerVideojuegos(){
         return factoryController.getListaVideojuegos();
     }

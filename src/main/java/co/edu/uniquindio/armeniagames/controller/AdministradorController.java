@@ -57,7 +57,8 @@ public class AdministradorController implements Initializable {
     private ImageView imgUsuario;
 
     @FXML
-    private Button btnAgregar, btnSalir, btnEliminar, btnActualizar, btnActualizarDatos, btnDevolver;
+    private Button btnAgregar, btnSalir, btnEliminar, btnActualizar,
+            btnActualizarDatos, btnDevolver, btnDesbloquear;
 
     @FXML
     private TableColumn<Videojuego, String> colNombreVideojuegoRegistro,
@@ -305,6 +306,13 @@ public class AdministradorController implements Initializable {
      ******************************   Apartado mis clientes   ************************************
      */
 
+    private Jugador jugadorSeleccionado;
+
+    @FXML
+    public void desbloquear() {
+        desbloquearCuenta();
+    }
+
     public ObservableList<Jugador> getJugadores() {
         listaJugadores.addAll(subcontroller.obtenerJugadores());
         return listaJugadores;
@@ -321,9 +329,17 @@ public class AdministradorController implements Initializable {
 
         tablaJugadores.getItems().clear();
         tablaJugadores.setItems(getJugadores());
-
         tablaJugadores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            jugadorSeleccionado = newSelection;
         });
+    }
+
+    public void desbloquearCuenta() {
+
+        if (jugadorSeleccionado != null) {
+            subcontroller.desbloquearCuenta(jugadorSeleccionado);
+            tablaJugadores.refresh();
+        }
     }
 
     public void cerrarVentana(Button btn) {

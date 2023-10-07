@@ -6,14 +6,14 @@ public class MensajesExcepcionConstant {
     public final String ERROR_JUGADOR_NO_GUARDADO = "El jugador no se ha guardado exitosamente";
     public final String ERROR_ADMINISTRADOR_YA_EXISTE = "El administrador ya se encuentra registrado";
     public final String ERROR_JUGADOR_YA_EXISTE = "El jugador ya se encuentra registrado";
-    public final String ERROR_ADMINISTRADOR_NO_EXISTE = "El administrador no se encuentra registrado";
-    public final String ERROR_JUGADOR_NO_EXISTE = "El jugador no se encuentra registrado";
+    public final String ERROR_CUENTA_BLOQUEADA = "Su cuenta ha sido bloqueada, comuniquese con la tienda";
     public final String ERROR_CLAVES_NO_COINCIDEN = "Las claves no coinciden";
     public final String ERROR_CARGAR_DATOS = "Ha ocurrido al cargar los datos";
     public final String ERROR_CORREO_NO_ENVIADO = "El correo no se ha podido enviar correctamente";
     public final String ERROR_CARGAR_VENTANA = "Ha ocurrido al cargar la ventana";
     public final String ERROR_GENERAL = "Ha ocurrido un error inesperado";
     public final String ERROR_CLAVE_NO_SEGURA = "La clave no tiene la seguridad necesaria";
+    public final String ERROR_DESBLOQUEO_CUENTA = "La cuenta no se pudo desbloquear";
     public final String ERROR_INGRESO_USUARIO = "Este usuario no se encuentra registrado";
     public final String ERROR_VIDEOJUEGO_YA_EXISTE = "El videojuego ya se encuentra registrado";
     public final String ERROR_VIDEOJUEGO_NO_EXISTE = "El videojuego no se encuentra registrado";

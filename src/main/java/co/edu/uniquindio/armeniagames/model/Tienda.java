@@ -1,5 +1,6 @@
 package co.edu.uniquindio.armeniagames.model;
 
+import co.edu.uniquindio.armeniagames.enumm.TipoRestriccion;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.exception.*;
 import co.edu.uniquindio.armeniagames.interfacce.TiendaService;
@@ -22,7 +23,7 @@ public class Tienda{
     public Tienda() {
     }
 
-    public boolean validarUsuario(Usuario usu) throws IOException {
+    public boolean validarUsuario(Usuario usu) throws IOException, CuentaBloqueadaException {
 
         boolean esCorrecto = false;
         ArrayList<Administrador> administrador = persistencia.cargarAdministrador();
@@ -34,6 +35,9 @@ public class Tienda{
                         && jug.getTipoUsuario().equals(usu.getTipoUsuario())) {
                     esCorrecto = true;
                     break;
+                }else if(jug.getTipoRestriccion().equals(TipoRestriccion.DENEGADO)){
+                    esCorrecto = false;
+                    throw new CuentaBloqueadaException();
                 }
             }
         }
@@ -90,7 +94,7 @@ public class Tienda{
     }
 
     public boolean iniciarSesion(Usuario usuario)
-            throws IOException, UsuarioNoExisteException {
+            throws IOException, UsuarioNoExisteException, CuentaBloqueadaException {
 
         if (validarUsuario(usuario)) {
             return true;
@@ -601,56 +605,39 @@ public class Tienda{
         return claveCambiadaConExito;
     }
 
-    public Administrador mostrarDatosAdministrador(String documento) throws AdministradorNoExisteException {
-
-        Administrador administrador;
-
-        administrador = obtenerAdministrador(documento);
-
-        if (administrador != null) {
-
-            for (int i = 0; i < getListaAdministradores().size(); i++) {
-                if (getListaAdministradores().get(i).getDocumento().equals(documento)) {
-
-                    administrador.setNombrePersona(administrador.getNombrePersona());
-                    administrador.setApellido(administrador.getApellido());
-                    administrador.setTelefono(administrador.getTelefono());
-                    administrador.setCorreo(administrador.getCorreo());
-                    administrador.setImagen(administrador.getImagen());
-
-                    getListaAdministradores().set(i, administrador);
-                }
-            }
-        } else {
-            throw new AdministradorNoExisteException();
-        }
-        return administrador;
-    }
-
-    public Jugador mostrarDatosJugador(String documento) throws JugadorNoExisteException {
+    public void bloquearCuenta(String correo) {
 
         Jugador jugador;
 
-        jugador = obtenerJugador(documento);
+        jugador = obtenerJugador2(correo);
 
         if (jugador != null) {
 
             for (int i = 0; i < getListaJugadores().size(); i++) {
-                if (getListaJugadores().get(i).getDocumento().equals(documento)) {
-
-                    jugador.setNombrePersona(jugador.getNombrePersona());
-                    jugador.setApellido(jugador.getApellido());
-                    jugador.setTelefono(jugador.getTelefono());
-                    jugador.setCorreo(jugador.getCorreo());
-                    jugador.setImagen(jugador.getImagen());
-
+                if (getListaJugadores().get(i).getCorreo().equals(correo)) {
+                    jugador.setTipoRestriccion(TipoRestriccion.DENEGADO);
                     getListaJugadores().set(i, jugador);
                 }
             }
-        } else {
-            throw new JugadorNoExisteException();
         }
-        return jugador;
+    }
+
+    public void desbloquearCuenta(Jugador jugador) throws ClaveNoSeguraException{
+
+        Jugador jug;
+
+        jug = obtenerJugador(jugador.getDocumento());
+
+        if (jug != null) {
+
+            for (int i = 0; i < getListaJugadores().size(); i++) {
+                if (getListaJugadores().get(i).getDocumento().equals(jugador.getDocumento())) {
+
+                    jug.setTipoRestriccion(TipoRestriccion.CONFIRMADO);
+                    getListaJugadores().set(i, jug);
+                }
+            }
+        }
     }
 
     public int generarNumAleatorio() {
