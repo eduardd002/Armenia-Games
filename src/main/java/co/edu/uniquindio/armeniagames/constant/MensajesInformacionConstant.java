@@ -8,6 +8,7 @@ public class MensajesInformacionConstant {
     public final String INFORMACION_CARGAR_VENTANA = "La ventana se ha cargado exitosamente";
     public final String INFORMACION_INGRESO_USUARIO = "El usuario ha ingresado exitosamente";
     public final String INFORMACION_BIENVENIDA = "Bienvenido(a) ";
+    public final String INFORMACION_CORREO_ENVIADO = "El correo ha sido enviado correctamente";
     public final String INFORMACION_VIDEOJUEGO_GUARDADO = "El videojuego se ha guardado exitosamente";
     public final String INFORMACION_VIDEOJUEGO_ELIMINADO = "El videojuego se ha eliminado exitosamente";
     public final String INFORMACION_VIDEOJUEGO_ACTUALIZADO = "El videojuego se ha actualizado exitosamente";

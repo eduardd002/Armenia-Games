@@ -19,25 +19,25 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label id="LabelText" layoutX="90.0" layoutY="70.0" text="Código:" textFill="WHITE" />
-            <TextField id="txt" fx:id="txtUnidades" disable="true" layoutX="393.0" layoutY="335.0" onKeyTyped="#eventoText6" />
-            <Label id="LabelText" layoutX="90.0" layoutY="150.0" text="Precio (unidad):" textFill="WHITE" />
-            <Label id="LabelText" layoutX="90.0" layoutY="230.0" text="Genero:" textFill="WHITE" />
-            <Label id="LabelText" layoutX="90.0" layoutY="310.0" text="Clasificación:" textFill="WHITE" />
-            <Label id="LabelText" layoutX="393.0" layoutY="70.0" text="Nombre:" textFill="WHITE" />
-            <Label id="LabelText" layoutX="393.0" layoutY="150.0" text="Formato:" textFill="WHITE" />
-            <Label id="LabelText" layoutX="393.0" layoutY="230.0" text="Año de lanzamiento:" textFill="WHITE" />
-            <Label id="LabelText" layoutX="393.0" layoutY="310.0" text="Unidades disponibles:" textFill="WHITE" />
-            <TextField id="txt" fx:id="txtCodigo" layoutX="90.0" layoutY="95.0" onKeyTyped="#eventoText" prefHeight="25.0" prefWidth="149.0" />
-            <ComboBox id="txt" fx:id="comboTipoFormatoVideojuego" disable="true" layoutX="393.0" layoutY="175.0" onAction="#eventoComboBox" prefWidth="150.0">
+            <Label id="LabelText" layoutX="75.0" layoutY="70.0" text="Código:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtUnidades" disable="true" layoutX="304.0" layoutY="335.0" onKeyTyped="#eventoText6" />
+            <Label id="LabelText" layoutX="75.0" layoutY="150.0" text="Precio (unidad):" textFill="WHITE" />
+            <Label id="LabelText" layoutX="75.0" layoutY="230.0" text="Genero:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="75.0" layoutY="310.0" text="Clasificación:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="304.0" layoutY="70.0" text="Nombre:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="304.0" layoutY="150.0" text="Formato:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="304.0" layoutY="230.0" text="Año de lanzamiento:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="304.0" layoutY="310.0" text="Unidades disponibles:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtCodigo" layoutX="75.0" layoutY="95.0" onKeyTyped="#eventoText" prefHeight="25.0" prefWidth="149.0" />
+            <ComboBox id="txt" fx:id="comboTipoFormatoVideojuego" disable="true" layoutX="304.0" layoutY="175.0" onAction="#eventoComboBox" prefWidth="150.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ComboBox>
-            <TextField id="txt" fx:id="txtNombre" disable="true" layoutX="393.0" layoutY="95.0" onKeyTyped="#eventoText2" />
-            <TextField id="txt" fx:id="txtPrecio" disable="true" layoutX="90.0" layoutY="175.0" onKeyTyped="#eventoText3" />
-            <TextField id="txt" fx:id="txtClasificacion" disable="true" layoutX="90.0" layoutY="335.0" onKeyTyped="#eventoText5" />
-            <TextField id="txt" fx:id="txtAnioLanzamiento" disable="true" layoutX="393.0" layoutY="255.0" onKeyTyped="#eventoText4" />
+            <TextField id="txt" fx:id="txtNombre" disable="true" layoutX="304.0" layoutY="95.0" onKeyTyped="#eventoText2" />
+            <TextField id="txt" fx:id="txtPrecio" disable="true" layoutX="75.0" layoutY="175.0" onKeyTyped="#eventoText3" />
+            <TextField id="txt" fx:id="txtClasificacion" disable="true" layoutX="75.0" layoutY="335.0" onKeyTyped="#eventoText5" />
+            <TextField id="txt" fx:id="txtAnioLanzamiento" disable="true" layoutX="304.0" layoutY="255.0" onKeyTyped="#eventoText4" />
             <Button id="btn" fx:id="btnSalir" layoutX="592.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -50,11 +50,15 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ComboBox id="txt" fx:id="comboGeneroVideojuego" disable="true" layoutX="90.0" layoutY="255.0" onAction="#eventoComboBox2" prefWidth="150.0">
+            <ComboBox id="txt" fx:id="comboGeneroVideojuego" disable="true" layoutX="75.0" layoutY="255.0" onAction="#eventoComboBox2" prefWidth="150.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ComboBox>
+            <ImageView fx:id="imgVideojuego" fitHeight="87.0" fitWidth="109.0" layoutX="505.0" layoutY="187.0" onMousePressed="#cambiarFoto" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../logo/seta.png" />
+               </image></ImageView>
          </children>
          <stylesheets>
             <URL value="@AplicacionStyle.css" />

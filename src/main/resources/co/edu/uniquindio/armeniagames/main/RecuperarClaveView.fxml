@@ -26,36 +26,32 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label id="LabelText" layoutX="84.0" layoutY="72.0" text="Documento:" textFill="WHITE" />
-            <Label id="LabelText" layoutX="412.0" layoutY="72.0" text="Tipo de usuario:" textFill="WHITE" />
-            <TextField id="txt" fx:id="txtDocumento" layoutX="84.0" layoutY="97.0" onKeyTyped="#eventoText" />
-            <ComboBox id="txt" fx:id="comboTipoUsuario" disable="true" layoutX="412.0" layoutY="97.0" onAction="#eventoComboBox" prefWidth="150.0">
+            <Label id="LabelText" layoutX="65.0" layoutY="50.0" text="Correo:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtCorreo" layoutX="65.0" layoutY="75.0" onKeyTyped="#eventoText" />
+            <Button id="btn" fx:id="btnEnviar" disable="true" layoutX="324.0" layoutY="130.0" mnemonicParsing="false" onAction="#enviar" text="Enviar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="btn" fx:id="btnCambiar" disable="true" layoutX="310.0" layoutY="465.0" mnemonicParsing="false" onAction="#cambiar" text="Restablecer">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label id="LabelText" layoutX="410.0" layoutY="365.0" text="Confirme la contraseña:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtConfirmacion" disable="true" layoutX="410.0" layoutY="390.0" onKeyTyped="#eventoText5" />
+            <Label id="LabelText" layoutX="65.0" layoutY="365.0" text="Contraseña:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtClave" disable="true" layoutX="65.0" layoutY="390.0" onKeyTyped="#eventoText4" />
+            <Label id="LabelText" layoutX="329.0" layoutY="190.0" text="Codigo:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtCodigo" disable="true" layoutX="258.0" layoutY="215.0" onKeyTyped="#eventoText3" />
+            <Button id="btn" fx:id="btnVerificar" disable="true" layoutX="325.0" layoutY="290.0" mnemonicParsing="false" onAction="#verificar" text="Verificar" />
+            <Label id="LabelText" layoutX="410.0" layoutY="50.0" text="Tipo de usuario:" textFill="WHITE" />
+            <ComboBox id="txt" fx:id="comboTipoUsuario" disable="true" layoutX="412.0" layoutY="75.0" onAction="#eventoComboBox" prefWidth="150.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ComboBox>
-            <Label id="LabelText" layoutX="84.0" layoutY="207.0" text="Nombre:" textFill="WHITE" />
-            <Label id="LabelText" layoutX="412.0" layoutY="207.0" text="Apellido:" textFill="WHITE" />
-            <TextField id="txt" fx:id="txtNombre" disable="true" layoutX="84.0" layoutY="232.0" />
-            <TextField id="txt" fx:id="txtApellido" disable="true" layoutX="412.0" layoutY="232.0" />
-            <TextField id="txt" fx:id="txtCorreo" disable="true" layoutX="82.0" layoutY="312.0" />
-            <Label id="LabelText" layoutX="84.0" layoutY="287.0" text="Correo:" textFill="WHITE" />
-            <Button id="btn" fx:id="btnBuscar" disable="true" layoutX="323.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscar" text="Buscar">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button id="btn" fx:id="btnCambiar" disable="true" layoutX="310.0" layoutY="450.0" mnemonicParsing="false" onAction="#cambiar" text="Restablecer">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label id="LabelText" layoutX="412.0" layoutY="367.0" text="Confirme la contraseña:" textFill="WHITE" />
-            <TextField id="txt" fx:id="txtConfirmacion" disable="true" layoutX="412.0" layoutY="392.0" onKeyTyped="#eventoText3" />
-            <Label id="LabelText" layoutX="412.0" layoutY="287.0" text="Telefono" textFill="WHITE" />
-            <Label id="LabelText" layoutX="84.0" layoutY="367.0" text="Contraseña:" textFill="WHITE" />
-            <TextField id="txt" fx:id="txtClave" disable="true" layoutX="84.0" layoutY="392.0" onKeyTyped="#eventoText2" />
-            <TextField id="txt" fx:id="txtTelefono" disable="true" layoutX="412.0" layoutY="312.0" />
+            <Label id="LabelText" fx:id="lblMensaje" layoutX="212.0" layoutY="326.0" text="El código es incorrecto, por favor digitelo nuevamente" textFill="WHITE" visible="false" />
          </children>
          <stylesheets>
             <URL value="@AplicacionStyle.css" />

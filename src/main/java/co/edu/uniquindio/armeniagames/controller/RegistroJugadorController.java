@@ -1,5 +1,6 @@
 package co.edu.uniquindio.armeniagames.controller;
 
+import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.*;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.Jugador;
@@ -165,8 +166,7 @@ public class RegistroJugadorController implements Initializable {
 
         if (evt.equals(txtNombre)) {
 
-            if (Character.isDigit(event.getCharacter().charAt(0)) ||
-                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+            if (Character.isDigit(event.getCharacter().charAt(0))) {
                 txtNombre.deletePreviousChar();
             }
             txtApellido.setDisable(txtNombre.getText().isEmpty());
@@ -179,8 +179,7 @@ public class RegistroJugadorController implements Initializable {
 
         if (evt.equals(txtApellido)) {
 
-            if (Character.isDigit(event.getCharacter().charAt(0)) ||
-                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+            if (Character.isDigit(event.getCharacter().charAt(0))) {
                 txtApellido.deletePreviousChar();
             }
 
@@ -312,8 +311,7 @@ public class RegistroJugadorController implements Initializable {
 
         if (evt.equals(txtTitular)) {
 
-            if (Character.isDigit(event.getCharacter().charAt(0)) ||
-                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+            if (Character.isDigit(event.getCharacter().charAt(0))) {
                 txtTitular.deletePreviousChar();
             }
 
@@ -397,6 +395,7 @@ public class RegistroJugadorController implements Initializable {
 
         Jugador jugador;
         Jugador jug = new Jugador();
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
 
         String documento = txtDocumento.getText();
         String nombre = txtNombre.getText();
@@ -409,6 +408,8 @@ public class RegistroJugadorController implements Initializable {
         String confirmacion = txtConfirmacion.getText();
         TipoUsuario usuario = TipoUsuario.Jugador;
         String telefono = txtTelefono.getText();
+        int intentos = 0;
+        TipoRestriccion tipoRestriccion = TipoRestriccion.CONFIRMADO;
 
         TipoBanco banco = tipoBanco;
         TipoCuenta cuenta = comboTipoCuenta.getSelectionModel().getSelectedItem();
@@ -423,6 +424,7 @@ public class RegistroJugadorController implements Initializable {
         TipoDepartamento departamento = comboDepartamento.getSelectionModel().getSelectedItem();
         String municipio = comboMunicipio.getSelectionModel().getSelectedItem();
         int jugados = 0;
+        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\registrocomprador.jpg";
 
         jug.setDocumento(documento);
         jug.setNombrePersona(nombre);
@@ -450,11 +452,15 @@ public class RegistroJugadorController implements Initializable {
         jug.setMunicipio(municipio);
         jug.setVideojuegosComprados(jugados);
 
-        jug.setImagen("C:\\Users\\eduar\\IdeaProjects\\ArmeniaGames\\src\\main\\resources\\logo\\usuario.png");
+        jug.setTipoRestriccion(tipoRestriccion);
+        jug.setIntentos(intentos);
+
+        jug.setImagen("C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\logo\\usuario.png");
 
         jugador = subcontroller.registrarJugador(jug);
 
         if (jugador != null) {
+            subcontroller.email(mensajes.MENSAJE_REGISTRO, mensajes.MENSAJE_REGISTRO_CUERPO, correo, img);
             cerrarVentana(btnRegistro);
             main.cargarVentanaJugador();
         }

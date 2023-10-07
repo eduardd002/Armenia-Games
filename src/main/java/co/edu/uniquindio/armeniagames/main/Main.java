@@ -2,6 +2,8 @@ package co.edu.uniquindio.armeniagames.main;
 
 import co.edu.uniquindio.armeniagames.constant.MensajesExcepcionConstant;
 import co.edu.uniquindio.armeniagames.constant.MensajesInformacionConstant;
+import co.edu.uniquindio.armeniagames.interfacce.MainService;
+import co.edu.uniquindio.armeniagames.interfacce.TiendaService;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Main extends Application {
-
+public class Main extends Application implements MainService {
     public Persistencia persistencia = new Persistencia();
     public MensajesExcepcionConstant mensajesExcepcionConstant = new MensajesExcepcionConstant();
     public MensajesInformacionConstant mensajesInformacionConstant = new MensajesInformacionConstant();

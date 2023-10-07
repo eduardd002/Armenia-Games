@@ -1,7 +1,9 @@
 package co.edu.uniquindio.armeniagames.controller;
 
+import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.TipoEstadoCivil;
 import co.edu.uniquindio.armeniagames.enumm.TipoGenero;
+import co.edu.uniquindio.armeniagames.enumm.TipoRestriccion;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.Administrador;
@@ -67,7 +69,6 @@ public class RegistroAdministradorController implements Initializable {
                     !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
                 txtDocumento.deletePreviousChar();
             }
-
             txtNombre.setDisable(txtDocumento.getText().isEmpty());
         }
     }
@@ -79,11 +80,9 @@ public class RegistroAdministradorController implements Initializable {
 
         if (evt.equals(txtNombre)) {
 
-            if (Character.isDigit(event.getCharacter().charAt(0)) ||
-                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+            if (Character.isDigit(event.getCharacter().charAt(0))) {
                 txtNombre.deletePreviousChar();
             }
-
             txtApellido.setDisable(txtNombre.getText().isEmpty());
         }
     }
@@ -94,8 +93,7 @@ public class RegistroAdministradorController implements Initializable {
 
         if (evt.equals(txtApellido)) {
 
-            if (Character.isDigit(event.getCharacter().charAt(0)) ||
-                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+            if (Character.isDigit(event.getCharacter().charAt(0))) {
                 txtApellido.deletePreviousChar();
             }
             dateNacimiento.setDisable(txtApellido.getText().isEmpty());
@@ -188,6 +186,7 @@ public class RegistroAdministradorController implements Initializable {
 
         Administrador administrador;
         Administrador admin = new Administrador();
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
 
         String documento = txtDocumento.getText();
         String nombre = txtNombre.getText();
@@ -200,6 +199,7 @@ public class RegistroAdministradorController implements Initializable {
         String confirmacion = txtConfirmacion.getText();
         TipoUsuario usuario = TipoUsuario.Administrador;
         String telefono = txtTelefono.getText();
+        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\registrocomprador.jpg";
 
         int carnet = subcontroller.generarCarnet();
 
@@ -216,11 +216,12 @@ public class RegistroAdministradorController implements Initializable {
         admin.setTelefono(telefono);
         admin.setCarnet(carnet);
 
-        admin.setImagen("C:\\Users\\eduar\\IdeaProjects\\ArmeniaGames\\src\\main\\resources\\logo\\usuario.png");
+        admin.setImagen("C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\logo\\usuario.png");
 
         administrador = subcontroller.registrarAdministrador(admin);
 
         if (administrador != null) {
+            subcontroller.email(mensajes.MENSAJE_REGISTRO, mensajes.MENSAJE_REGISTRO_CUERPO, correo, img);
             cerrarVentana(btnRegistro);
             main.cargarVentanaAdministrador();
         }

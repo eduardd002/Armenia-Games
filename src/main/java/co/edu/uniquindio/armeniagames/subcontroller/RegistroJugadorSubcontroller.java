@@ -14,6 +14,10 @@ public class RegistroJugadorSubcontroller {
         tienda = factoryController.getTienda();
     }
 
+    public void email(String titulo, String cuerpo, String correo, String imagen) {
+        factoryController.correo(titulo, cuerpo, correo, imagen);
+    }
+
     public Jugador registrarJugador(Jugador jug){
         return factoryController.guardarJugador(jug);
     }

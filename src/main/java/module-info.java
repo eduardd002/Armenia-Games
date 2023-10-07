@@ -4,6 +4,7 @@ module co.edu.uniquindio.armeniagames.main {
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
     requires java.logging;
+    requires java.mail;
 
     opens co.edu.uniquindio.armeniagames.main to javafx.fxml, javafx.base;
     opens co.edu.uniquindio.armeniagames.controller to javafx.fxml;

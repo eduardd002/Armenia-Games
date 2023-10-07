@@ -47,6 +47,9 @@ public class JugadorController implements Initializable {
     private ImageView imgUsuario;
 
     @FXML
+    private ImageView imgVideojuego;
+
+    @FXML
     private Button btnEliminarCuenta, btnConsulta, btnPrestamo, btnSalir,
             btnActualizarPago, btnActualizar, btnActualizarEnvio;
 
@@ -138,6 +141,7 @@ public class JugadorController implements Initializable {
         comp.setTipoFormatoVideojuego(videojuego.getTipoFormatoVideojuego());
         comp.setFechaCompraInicial(fecha);
         comp.setFechaCompraFinal(fecha);
+        comp.setTotal(videojuego.getPrecio());
 
         compra = subcontroller.guardarPrestamo(comp);
 
@@ -159,6 +163,7 @@ public class JugadorController implements Initializable {
         txtUnidadesDisponibles.setText(null);
         btnPrestamo.setDisable(true);
         btnConsulta.setDisable(false);
+        imgVideojuego.setImage(null);
     }
 
     public void consultaJugador() {
@@ -171,6 +176,8 @@ public class JugadorController implements Initializable {
         txtUnidadesDisponibles.setText(String.valueOf(videojuego.getUnidades()));
         txtPrecio.setText(String.valueOf(videojuego.getPrecio()));
         comboTipoFormato.setValue(videojuego.getTipoFormatoVideojuego());
+        Image img = new Image(videojuego.getImagenVideojuego());
+        imgVideojuego.setImage(img);
 
         btnPrestamo.setDisable(false);
 
@@ -185,7 +192,7 @@ public class JugadorController implements Initializable {
 
         int inventarioActual = Integer.parseInt(txtUnidadesDisponibles.getText());
 
-        subcontroller.actualizarVideojuego(vid.getCodigo(), inventarioActual);
+        subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual);
         txtUnidadesDisponibles.setText(String.valueOf(vid.getUnidades()));
     }
 
@@ -196,7 +203,7 @@ public class JugadorController implements Initializable {
     public void cargarVideojuegos() {
 
         for (Videojuego videojuego : subcontroller.traerListaVideojuegos()) {
-            listaVideojuegos.add(videojuego.getCodigo());
+            listaVideojuegos.add(videojuego.getNombreVideojuego());
         }
         comboVideojuegosDisponiblesAlquiler.setItems(listaVideojuegos);
     }

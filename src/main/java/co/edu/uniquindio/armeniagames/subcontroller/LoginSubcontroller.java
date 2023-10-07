@@ -14,6 +14,10 @@ public class LoginSubcontroller {
         tienda = factoryController.getTienda();
     }
 
+    public void email(String titulo, String cuerpo, String correo, String img) {
+        factoryController.correo(titulo, cuerpo, correo, img);
+    }
+
     public Usuario login(Usuario usuario) {
         return factoryController.login(usuario);
     }

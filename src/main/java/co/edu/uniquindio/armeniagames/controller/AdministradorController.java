@@ -3,6 +3,7 @@ package co.edu.uniquindio.armeniagames.controller;
 import co.edu.uniquindio.armeniagames.enumm.TipoEstadoCivil;
 import co.edu.uniquindio.armeniagames.enumm.TipoGeneroVideojuego;
 import co.edu.uniquindio.armeniagames.enumm.TipoFormatoVideojuego;
+import co.edu.uniquindio.armeniagames.enumm.TipoRestriccion;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.main.Main;
@@ -83,6 +84,9 @@ public class AdministradorController implements Initializable {
 
     @FXML
     private TableColumn<Jugador, Integer> colJuegosJugados;
+
+    @FXML
+    private TableColumn<Jugador, TipoRestriccion> colRestriccion;
 
     @FXML
     private TableColumn<Videojuego, LocalDate> colAnioLanzamientoVideojuegoRegistro;
@@ -313,6 +317,7 @@ public class AdministradorController implements Initializable {
         colTelefonoJugador.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         colCorreoJugador.setCellValueFactory(new PropertyValueFactory<>("correo"));
         colJuegosJugados.setCellValueFactory(new PropertyValueFactory<>("videojuegosComprados"));
+        colRestriccion.setCellValueFactory(new PropertyValueFactory<>("tipoRestriccion"));
 
         tablaJugadores.getItems().clear();
         tablaJugadores.setItems(getJugadores());

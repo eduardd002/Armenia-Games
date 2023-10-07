@@ -1,9 +1,6 @@
 package co.edu.uniquindio.armeniagames.model;
 
-import co.edu.uniquindio.armeniagames.enumm.TipoBanco;
-import co.edu.uniquindio.armeniagames.enumm.TipoCuenta;
-import co.edu.uniquindio.armeniagames.enumm.TipoDepartamento;
-import co.edu.uniquindio.armeniagames.enumm.TipoResidencia;
+import co.edu.uniquindio.armeniagames.enumm.*;
 
 import java.time.LocalDate;
 
@@ -20,7 +17,9 @@ public class Jugador extends Usuario{
     private TipoDepartamento tipoDepartamento;
 
     private TipoResidencia tipoResidencia;
-    private int videojuegosComprados;
+    private int videojuegosComprados, intentos;
+
+    private TipoRestriccion tipoRestriccion;
 
     public Jugador(){}
 
@@ -34,6 +33,14 @@ public class Jugador extends Usuario{
 
     public String getNumeroCuenta() {
         return numeroCuenta;
+    }
+
+    public int getIntentos() {
+        return intentos;
+    }
+
+    public void setIntentos(int intentos) {
+        this.intentos = intentos;
     }
 
     public void setNumeroCuenta(String numeroCuenta) {
@@ -66,6 +73,14 @@ public class Jugador extends Usuario{
 
     public String getDireccion() {
         return direccion;
+    }
+
+    public TipoRestriccion getTipoRestriccion() {
+        return tipoRestriccion;
+    }
+
+    public void setTipoRestriccion(TipoRestriccion tipoRestriccion) {
+        this.tipoRestriccion = tipoRestriccion;
     }
 
     public void setDireccion(String direccion) {

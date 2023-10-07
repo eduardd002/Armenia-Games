@@ -42,8 +42,8 @@ public class JugadorSubcontroller {
         return factoryController.getListaCompras2();
     }
 
-    public Videojuego traerVideojuegoAuxiliar(String codigo){
-        return factoryController.getVideojuegoAuxiliar(codigo);
+    public Videojuego traerVideojuegoAuxiliar(String nombre){
+        return factoryController.getVideojuegoAuxiliar(nombre);
     }
 
     public ArrayList<Compra> traerAlquileres(){

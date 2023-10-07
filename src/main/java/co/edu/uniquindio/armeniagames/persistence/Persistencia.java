@@ -1,5 +1,7 @@
 package co.edu.uniquindio.armeniagames.persistence;
 
+import co.edu.uniquindio.armeniagames.interfacce.PersistenciaService;
+import co.edu.uniquindio.armeniagames.interfacce.TiendaService;
 import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.enumm.*;
 
@@ -7,7 +9,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Persistencia {
+public class Persistencia  implements PersistenciaService {
 
    public ArchivoUtil archivoUtil = new ArchivoUtil();
 
@@ -69,7 +71,9 @@ public class Persistencia {
                  append(jugador.getTipoDepartamento()).append("--").
                  append(jugador.getMunicipio()).append("--").
                  append(jugador.getVideojuegosComprados()).append("--").
-                 append(jugador.getImagen()).append("\n");
+                 append(jugador.getImagen()).append("--").
+                 append(jugador.getIntentos()).append("--").
+                 append(jugador.getTipoRestriccion()).append("\n");
       }
       archivoUtil.guardarArchivo(rutaJugador, contenido.toString(), false);
    }
@@ -116,7 +120,8 @@ public class Persistencia {
                  append(videojuego.getTipoFormatoVideojuego()).append("--").
                  append(videojuego.getAnioLanzamiento()).append("--").
                  append(videojuego.getClasificacion()).append("--").
-                 append(videojuego.getUnidades()).append("\n");
+                 append(videojuego.getUnidades()).append("--").
+                 append(videojuego.getImagenVideojuego()).append("\n");
       }
       archivoUtil.guardarArchivo(rutaVideojuego, contenido.toString(), false);
    }
@@ -141,6 +146,7 @@ public class Persistencia {
          vid.setAnioLanzamiento(linea.split("--")[5]);
          vid.setClasificacion(Integer.parseInt(linea.split("--")[6]));
          vid.setUnidades(Integer.parseInt(linea.split("--")[7]));
+         vid.setImagenVideojuego(linea.split("--")[8]);
 
          videojuegos.add(vid);
       }
@@ -186,6 +192,9 @@ public class Persistencia {
          jug.setMunicipio(linea.split("--")[21]);
          jug.setVideojuegosComprados(Integer.parseInt(linea.split("--")[22]));
          jug.setImagen(linea.split("--")[23]);
+
+         jug.setIntentos(Integer.parseInt(linea.split("--")[24]));
+         jug.setTipoRestriccion(TipoRestriccion.valueOf(linea.split("--")[25]));
 
          jugadores.add(jug);
       }

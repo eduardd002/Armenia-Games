@@ -34,14 +34,14 @@
                                  </cursor>
                               </ComboBox>
                               <Label id="LabelText" layoutX="77.0" layoutY="90.0" text="Videojuegos disponibles:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="398.0" layoutY="300.0" text="Unidades disponibles:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="299.0" layoutY="300.0" text="Unidades disponibles:" textFill="WHITE" />
                               <Label id="LabelText" layoutX="77.0" layoutY="300.0" text="Precio (unidad):" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnPrestamo" disable="true" layoutX="312.0" layoutY="400.0" mnemonicParsing="false" onAction="#prestamo" text="Comprar" textFill="WHITE">
+                              <Button id="btn" fx:id="btnPrestamo" disable="true" layoutX="348.0" layoutY="400.0" mnemonicParsing="false" onAction="#prestamo" text="Comprar" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <TextField id="txt" fx:id="txtUnidadesDisponibles" disable="true" layoutX="398.0" layoutY="325.0" />
+                              <TextField id="txt" fx:id="txtUnidadesDisponibles" disable="true" layoutX="299.0" layoutY="325.0" />
                               <Button id="btn" fx:id="btnSalir" layoutX="634.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -54,15 +54,15 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <ComboBox id="txt" fx:id="comboTipoFormato" disable="true" layoutX="398.0" layoutY="225.0" prefWidth="150.0">
+                              <ComboBox id="txt" fx:id="comboTipoFormato" disable="true" layoutX="299.0" layoutY="225.0" prefWidth="150.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <Label id="LabelText" layoutX="398.0" layoutY="200.0" text="Formato:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="299.0" layoutY="200.0" text="Formato:" textFill="WHITE" />
                               <TextField id="txt" fx:id="txtNombreVideojuego" disable="true" layoutX="77.0" layoutY="225.0" />
                               <Label id="LabelText" layoutX="77.0" layoutY="200.0" text="Nombre:" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnConsulta" disable="true" layoutX="398.0" layoutY="120.0" mnemonicParsing="false" onAction="#consulta" text="Consultar información" textFill="WHITE">
+                              <Button id="btn" fx:id="btnConsulta" disable="true" layoutX="307.0" layoutY="120.0" mnemonicParsing="false" onAction="#consulta" text="Consultar información" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -71,6 +71,7 @@
                                  </cursor>
                               </Button>
                               <TextField id="txt" fx:id="txtPrecio" disable="true" layoutX="77.0" layoutY="325.0" />
+                              <ImageView fx:id="imgVideojuego" fitHeight="150.0" fitWidth="200.0" layoutX="537.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </AnchorPane>
                   </content>

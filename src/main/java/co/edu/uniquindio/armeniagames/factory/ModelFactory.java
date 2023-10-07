@@ -1,15 +1,21 @@
 package co.edu.uniquindio.armeniagames.factory;
-
 import co.edu.uniquindio.armeniagames.constant.MensajesExcepcionConstant;
 import co.edu.uniquindio.armeniagames.constant.MensajesInformacionConstant;
+import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.exception.*;
 import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Optional;
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.util.Properties;
 
 public class ModelFactory {
 
@@ -20,6 +26,7 @@ public class ModelFactory {
     public Tienda tienda;
     public Usuario usuarioAuxiliar;
     public Videojuego videojuegoAuxiliar;
+
 
     public static class SingletonHolder {
         private final static ModelFactory eINSTANCE = new ModelFactory();
@@ -108,6 +115,12 @@ public class ModelFactory {
             mostrarMensaje("Notificación Guardado", "Administrador No Guardado",
                     mensajesExcepcionConstant.ERROR_ADMINISTRADOR_YA_EXISTE, Alert.AlertType.ERROR);
             usuarioAuxiliar = null;
+        } catch (ClaveNoSeguraException e) {
+            persistencia.guardaRegistroLog("Jugador No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA + e.getMessage());
+            mostrarMensaje("Notificación Guardado", "Jugador No Guardado",
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA, Alert.AlertType.ERROR);
+            usuarioAuxiliar = null;
         } catch (ContraseniasNoCoincidenException e) {
             persistencia.guardaRegistroLog("Administrador No Guardado", 3,
                     mensajesExcepcionConstant.ERROR_CLAVES_NO_COINCIDEN + e.getMessage());
@@ -121,6 +134,115 @@ public class ModelFactory {
                     mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
         }
         return administrador;
+    }
+
+    public String hora(){
+
+        LocalTime horaActual = LocalTime.now();
+        String tiempo;
+
+        if (horaActual.isBefore(LocalTime.of(12, 0))) {
+            tiempo = "\n" + "Buenos dias " + "\n" + "\n" ;
+        } else if (horaActual.isBefore(LocalTime.of(18, 0))) {
+            tiempo = "\n" + "Buenas tardes " + "\n" + "\n" ;
+        } else {
+            tiempo = "\n" + "Buenas noches " + "\n" + "\n" ;
+        }
+        return tiempo;
+    }
+
+
+    public void correo(String titulo, String cuerpo, String correo, String imagenRutaLocal) {
+        String correoEnvia = "armeniagames48@gmail.com";
+        String contrasena = "evawjczanrebktjd";
+
+        Properties objetoPEC = new Properties();
+
+        objetoPEC.put("mail.smtp.host", "smtp.gmail.com");
+        objetoPEC.setProperty("mail.smtp.starttls.enable", "true");
+        objetoPEC.put("mail.smtp.port", "587");
+        objetoPEC.setProperty("mail.smtp.port", "587");
+        objetoPEC.put("mail.smtp.user", correoEnvia);
+        objetoPEC.setProperty("mail.smtp.auth", "true");
+
+        Session sesion = Session.getDefaultInstance(objetoPEC);
+        MimeMessage mail = new MimeMessage(sesion);
+
+        try {
+            mail.setFrom(new InternetAddress(correoEnvia));
+            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
+            mail.setSubject(titulo);
+
+            String mensajeHTML = "<html><body>";
+            mensajeHTML += "<h3>" + hora() + "</h3>";
+            mensajeHTML += "<h3>" + cuerpo + "</h3>";
+
+            String cid = "imagen1";
+            File imageFile = new File(imagenRutaLocal);
+
+            mensajeHTML += "<img src='cid:" + cid + "'/>";
+            mensajeHTML += "</body></html>";
+
+            Multipart multipart = new MimeMultipart();
+
+            MimeBodyPart htmlPart = new MimeBodyPart();
+            htmlPart.setContent(mensajeHTML, "text/html");
+
+            multipart.addBodyPart(htmlPart);
+
+            MimeBodyPart imagePart = new MimeBodyPart();
+            imagePart.attachFile(imageFile);
+            imagePart.setContentID("<" + cid + ">");
+
+            multipart.addBodyPart(imagePart);
+
+            mail.setContent(multipart);
+
+            Transport transporte = sesion.getTransport("smtp");
+            transporte.connect(correoEnvia, contrasena);
+            transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+            transporte.close();
+            persistencia.guardaRegistroLog("Correo Enviado", 1, mensajesInformacionConstant.INFORMACION_CORREO_ENVIADO);
+
+        } catch (Exception e) {
+            persistencia.guardaRegistroLog("Correo No Enviado", 1, mensajesExcepcionConstant.ERROR_CORREO_NO_ENVIADO);
+            e.printStackTrace();
+        }
+    }
+
+    public void correo2(String titulo, String cuerpo, String correo, int codigo){
+
+        String correoEnvia = "armeniagames48@gmail.com";
+        String contrasena = "evawjczanrebktjd";
+        String mensaje = titulo;
+
+        Properties objetoPEC = new Properties();
+
+        objetoPEC.put("mail.smtp.host", "smtp.gmail.com");
+        objetoPEC.setProperty("mail.smtp.starttls.enable", "true");
+        objetoPEC.put("mail.smtp.port", "587");
+        objetoPEC.setProperty("mail.smtp.port", "587");
+        objetoPEC.put("mail.smtp.user", correoEnvia);
+        objetoPEC.setProperty("mail.smtp.auth", "true");
+
+        Session sesion = Session.getDefaultInstance(objetoPEC);
+        MimeMessage mail = new MimeMessage(sesion);
+
+        try {
+            mail.setFrom(new InternetAddress(correoEnvia));
+            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
+            mail.setSubject(mensaje);
+            mail.setText(hora() + cuerpo + codigo);
+
+            Transport transporte = sesion.getTransport("smtp");
+            transporte.connect(correoEnvia, contrasena);
+            transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+            transporte.close();
+            persistencia.guardaRegistroLog("Correo Enviado", 1, mensajesInformacionConstant.INFORMACION_CORREO_ENVIADO);
+        }catch (Exception e){
+            e.printStackTrace();
+            persistencia.guardaRegistroLog("Correo No Enviado", 1, mensajesExcepcionConstant.ERROR_CORREO_NO_ENVIADO);
+        }
     }
 
     public Jugador guardarJugador(Jugador jug) {
@@ -145,6 +267,12 @@ public class ModelFactory {
                     mensajesExcepcionConstant.ERROR_CLAVES_NO_COINCIDEN + e.getMessage());
             mostrarMensaje("Notificación Guardado", "Jugador No Guardado",
                     mensajesExcepcionConstant.ERROR_CLAVES_NO_COINCIDEN, Alert.AlertType.ERROR);
+            usuarioAuxiliar = null;
+        } catch (ClaveNoSeguraException e) {
+            persistencia.guardaRegistroLog("Jugador No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA + e.getMessage());
+            mostrarMensaje("Notificación Guardado", "Jugador No Guardado",
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA, Alert.AlertType.ERROR);
             usuarioAuxiliar = null;
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Jugador No Guardado", 3,
@@ -261,9 +389,9 @@ public class ModelFactory {
             mostrarMensaje("Notificacion Guardado", "Compra Guardada", mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO,
                     Alert.AlertType.INFORMATION);
         } catch (IOException e) {
-            persistencia.guardaRegistroLog("Prestamo No Guardado", 3,
+            persistencia.guardaRegistroLog("Compra No Guardado", 3,
                     mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
-            mostrarMensaje("Notificacion Guardado", "Prestamo No Guardado",
+            mostrarMensaje("Notificacion Guardado", "Compra No Guardado",
                     mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
         }
         return prestamo;
@@ -277,7 +405,13 @@ public class ModelFactory {
             persistencia.guardaRegistroLog("Administrador Actualizado", 1, mensajesInformacionConstant.INFORMACION_ADMINISTRADOR_ACTUALIZADO);
             mostrarMensaje("Notificacion Actualizacion", "Administrador Actualizado",
                     mensajesInformacionConstant.INFORMACION_ADMINISTRADOR_ACTUALIZADO, Alert.AlertType.INFORMATION);
-        } catch (Exception e) {
+        } catch (ClaveNoSeguraException e) {
+            persistencia.guardaRegistroLog("Jugador No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA + e.getMessage());
+            mostrarMensaje("Notificación Guardado", "Jugador No Guardado",
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA, Alert.AlertType.ERROR);
+            usuarioAuxiliar = null;
+        } catch (IOException e) {
             persistencia.guardaRegistroLog("Vendedor No Actualizado", 3,
                     mensajesExcepcionConstant.ERROR_ADMINISTRADOR_NO_ACTUALIZADO + e.getMessage());
             mostrarMensaje("Notificacion Actualizacion", "Vendedor No Actualizado",
@@ -310,7 +444,13 @@ public class ModelFactory {
             persistencia.guardaRegistroLog("Jugador Actualizado", 1, mensajesInformacionConstant.INFORMACION_JUGADOR_ACTUALIZADO);
             mostrarMensaje("Notificacion Actualizacion", "Jugador Actualizado",
                     mensajesInformacionConstant.INFORMACION_JUGADOR_ACTUALIZADO, Alert.AlertType.INFORMATION);
-        } catch (Exception e) {
+        } catch (ClaveNoSeguraException e) {
+            persistencia.guardaRegistroLog("Jugador No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA + e.getMessage());
+            mostrarMensaje("Notificación Guardado", "Jugador No Guardado",
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA, Alert.AlertType.ERROR);
+            usuarioAuxiliar = null;
+        } catch (IOException e) {
             persistencia.guardaRegistroLog("Jugador No Actualizado", 3,
                     mensajesExcepcionConstant.ERROR_JUGADOR_NO_ACTUALIZADO + e.getMessage());
             mostrarMensaje("Notificacion Actualizacion", "Jugador No Actualizado",
@@ -351,6 +491,12 @@ public class ModelFactory {
             mostrarMensaje("Notificacion Actualizacion", "Clave No Actualizada",
                     mensajesExcepcionConstant.ERROR_CAMBIAR_CLAVE, Alert.AlertType.ERROR);
             e.printStackTrace();
+        } catch (ClaveNoSeguraException e) {
+            persistencia.guardaRegistroLog("Jugador No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA + e.getMessage());
+            mostrarMensaje("Notificación Guardado", "Jugador No Guardado",
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA, Alert.AlertType.ERROR);
+            usuarioAuxiliar = null;
         } catch (ContraseniasNoCoincidenException e) {
             persistencia.guardaRegistroLog("Clave No Actualizada", 3,
                     mensajesExcepcionConstant.ERROR_CLAVES_NO_COINCIDEN + e.getMessage());
@@ -381,6 +527,12 @@ public class ModelFactory {
             mostrarMensaje("Notificacion Actualizacion", "Clave No Actualizada",
                     mensajesExcepcionConstant.ERROR_CAMBIAR_CLAVE, Alert.AlertType.ERROR);
             e.printStackTrace();
+        } catch (ClaveNoSeguraException e) {
+            persistencia.guardaRegistroLog("Jugador No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA + e.getMessage());
+            mostrarMensaje("Notificación Guardado", "Jugador No Guardado",
+                    mensajesExcepcionConstant.ERROR_CLAVE_NO_SEGURA, Alert.AlertType.ERROR);
+            usuarioAuxiliar = null;
         } catch (ContraseniasNoCoincidenException e) {
             persistencia.guardaRegistroLog("Comprador No Guardado", 3,
                     mensajesExcepcionConstant.ERROR_CLAVES_NO_COINCIDEN + e.getMessage());
@@ -395,6 +547,8 @@ public class ModelFactory {
         return cambio;
     }
 
+    //df
+
     public Videojuego obtenerVideojuego(String codigo) {
 
         Videojuego videojuego = new Videojuego();
@@ -405,14 +559,20 @@ public class ModelFactory {
         } catch (VideojuegoNoExisteException e) {
             persistencia.guardaRegistroLog("Videojuego No Encontrado", 3,
                     mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_EXISTE + e.getMessage());
-            mostrarMensaje("Notificacion Busqueda", "Videojuego No Encontrado", mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_EXISTE,
+            mostrarMensaje("Notificacion Busqueda", "Videojuego No Encontrado", "f",
                     Alert.AlertType.ERROR);
         }
         return videojuego;
     }
 
-    public int generarCarnet(){
-        return getTienda().generarCarnet();
+    //df
+
+    public int generarNum(){
+        return getTienda().generarNumAleatorio();
+    }
+
+    public int generarNum2(){
+        return getTienda().generarNumAleatorio2();
     }
 
     public void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
@@ -546,7 +706,7 @@ public class ModelFactory {
 
     public Videojuego getVideojuegoAuxiliar(String codigo) {
         for (Videojuego videojuego : getListaVideojuegos()) {
-            if(codigo.equals(videojuego.getCodigo())){
+            if(codigo.equals(videojuego.getNombreVideojuego())){
                 return videojuego;
             }
         }

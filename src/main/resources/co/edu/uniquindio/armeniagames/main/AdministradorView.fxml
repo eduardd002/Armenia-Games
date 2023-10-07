@@ -154,11 +154,12 @@
                            <children>
                               <TableView id="Tabla" fx:id="tablaJugadores" layoutX="52.0" layoutY="38.0" prefHeight="379.0" prefWidth="582.0">
                                 <columns>
-                                  <TableColumn id="TablaInterna" fx:id="colNOmbreJugador" prefWidth="98.0" text="Nombre" />
-                                  <TableColumn id="TablaInterna" fx:id="colApellidoJugador" prefWidth="118.0" text="Apellido" />
-                                    <TableColumn id="TablaInterna" fx:id="colTelefonoJugador" prefWidth="101.0" text="Telefono" />
-                                    <TableColumn id="TablaInterna" fx:id="colCorreoJugador" prefWidth="124.66668701171875" text="Correo" />
-                                    <TableColumn fx:id="colJuegosJugados" prefWidth="133.33328247070312" text="Videojuegos comprados" />
+                                  <TableColumn id="TablaInterna" fx:id="colNOmbreJugador" prefWidth="66.66666030883789" text="Nombre" />
+                                  <TableColumn id="TablaInterna" fx:id="colApellidoJugador" prefWidth="76.00005340576172" text="Apellido" />
+                                    <TableColumn id="TablaInterna" fx:id="colTelefonoJugador" prefWidth="75.33335876464844" text="Telefono" />
+                                    <TableColumn id="TablaInterna" fx:id="colCorreoJugador" prefWidth="85.3333740234375" text="Correo" />
+                                    <TableColumn fx:id="colJuegosJugados" prefWidth="148.6666259765625" text="Videojuegos comprados" />
+                                    <TableColumn fx:id="colRestriccion" prefWidth="127.33334350585938" text="Restriccion" />
                                 </columns>
                               </TableView>
                            </children>

@@ -2,12 +2,16 @@ package co.edu.uniquindio.armeniagames.model;
 
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.exception.*;
+import co.edu.uniquindio.armeniagames.interfacce.TiendaService;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class Tienda {
+public class Tienda{
 
     public Persistencia persistencia = new Persistencia();
     private final ArrayList<Videojuego> listaVideojuegos = new ArrayList<>();
@@ -26,7 +30,6 @@ public class Tienda {
 
         if (usu.getTipoUsuario().equals(TipoUsuario.Jugador)) {
             for (Jugador jug : jugador) {
-
                 if (jug.getCorreo().equals(usu.getCorreo()) && jug.getClave().equals(usu.getClave())
                         && jug.getTipoUsuario().equals(usu.getTipoUsuario())) {
                     esCorrecto = true;
@@ -37,7 +40,6 @@ public class Tienda {
 
         if (usu.getTipoUsuario().equals(TipoUsuario.Administrador)) {
             for (Administrador admin : administrador) {
-
                 if (admin.getCorreo().equals(usu.getCorreo()) && admin.getClave().equals(usu.getClave())
                         && admin.getTipoUsuario().equals(usu.getTipoUsuario())) {
                     esCorrecto = true;
@@ -97,7 +99,7 @@ public class Tienda {
         }
     }
 
-    public Administrador guardarAdministrador(Administrador ad) throws JugadorExisteException, ContraseniasNoCoincidenException {
+    public Administrador guardarAdministrador(Administrador ad) throws JugadorExisteException, ContraseniasNoCoincidenException, ClaveNoSeguraException {
 
         Administrador administrador;
         boolean existeAdministrador = verificarAdministradorExiste(ad.getDocumento(), ad.getTipoUsuario());
@@ -106,7 +108,9 @@ public class Tienda {
             throw new JugadorExisteException();
         } else if (claveIncorrecta(ad.getClave(), ad.getConfirmacionClave())) {
             throw new ContraseniasNoCoincidenException();
-        } else {
+        } else if (!validarClave(ad.getClave())) {
+            throw new ClaveNoSeguraException();
+        }else{
 
             administrador = new Administrador();
 
@@ -169,7 +173,20 @@ public class Tienda {
         return jug;
     }
 
-    public Jugador guardarJugador(Jugador jug) throws JugadorExisteException, ContraseniasNoCoincidenException {
+    public Jugador obtenerJugador2(String correo) {
+
+        Jugador jug = null;
+
+        for (Jugador jugador : listaJugadores) {
+            if (jugador.getCorreo().equals(correo)) {
+                jug = jugador;
+                break;
+            }
+        }
+        return jug;
+    }
+
+    public Jugador guardarJugador(Jugador jug) throws JugadorExisteException, ContraseniasNoCoincidenException, ClaveNoSeguraException {
 
         Jugador jugador;
         boolean existeJugador = verificarJugadorExiste(jug.getDocumento(), jug.getTipoUsuario());
@@ -178,7 +195,9 @@ public class Tienda {
             throw new JugadorExisteException();
         } else if (claveIncorrecta(jug.getClave(), jug.getConfirmacionClave())) {
             throw new ContraseniasNoCoincidenException();
-        } else {
+        } else if (!validarClave(jug.getClave())) {
+            throw new ClaveNoSeguraException();
+        }else{
 
             jugador = new Jugador();
 
@@ -209,6 +228,8 @@ public class Tienda {
             jugador.setVideojuegosComprados(jug.getVideojuegosComprados());
 
             jugador.setImagen(jug.getImagen());
+            jugador.setTipoRestriccion(jug.getTipoRestriccion());
+            jugador.setIntentos(jug.getIntentos());
 
             getListaJugadores().add(jugador);
         }
@@ -224,6 +245,7 @@ public class Tienda {
         comp.setJugador(compra.getJugador());
         comp.setApellido(compra.getApellido());
         comp.setCodigo(compra.getCodigo());
+        comp.setTotal(compra.getTotal());
         comp.setNombreVideojuego(compra.getNombreVideojuego());
         comp.setTipoFormatoVideojuego(compra.getTipoFormatoVideojuego());
         comp.setTipoGeneroVideojuego(compra.getTipoGeneroVideojuego());
@@ -260,9 +282,28 @@ public class Tienda {
         return admin;
     }
 
-    public boolean claveIncorrecta(String clave, String confirmacion) {
+    public Administrador obtenerAdministrador2(String correo) {
 
+        Administrador admin = null;
+
+        for (Administrador administrador : listaAdministradores) {
+            if (administrador.getCorreo().equals(correo)) {
+                admin = administrador;
+                break;
+            }
+        }
+        return admin;
+    }
+
+    public boolean claveIncorrecta(String clave, String confirmacion) {
         return !clave.equals(confirmacion);
+    }
+
+    public boolean validarClave(String clave) {
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(clave);
+        return matcher.matches();
     }
 
     public Videojuego obtenerVideojuego(String codigo) {
@@ -270,7 +311,7 @@ public class Tienda {
         Videojuego vid = null;
 
         for (Videojuego videojuego : listaVideojuegos) {
-            if (videojuego.getCodigo().equals(codigo)) {
+            if (videojuego.getNombreVideojuego().equals(codigo)) {
                 vid = videojuego;
                 break;
             }
@@ -310,7 +351,7 @@ public class Tienda {
         if (videojuego != null) {
 
             for (int i = 0; i < getListaVideojuegos().size(); i++) {
-                if (getListaVideojuegos().get(i).getCodigo().equals(codigo)) {
+                if (getListaVideojuegos().get(i).getNombreVideojuego().equals(codigo)) {
 
                     videojuego.setCodigo(videojuego.getCodigo());
                     videojuego.setNombreVideojuego(videojuego.getNombreVideojuego());
@@ -347,6 +388,7 @@ public class Tienda {
             vid.setAnioLanzamiento(videojuego.getAnioLanzamiento());
             vid.setClasificacion(videojuego.getClasificacion());
             vid.setUnidades(videojuego.getUnidades());
+            vid.setImagenVideojuego(videojuego.getImagenVideojuego());
 
             getListaVideojuegos().add(vid);
         }
@@ -403,13 +445,17 @@ public class Tienda {
         return videojuegoExiste;
     }
 
-    public void actualizarAdministrador(Administrador administrador) {
+    public void actualizarAdministrador(Administrador administrador) throws ClaveNoSeguraException{
 
         Administrador admin;
 
         admin = obtenerAdministrador(administrador.getDocumento());
 
-        if (admin != null) {
+        if (!validarClave(administrador.getClave())) {
+            throw new ClaveNoSeguraException();
+        }
+
+        else if (admin != null) {
 
             for (int i = 0; i < getListaAdministradores().size(); i++) {
                 if (getListaAdministradores().get(i).getDocumento().equals(administrador.getDocumento())) {
@@ -443,13 +489,17 @@ public class Tienda {
         return true;
     }
 
-    public void actualizarJugador(Jugador jugador) {
+    public void actualizarJugador(Jugador jugador) throws ClaveNoSeguraException{
 
         Jugador jug;
 
         jug = obtenerJugador(jugador.getDocumento());
 
-        if (jug != null) {
+        if (!validarClave(jugador.getClave())) {
+            throw new ClaveNoSeguraException();
+        }
+
+        else if (jug != null) {
 
             for (int i = 0; i < getListaJugadores().size(); i++) {
                 if (getListaJugadores().get(i).getDocumento().equals(jugador.getDocumento())) {
@@ -483,23 +533,25 @@ public class Tienda {
         return true;
     }
 
-    public boolean cambiarClaveJugador(String documento, String clave, String confirmacion)
-            throws JugadorNoExisteException, ContraseniasNoCoincidenException {
+    public boolean cambiarClaveJugador(String correo, String clave, String confirmacion)
+            throws JugadorNoExisteException, ContraseniasNoCoincidenException, ClaveNoSeguraException {
 
         boolean claveCambiadaConExito = false;
 
         Jugador jugador;
 
-        jugador = obtenerJugador(documento);
+        jugador = obtenerJugador2(correo);
 
         if (claveIncorrecta(clave, confirmacion)) {
 
             throw new ContraseniasNoCoincidenException();
 
+        } else if (!validarClave(clave)) {
+            throw new ClaveNoSeguraException();
         } else if (jugador != null) {
 
             for (int i = 0; i < getListaJugadores().size(); i++) {
-                if (getListaJugadores().get(i).getDocumento().equals(documento)) {
+                if (getListaJugadores().get(i).getCorreo().equals(correo)) {
 
                     jugador.setClave(clave);
                     jugador.setConfirmacionClave(confirmacion);
@@ -515,23 +567,25 @@ public class Tienda {
         return claveCambiadaConExito;
     }
 
-    public boolean cambiarClaveAdministrador(String documento, String clave, String confirmacion)
-            throws AdministradorNoExisteException, ContraseniasNoCoincidenException {
+    public boolean cambiarClaveAdministrador(String correo, String clave, String confirmacion)
+            throws AdministradorNoExisteException, ContraseniasNoCoincidenException, ClaveNoSeguraException {
 
         boolean claveCambiadaConExito = false;
 
         Administrador administrador;
 
-        administrador = obtenerAdministrador(documento);
+        administrador = obtenerAdministrador2(correo);
 
         if (claveIncorrecta(clave, confirmacion)) {
 
             throw new ContraseniasNoCoincidenException();
 
+        } else if (!validarClave(clave)) {
+            throw new ClaveNoSeguraException();
         } else if (administrador != null) {
 
             for (int i = 0; i < getListaAdministradores().size(); i++) {
-                if (getListaAdministradores().get(i).getDocumento().equals(documento)) {
+                if (getListaAdministradores().get(i).getCorreo().equals(correo)) {
 
                     administrador.setClave(clave);
                     administrador.setConfirmacionClave(confirmacion);
@@ -599,8 +653,13 @@ public class Tienda {
         return jugador;
     }
 
-    public int generarCarnet() {
+    public int generarNumAleatorio() {
         return (int) (Math.random() * 100 + 1);
+    }
+
+    public static int generarNumAleatorio2() {
+        Random rand = new Random();
+        return rand.nextInt(900000) + 100000;
     }
 
     public void disminuirInventario(String videojuego, int inventarioActual) {
@@ -612,7 +671,7 @@ public class Tienda {
         if (vid != null) {
 
             for (int i = 0; i < getListaVideojuegos().size(); i++) {
-                if (getListaVideojuegos().get(i).getCodigo().equals(videojuego)) {
+                if (getListaVideojuegos().get(i).getNombreVideojuego().equals(videojuego)) {
 
                     vid.setUnidades(inventarioActual - 1);
 
@@ -631,7 +690,7 @@ public class Tienda {
         if (vid != null) {
 
             for (int i = 0; i < getListaVideojuegos().size(); i++) {
-                if (getListaVideojuegos().get(i).getCodigo().equals(videojuego)) {
+                if (getListaVideojuegos().get(i).getNombreVideojuego().equals(videojuego)) {
 
                     vid.setUnidades(inventarioActual + 1);
 

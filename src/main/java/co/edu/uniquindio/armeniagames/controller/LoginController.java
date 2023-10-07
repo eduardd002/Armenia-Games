@@ -1,7 +1,9 @@
 package co.edu.uniquindio.armeniagames.controller;
 
+import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
+import co.edu.uniquindio.armeniagames.model.Jugador;
 import co.edu.uniquindio.armeniagames.model.Usuario;
 import co.edu.uniquindio.armeniagames.main.Main;
 import co.edu.uniquindio.armeniagames.subcontroller.LoginSubcontroller;
@@ -94,6 +96,7 @@ public class LoginController implements Initializable {
 
         Usuario usuario;
         Usuario usu = new Usuario();
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
 
         String email = txtUsuario.getText();
         String clave = txtContrasenia.getText();
@@ -104,14 +107,18 @@ public class LoginController implements Initializable {
         usu.setTipoUsuario(tipo);
 
         usuario = subcontroller.login(usu);
+        String imgJug = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\logincomprador.jpg";
+        String imgAdmin = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\loginadministrador.jpg";
 
         if(tipo.equals(TipoUsuario.Jugador)) {
             if (usuario != null) {
+                subcontroller.email(mensajes.MENSAJE_INICIO_SESION, mensajes.MENSAJE_INICIO_SESION_CUERPO, email, imgJug);
                 main.cargarVentanaJugador();
                 cerrarVentana(btnIngresar);
             }
         }else if(tipo.equals(TipoUsuario.Administrador)) {
             if (usuario != null) {
+                subcontroller.email(mensajes.MENSAJE_INICIO_SESION, mensajes.MENSAJE_INICIO_SESION_CUERPO, email, imgAdmin);
                 main.cargarVentanaAdministrador();
                 cerrarVentana(btnIngresar);
             }

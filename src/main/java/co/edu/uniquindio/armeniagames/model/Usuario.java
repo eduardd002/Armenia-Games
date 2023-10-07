@@ -1,5 +1,6 @@
 package co.edu.uniquindio.armeniagames.model;
 
+import co.edu.uniquindio.armeniagames.enumm.TipoRestriccion;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 
 public class Usuario extends Persona{

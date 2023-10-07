@@ -9,6 +9,8 @@ public class Videojuego {
 
     private TipoGeneroVideojuego tipoGeneroVideojuego;
 
+    private String imagenVideojuego;
+
     private TipoFormatoVideojuego tipoFormatoVideojuego;
 
     private int clasificacion, unidades, precio;
@@ -73,6 +75,14 @@ public class Videojuego {
 
     public String getNombreVideojuego() {
         return nombreVideojuego;
+    }
+
+    public String getImagenVideojuego() {
+        return imagenVideojuego;
+    }
+
+    public void setImagenVideojuego(String imagenVideojuego) {
+        this.imagenVideojuego = imagenVideojuego;
     }
 
     public void setNombreVideojuego(String nombreVideojuego) {

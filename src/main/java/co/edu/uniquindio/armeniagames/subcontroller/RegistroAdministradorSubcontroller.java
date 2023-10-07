@@ -18,8 +18,12 @@ public class RegistroAdministradorSubcontroller {
         return factoryController.guardarAdministrador(ad);
     }
 
+    public void email(String titulo, String cuerpo, String correo, String img) {
+        factoryController.correo(titulo, cuerpo, correo, img);
+    }
+
     public int generarCarnet(){
-        return factoryController.generarCarnet();
+        return factoryController.generarNum();
     }
 
     public ModelFactory getFactoryController() {

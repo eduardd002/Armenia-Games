@@ -14,18 +14,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GuardarVideojuegoController implements Initializable {
 
     public Main main = new Main();
+
     public GuardarVideojuegoSubcontroller subcontroller;
     private final ObservableList<TipoFormatoVideojuego> listaTipoFormatoVideojuego = FXCollections.observableArrayList();
     private final ObservableList<TipoGeneroVideojuego> listaTipoGeneroVideojuego = FXCollections.observableArrayList();
+
+    @FXML
+    private ImageView imgVideojuego;
 
     @FXML
     private ComboBox<TipoFormatoVideojuego> comboTipoFormatoVideojuego;
@@ -51,6 +59,31 @@ public class GuardarVideojuegoController implements Initializable {
         guardarVideojuego();
     }
 
+    public void cambiarFoto() {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Buscar Imagen");
+
+        // Agregar filtros para facilitar la busqueda
+
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+
+        // Obtener la imagen seleccionada
+
+        File imgFile = fileChooser.showOpenDialog(null);
+
+        // Mostar la imagen
+
+        if (imgFile != null) {
+            Image image = new Image(imgFile.getAbsolutePath());
+            imgVideojuego.setImage(image);
+        }
+    }
+
     public void guardarVideojuego() {
 
         Videojuego videojuego;
@@ -64,6 +97,7 @@ public class GuardarVideojuegoController implements Initializable {
         String anioLanzamiento = txtAnioLanzamiento.getText();
         int clasificacion = Integer.parseInt(txtClasificacion.getText());
         int unidades = Integer.parseInt(txtUnidades.getText());
+        String img = imgVideojuego.getImage().getUrl();
 
         vid.setCodigo(codigo);
         vid.setNombreVideojuego(nombre);
@@ -73,6 +107,7 @@ public class GuardarVideojuegoController implements Initializable {
         vid.setAnioLanzamiento(anioLanzamiento);
         vid.setClasificacion(clasificacion);
         vid.setUnidades(unidades);
+        vid.setImagenVideojuego(img);
 
         videojuego = subcontroller.guardarVideojuego(vid);
 
