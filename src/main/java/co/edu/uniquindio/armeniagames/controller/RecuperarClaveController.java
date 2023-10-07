@@ -170,6 +170,7 @@ public class RecuperarClaveController implements Initializable{
             boolean cambio = subcontroller.cambiarClaveJugador(correo, clave, confirmacion);
 
             if(cambio){
+                subcontroller.email2(mensajes.MENSAJE_CLAVE, mensajes2.INFORMACION_CAMBIAR_CLAVE, correo, img);
                 cerrarVentana(btnCambiar);
                 main.cargarVentanaLogin();
             }

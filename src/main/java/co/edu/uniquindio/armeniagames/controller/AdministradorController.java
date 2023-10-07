@@ -1,5 +1,6 @@
 package co.edu.uniquindio.armeniagames.controller;
 
+import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.TipoEstadoCivil;
 import co.edu.uniquindio.armeniagames.enumm.TipoGeneroVideojuego;
 import co.edu.uniquindio.armeniagames.enumm.TipoFormatoVideojuego;
@@ -335,9 +336,11 @@ public class AdministradorController implements Initializable {
     }
 
     public void desbloquearCuenta() {
-
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
+        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\cuentadesbloqueada.jpg";
         if (jugadorSeleccionado != null) {
             subcontroller.desbloquearCuenta(jugadorSeleccionado);
+            subcontroller.email(mensajes.MENSAJE_DESBLOQUEO, mensajes.MENSAJE_DESBLOQUEO_CUERPO, jugadorSeleccionado.getCorreo(), img);
             tablaJugadores.refresh();
         }
     }

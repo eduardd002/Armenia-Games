@@ -581,7 +581,7 @@ public class ModelFactory {
             getTienda().bloquearCuenta(correo);
             persistencia.guardarJugador(getListaJugadores());
         } catch (CuentaBloqueadaException e) {
-            correo(mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA, "La cuenta ha sido bloeuada",
+            correo(mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA, "Su cuenta ha sido bloqueada",
                     correo, "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\bloqueo.jpg");
             persistencia.guardaRegistroLog("Cuenta Bloqueada", 2, mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA);
             mostrarMensaje("Notificacion Bloqueo", "Cuenta Bloqueada",

@@ -101,6 +101,8 @@ public class Tienda{
                     break;
                 }
             }
+        }else{
+            esCorrecto = true;
         }
         return esCorrecto;
     }

@@ -27,6 +27,10 @@ public class AdministradorSubcontroller {
         factoryController.desbloquearCuenta(jugador);
     }
 
+    public void email(String titulo, String cuerpo, String correo, String img) {
+        factoryController.correo(titulo, cuerpo, correo, img);
+    }
+
     public ArrayList<Videojuego> obtenerVideojuegos(){
         return factoryController.getListaVideojuegos();
     }
