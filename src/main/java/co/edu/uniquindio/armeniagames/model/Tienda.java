@@ -89,14 +89,33 @@ public class Tienda{
         return usu;
     }
 
-    public boolean iniciarSesion(Usuario usuario)
-            throws IOException, UsuarioNoExisteException {
+    public boolean validarBloqueo(Usuario usu) throws IOException {
 
-        if (validarUsuario(usuario)) {
-            return true;
-        } else {
-            throw new UsuarioNoExisteException();
+        boolean esCorrecto = false;
+        ArrayList<Jugador> jugador = persistencia.cargarJugador();
+
+        if (usu.getTipoUsuario().equals(TipoUsuario.Jugador)) {
+            for (Jugador jug : jugador) {
+                if (jug.getTipoRestriccion().equals(TipoRestriccion.CONFIRMADO)) {
+                    esCorrecto = true;
+                    break;
+                }
+            }
         }
+        return esCorrecto;
+    }
+
+    public boolean iniciarSesion(Usuario usuario)
+            throws IOException, UsuarioNoExisteException, CuentaBloqueadaException {
+
+        if (validarUsuario(usuario) && validarBloqueo(usuario)) {
+            return true;
+        } else if(!validarUsuario(usuario)){
+            throw new UsuarioNoExisteException();
+        } else if(!validarBloqueo(usuario)){
+            throw new CuentaBloqueadaException();
+        }
+        return false;
     }
 
     public Administrador guardarAdministrador(Administrador ad) throws JugadorExisteException, ContraseniasNoCoincidenException, ClaveNoSeguraException {
@@ -623,7 +642,7 @@ public class Tienda{
         if (jugador != null) {
             for (int i = 0; i < getListaJugadores().size(); i++) {
                 if (getListaJugadores().get(i).getCorreo().equals(correo)) {
-                    if(jugador.getIntentos() > 2){
+                    if(jugador.getIntentos() == 2){
                         jugador.setTipoRestriccion(TipoRestriccion.DENEGADO);
                         throw new CuentaBloqueadaException();
                     }

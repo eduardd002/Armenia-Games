@@ -117,6 +117,7 @@ public class LoginController implements Initializable {
                 cerrarVentana(btnIngresar);
             }else{
                 subcontroller.establecerIntentos(email);
+                subcontroller.bloquearCuenta(email);
             }
         }else if(tipo.equals(TipoUsuario.Administrador)) {
             if (usuario != null) {

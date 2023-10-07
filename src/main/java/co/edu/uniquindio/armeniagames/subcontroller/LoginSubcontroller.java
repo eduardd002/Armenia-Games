@@ -20,6 +20,9 @@ public class LoginSubcontroller {
 
     public void establecerIntentos(String correo) {
         factoryController.establecerIntentos(correo);
+    }
+
+    public void bloquearCuenta(String correo) {
         factoryController.bloquearCuenta(correo);
     }
 

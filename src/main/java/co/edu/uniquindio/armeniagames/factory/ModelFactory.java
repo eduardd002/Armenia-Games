@@ -6,7 +6,6 @@ import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalTime;
@@ -44,7 +43,6 @@ public class ModelFactory {
         this.tienda = new Tienda();
 
         try {
-
             ArrayList<Administrador> listaAdministradores;
             ArrayList<Jugador> listaJugadores;
             ArrayList<Videojuego> listaVideojuegos;
@@ -87,6 +85,10 @@ public class ModelFactory {
         } catch (UsuarioNoExisteException | JugadorNoExisteException | AdministradorNoExisteException e) {
             persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_INGRESO_USUARIO);
             mostrarMensaje("Notificacion Ingreso", "Ingreso No Autorizado", mensajesExcepcionConstant.ERROR_INGRESO_USUARIO,
+                    Alert.AlertType.ERROR);
+        } catch (CuentaBloqueadaException e) {
+            persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_CUENTA_BLOQUEADA);
+            mostrarMensaje("Notificacion Ingreso", "Ingreso No Autorizado", mensajesExcepcionConstant.ERROR_CUENTA_BLOQUEADA,
                     Alert.AlertType.ERROR);
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Ingresado No Autorizado", 3, mensajesExcepcionConstant.ERROR_GENERAL);
@@ -579,6 +581,8 @@ public class ModelFactory {
             getTienda().bloquearCuenta(correo);
             persistencia.guardarJugador(getListaJugadores());
         } catch (CuentaBloqueadaException e) {
+            correo(mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA, "La cuenta ha sido bloeuada",
+                    correo, "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\bloqueo.jpg");
             persistencia.guardaRegistroLog("Cuenta Bloqueada", 2, mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA);
             mostrarMensaje("Notificacion Bloqueo", "Cuenta Bloqueada",
                     mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA, Alert.AlertType.WARNING);
