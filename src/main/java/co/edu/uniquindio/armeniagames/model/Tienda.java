@@ -644,8 +644,9 @@ public class Tienda{
         if (jugador != null) {
             for (int i = 0; i < getListaJugadores().size(); i++) {
                 if (getListaJugadores().get(i).getCorreo().equals(correo)) {
-                    if(jugador.getIntentos() == 2){
+                    if(jugador.getIntentos() == 3){
                         jugador.setTipoRestriccion(TipoRestriccion.DENEGADO);
+                        getListaJugadores().set(i, jugador);
                         throw new CuentaBloqueadaException();
                     }
                 }

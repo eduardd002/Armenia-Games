@@ -516,7 +516,7 @@ public class ModelFactory {
         boolean cambio = false;
 
         try {
-             cambio = getTienda().cambiarClaveAdministrador(documento, clave, confirmacion);
+            cambio = getTienda().cambiarClaveAdministrador(documento, clave, confirmacion);
             persistencia.guardarAdministrador(getListaAdministradores());
             persistencia.guardaRegistroLog("Clave Actualizada", 1, mensajesInformacionConstant.INFORMACION_CAMBIAR_CLAVE);
             mostrarMensaje("Notificacion Actualizacion", "Clave Actualizada",
@@ -575,12 +575,17 @@ public class ModelFactory {
         }
     }
 
-    public void bloquearCuenta(String correo) {
+    public void bloquearCuenta(String correo){
 
         try {
             getTienda().bloquearCuenta(correo);
             persistencia.guardarJugador(getListaJugadores());
         } catch (CuentaBloqueadaException e) {
+            try {
+                persistencia.guardarJugador(getListaJugadores());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             correo(mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA, "Su cuenta ha sido bloqueada",
                     correo, "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\bloqueo.jpg");
             persistencia.guardaRegistroLog("Cuenta Bloqueada", 2, mensajesInformacionConstant.INFORMACION_BLOQUEO_CUENTA);
