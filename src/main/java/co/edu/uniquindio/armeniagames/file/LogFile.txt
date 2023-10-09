@@ -842,3 +842,507 @@ oct 09, 2023 10:50:29 A. M. co.edu.uniquindio.armeniagames.persistence.Archivo
 INFO: El inventario se ha actualizado exitosamente,Inventario Actualizado,2023-10-09
 oct 09, 2023 10:50:29 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
 INFO: El historial se aumentado exitosamente,Historial Aumentado,2023-10-09
+oct 09, 2023 11:27:19 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:27:42 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:27:48 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:27:49 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:27:55 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:28:06 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:28:07 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:28:09 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:28:10 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:28:10 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:28:11 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:28:14 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:28:14 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 11:28:26 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:28:34 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:28:35 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:28:42 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:28:51 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:29:01 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:29:06 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:29:07 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:29:28 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:29:35 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:29:36 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:29:38 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:29:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:29:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:31:08 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:31:38 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:31:39 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:31:39 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:31:40 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:31:41 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:31:41 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:31:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:31:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 11:31:54 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:31:56 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:32:11 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:32:15 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:32:16 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:32:20 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:32:36 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:32:40 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:32:40 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:32:41 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:32:49 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:33:00 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:33:00 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:33:01 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:33:01 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:33:02 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:33:02 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:33:05 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:33:05 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 11:33:08 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:33:09 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:33:24 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:33:25 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:33:42 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:33:54 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:33:55 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:33:57 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:33:58 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:34:18 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:34:40 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:34:41 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:34:42 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:34:43 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:34:43 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:34:44 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:34:48 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:34:48 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 11:34:51 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:34:59 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:35:00 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:35:02 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:35:21 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:35:29 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:35:34 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:35:35 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:35:36 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:35:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:35:48 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:35:49 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:35:50 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:36:17 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:36:29 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:36:33 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:36:34 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:36:35 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:36:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:36:46 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:36:46 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:36:47 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:36:47 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:36:48 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:36:50 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:36:50 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 11:36:53 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:36:54 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:37:17 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:37:36 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:37:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:37:49 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:37:50 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:38:28 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:39:27 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:39:45 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:40:44 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:41:50 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:42:09 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:42:14 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:42:15 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:42:16 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:42:25 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:42:28 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 11:42:28 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:42:30 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:42:44 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:43:05 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 11:43:06 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 11:44:44 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:45:42 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:57:59 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 11:59:35 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 11:59:53 A. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:00:35 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:00:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:01:44 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:04:06 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:05:57 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:07:42 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:08:10 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:08:30 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:08:47 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:08:56 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:08:57 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:08:58 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:08:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:08:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:09:00 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:09:03 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:09:03 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 12:09:15 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:09:17 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:09:37 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:09:45 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:09:48 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:09:49 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:09:50 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:11:36 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:11:44 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:11:45 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:11:53 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:12:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:16:09 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:16:16 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:16:17 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:16:24 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:16:28 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:16:29 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:16:30 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:23:04 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:23:20 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:23:21 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:23:24 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:23:25 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:23:28 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:23:29 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:23:41 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:23:42 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:24:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:25:15 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:25:16 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:25:26 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:25:27 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:25:43 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:25:55 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:25:56 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:25:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:25:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 12:26:26 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:26:40 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:26:44 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:26:45 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:26:45 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:26:53 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:26:54 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:26:54 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:26:55 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:26:56 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:26:56 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:26:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:26:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+WARNING: La cuenta se ha bloqueado,Cuenta Bloqueada,2023-10-09
+oct 09, 2023 12:27:01 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:27:02 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:27:08 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:27:11 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:27:11 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:27:12 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:27:24 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:27:25 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:27:30 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:27:33 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:27:34 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:27:36 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:27:57 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:27:58 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:27:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:28:00 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:28:09 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:28:13 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:28:13 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:28:15 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:28:26 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:28:26 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:28:32 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:28:34 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:29:46 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:30:24 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:30:30 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:30:38 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:30:46 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:30:48 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:30:53 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:30:54 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:30:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:31:00 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:31:18 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:31:22 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:31:23 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:31:24 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:31:45 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:31:52 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:31:53 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:34:16 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:34:45 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:34:46 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:34:47 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:34:48 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:35:05 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:35:13 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-10-09
+oct 09, 2023 12:35:17 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-10-09
+oct 09, 2023 12:35:18 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:35:19 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-10-09
+oct 09, 2023 12:35:28 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:35:29 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:35:33 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Este usuario no se encuentra registrado,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:35:33 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09
+oct 09, 2023 12:35:36 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Su cuenta ha sido bloqueada, comuniquese con la tienda,Ingresado No Autorizado,2023-10-09
+oct 09, 2023 12:35:37 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El intento se ha aumentado,Intento Actualizado,2023-10-09

@@ -22,7 +22,7 @@ public class Tienda{
     public Tienda() {
     }
 
-    public boolean validarUsuario(Usuario usu) throws IOException {
+    public boolean validarUsuario(Usuario usu) throws IOException, CuentaBloqueadaException {
 
         boolean esCorrecto = false;
         ArrayList<Administrador> administrador = persistencia.cargarAdministrador();
@@ -30,8 +30,12 @@ public class Tienda{
 
         if (usu.getTipoUsuario().equals(TipoUsuario.Jugador)) {
             for (Jugador jug : jugador) {
-                if (jug.getCorreo().equals(usu.getCorreo()) && jug.getClave().equals(usu.getClave())
+                if (jug.getTipoRestriccion().equals(TipoRestriccion.DENEGADO) &&
+                        jug.getCorreo().equals(usu.getCorreo()) && jug.getClave().equals(usu.getClave())
                         && jug.getTipoUsuario().equals(usu.getTipoUsuario())) {
+                    throw new CuentaBloqueadaException();
+                } else if (jug.getCorreo().equals(usu.getCorreo()) && jug.getClave().equals(usu.getClave())
+                        && jug.getTipoUsuario().equals(usu.getTipoUsuario()) && jug.getTipoRestriccion().equals(TipoRestriccion.CONFIRMADO)) {
                     esCorrecto = true;
                     break;
                 }
@@ -99,10 +103,10 @@ public class Tienda{
                 if (jug.getTipoRestriccion().equals(TipoRestriccion.CONFIRMADO)) {
                     esCorrecto = true;
                     break;
+                }else{
+                    esCorrecto = false;
                 }
             }
-        }else{
-            esCorrecto = true;
         }
         return esCorrecto;
     }

@@ -599,6 +599,10 @@ public class ModelFactory {
         }
     }
 
+    public Jugador obtenerJugador2(String correo){
+        return getTienda().obtenerJugador2(correo);
+    }
+
     public void desbloquearCuenta(Jugador jugador) {
 
         try {

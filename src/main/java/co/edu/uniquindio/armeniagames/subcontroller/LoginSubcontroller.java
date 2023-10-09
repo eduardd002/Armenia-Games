@@ -1,6 +1,7 @@
 package co.edu.uniquindio.armeniagames.subcontroller;
 
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
+import co.edu.uniquindio.armeniagames.model.Jugador;
 import co.edu.uniquindio.armeniagames.model.Tienda;
 import co.edu.uniquindio.armeniagames.model.Usuario;
 
@@ -28,6 +29,10 @@ public class LoginSubcontroller {
 
     public Usuario login(Usuario usuario) {
         return factoryController.login(usuario);
+    }
+
+    public Jugador traerJug(String correo){
+        return factoryController.obtenerJugador2(correo);
     }
 
     public ModelFactory getFactoryController() {

@@ -3,6 +3,7 @@ package co.edu.uniquindio.armeniagames.controller;
 import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
+import co.edu.uniquindio.armeniagames.model.Jugador;
 import co.edu.uniquindio.armeniagames.model.Usuario;
 import co.edu.uniquindio.armeniagames.main.Main;
 import co.edu.uniquindio.armeniagames.subcontroller.LoginSubcontroller;
@@ -107,6 +108,7 @@ public class LoginController implements Initializable {
         usu.setTipoUsuario(tipo);
 
         usuario = subcontroller.login(usu);
+
         String imgJug = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\logincomprador.jpg";
         String imgAdmin = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\loginadministrador.jpg";
 
