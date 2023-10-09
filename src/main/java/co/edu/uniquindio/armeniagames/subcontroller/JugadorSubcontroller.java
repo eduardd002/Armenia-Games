@@ -38,6 +38,14 @@ public class JugadorSubcontroller {
         return factoryController.getListaCompras(jug);
     }
 
+    public void email(String titulo, String cuerpo, String correo, String img) {
+        factoryController.correo(titulo, cuerpo, correo, img);
+    }
+
+    public ArrayList<Administrador> traerAdmins(){
+        return factoryController.getListaAdministradores();
+    }
+
     public Videojuego traerVideojuegoAuxiliar(String nombre){
         return factoryController.getVideojuegoAuxiliar(nombre);
     }

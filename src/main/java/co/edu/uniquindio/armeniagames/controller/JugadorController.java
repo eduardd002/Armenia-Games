@@ -1,5 +1,6 @@
 package co.edu.uniquindio.armeniagames.controller;
 
+import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.*;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.*;
@@ -124,6 +125,8 @@ public class JugadorController implements Initializable {
 
         Compra compra;
         Compra comp = new Compra();
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
+        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
 
         Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
         Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
@@ -147,6 +150,10 @@ public class JugadorController implements Initializable {
 
         if (compra != null) {
 
+            subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + comp.getNombreVideojuego()), jugador.getCorreo(), img);
+            for (Administrador admin : subcontroller.traerAdmins()) {
+                subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
+            }
             listaPrestamosNueva.add(compra);
             tablaPrestamos.setItems(listaPrestamosNueva);
 
