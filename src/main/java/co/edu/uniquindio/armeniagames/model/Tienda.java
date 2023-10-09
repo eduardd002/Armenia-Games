@@ -107,6 +107,8 @@ public class Tienda{
                     esCorrecto = false;
                 }
             }
+        }else{
+            esCorrecto = true;
         }
         return esCorrecto;
     }
