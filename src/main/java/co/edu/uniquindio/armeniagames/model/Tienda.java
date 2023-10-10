@@ -118,23 +118,33 @@ public class Tienda{
         return usu;
     }
 
+    /**
+     * Valida si un jugador está bloqueado o no basado en su tipo de restricción.
+     *
+     * @param usu El objeto Usuario que se va a validar para bloqueo.
+     * @return true si el jugador no está bloqueado (restricción CONFIRMADA) o si el usuario no es un Jugador.
+     *         false si el jugador está bloqueado (restricción DENEGADA).
+     * @throws IOException Si ocurre un error de lectura de datos desde la persistencia.
+     */
     public boolean validarBloqueo(Usuario usu) throws IOException {
-
+        // Por defecto, asumimos que el usuario no está bloqueado
         boolean esCorrecto = false;
         ArrayList<Jugador> jugador = persistencia.cargarJugador();
-
+        // Si el usuario es de tipo Jugador, verificamos su restricción
         if (usu.getTipoUsuario().equals(TipoUsuario.Jugador)) {
             for (Jugador jug : jugador) {
                 if (jug.getTipoRestriccion().equals(TipoRestriccion.CONFIRMADO)) {
                     esCorrecto = true;
                     break;
                 }else{
+                    // Si al menos un jugador tiene restricción DENEGADA, marcamos esCorrecto como false y salimos del bucle
                     esCorrecto = false;
                 }
             }
         }else{
             esCorrecto = true;
         }
+        // Si el usuario no es de tipo Jugador, o si no se encontró ningún Jugador con restricción DENEGADA, esCorrecto se mantiene como true
         return esCorrecto;
     }
 
