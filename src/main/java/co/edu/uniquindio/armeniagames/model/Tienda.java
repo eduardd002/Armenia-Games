@@ -68,13 +68,21 @@ public class Tienda{
         return esCorrecto;
     }
 
+    /**
+     * Realiza el proceso de inicio de sesión para un usuario dado.
+     *
+     * @param usuario El objeto Usuario que se va a utilizar para el inicio de sesión.
+     * @return Un objeto Usuario si el inicio de sesión es exitoso, o null si no se encuentra el usuario.
+     * @throws JugadorNoExisteException     Si el jugador no existe en la lista de Jugadores.
+     * @throws AdministradorNoExisteException Si el administrador no existe en la lista de Administradores.
+     */
     public Usuario login(Usuario usuario)
             throws JugadorNoExisteException, AdministradorNoExisteException {
 
         Usuario usu = null;
 
         if (usuario.getTipoUsuario().equals(TipoUsuario.Administrador)) {
-
+            // Proceso de inicio de sesión para Administradores
             for (int i = 0; i < getListaAdministradores().size();) {
 
                 if (getListaAdministradores().get(i).getCorreo().equals(usuario.getCorreo())
@@ -82,6 +90,7 @@ public class Tienda{
                         && getListaAdministradores().get(i).getTipoUsuario().equals(usuario.getTipoUsuario())) {
 
                     usu = getListaAdministradores().get(i);
+                    // Si se encuentra el administrador, salir del bucle
                     break;
                 } else {
                     i++;
@@ -90,7 +99,7 @@ public class Tienda{
         }
 
         if (usuario.getTipoUsuario().equals(TipoUsuario.Jugador)) {
-
+            // Proceso de inicio de sesión para Jugadores
             for (int i = 0; i < getListaJugadores().size();) {
 
                 if (getListaJugadores().get(i).getCorreo().equals(usuario.getCorreo())
@@ -98,12 +107,14 @@ public class Tienda{
                         && getListaJugadores().get(i).getTipoUsuario().equals(usuario.getTipoUsuario())) {
 
                     usu = getListaJugadores().get(i);
+                    // Si se encuentra el jugador, salir del bucle
                     break;
                 } else {
                     i++;
                 }
             }
         }
+        // Devolver el objeto Usuario encontrado o null si no se encontró ningún usuario.
         return usu;
     }
 
