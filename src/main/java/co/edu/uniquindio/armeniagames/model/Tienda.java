@@ -148,16 +148,29 @@ public class Tienda{
         return esCorrecto;
     }
 
+    /**
+     * Inicia sesión para un usuario verificando su existencia y estado de bloqueo.
+     *
+     * @param usuario El objeto Usuario que se intentará autenticar.
+     * @return true si el inicio de sesión es exitoso, false en caso contrario.
+     * @throws IOException              Si ocurre un error de lectura de datos desde la persistencia.
+     * @throws UsuarioNoExisteException  Si el usuario no existe.
+     * @throws CuentaBloqueadaException Si la cuenta del usuario está bloqueada.
+     */
     public boolean iniciarSesion(Usuario usuario)
             throws IOException, UsuarioNoExisteException, CuentaBloqueadaException {
-
+        // Validar la existencia del usuario y el estado de bloqueo
         if (validarUsuario(usuario) && validarBloqueo(usuario)) {
+            // El inicio de sesión es exitoso
             return true;
         } else if(!validarUsuario(usuario)){
+            // Lanzar excepción si el usuario no existe
             throw new UsuarioNoExisteException();
         } else if(!validarBloqueo(usuario)){
+            // Lanzar excepción si la cuenta está bloqueada
             throw new CuentaBloqueadaException();
         }
+        // Si no se cumplen las condiciones anteriores, el inicio de sesión no es exitoso
         return false;
     }
 
