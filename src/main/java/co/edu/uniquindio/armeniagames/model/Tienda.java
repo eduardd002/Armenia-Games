@@ -22,35 +22,49 @@ public class Tienda{
     public Tienda() {
     }
 
+    /**
+     * Valida un usuario comparando su información con las listas de Administradores y Jugadores cargadas desde la persistencia.
+     *
+     * @param usu El objeto Usuario que se va a validar.
+     * @return true si el usuario es válido, false si no.
+     * @throws IOException              Si ocurre un error de lectura de datos desde la persistencia.
+     * @throws CuentaBloqueadaException Si la cuenta del jugador está bloqueada.
+     */
     public boolean validarUsuario(Usuario usu) throws IOException, CuentaBloqueadaException {
 
         boolean esCorrecto = false;
+        // Cargar la lista de Administradores desde la persistencia
         ArrayList<Administrador> administrador = persistencia.cargarAdministrador();
+        // Cargar la lista de Jugadores desde la persistencia
         ArrayList<Jugador> jugador = persistencia.cargarJugador();
-
+        // Validar si el usuario es de tipo Jugador
         if (usu.getTipoUsuario().equals(TipoUsuario.Jugador)) {
             for (Jugador jug : jugador) {
                 if (jug.getTipoRestriccion().equals(TipoRestriccion.DENEGADO) &&
                         jug.getCorreo().equals(usu.getCorreo()) && jug.getClave().equals(usu.getClave())
                         && jug.getTipoUsuario().equals(usu.getTipoUsuario())) {
+                    // Si el jugador tiene restricciones DENEGADAS, lanzar una excepción de cuenta bloqueada
                     throw new CuentaBloqueadaException();
                 } else if (jug.getCorreo().equals(usu.getCorreo()) && jug.getClave().equals(usu.getClave())
                         && jug.getTipoUsuario().equals(usu.getTipoUsuario()) && jug.getTipoRestriccion().equals(TipoRestriccion.CONFIRMADO)) {
+                    // Si el jugador tiene restricciones CONFIRMADAS, establecer esCorrecto en true y salir del bucle
                     esCorrecto = true;
                     break;
                 }
             }
         }
-
+        // Validar si el usuario es de tipo Administrador
         if (usu.getTipoUsuario().equals(TipoUsuario.Administrador)) {
             for (Administrador admin : administrador) {
                 if (admin.getCorreo().equals(usu.getCorreo()) && admin.getClave().equals(usu.getClave())
                         && admin.getTipoUsuario().equals(usu.getTipoUsuario())) {
+                    // Si el administrador es válido, establecer esCorrecto en true y salir del bucle
                     esCorrecto = true;
                     break;
                 }
             }
         }
+        // Devolver el resultado de la validación
         return esCorrecto;
     }
 
