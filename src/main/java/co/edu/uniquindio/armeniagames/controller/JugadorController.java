@@ -40,6 +40,10 @@ public class JugadorController implements Initializable {
     private final ObservableList<String> listaVideojuegos = FXCollections.observableArrayList();
     private final ObservableList<Compra> listaPrestamos = FXCollections.observableArrayList();
     private final ObservableList<Compra> listaPrestamosNueva = FXCollections.observableArrayList();
+    private final ObservableList<Carrito> listaCarrito = FXCollections.observableArrayList();
+    private final ObservableList<Carrito> listaCarritoNueva = FXCollections.observableArrayList();
+    private final ObservableList<Favorito> listaFavorito = FXCollections.observableArrayList();
+    private final ObservableList<Favorito> listaFavoritoNueva = FXCollections.observableArrayList();
 
     @FXML
     private ComboBox<TipoBanco> comboBanco;
@@ -52,7 +56,7 @@ public class JugadorController implements Initializable {
 
     @FXML
     private Button btnEliminarCuenta, btnConsulta, btnPrestamo, btnSalir,
-            btnActualizarPago, btnActualizar, btnActualizarEnvio;
+            btnActualizarPago, btnActualizar, btnActualizarEnvio, btnCarrito, btnFavorito;
 
     @FXML
     private DatePicker dateCaducidad;
@@ -174,6 +178,27 @@ public class JugadorController implements Initializable {
 
     public void agregarCarrito() {
 
+        Carrito car;
+        Carrito carrito = new Carrito();
+
+        Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
+        Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
+
+        carrito.setDocumentoJugadorCarrito(jugador.getDocumento());
+        carrito.setJugadorCarrito(jugador.getNombrePersona());
+        carrito.setApellidoCarrito(jugador.getApellido());
+        carrito.setCodigoCarrito(videojuego.getCodigo());
+        carrito.setNombreVideojuegoCarrito(videojuego.getNombreVideojuego());
+        carrito.setTipoGeneroVideojuegoCarrito(videojuego.getTipoGeneroVideojuego());
+        carrito.setTipoFormatoVideojuegoCarrito(videojuego.getTipoFormatoVideojuego());
+        carrito.setTotalCarrito(videojuego.getPrecio());
+
+        car = subcontroller.guardarCarrito(carrito);
+
+        if (car != null) {
+            listaCarritoNueva.add(car);
+            tablaCarrito.setItems(listaCarritoNueva);
+        }
     }
 
     public void agregarFavorito() {
@@ -205,9 +230,13 @@ public class JugadorController implements Initializable {
         imgVideojuego.setImage(img);
 
         btnPrestamo.setDisable(false);
+        btnCarrito.setDisable(false);
+        btnFavorito.setDisable(false);
 
         if (videojuego.getUnidades() == 0) {
             btnPrestamo.setDisable(true);
+            btnCarrito.setDisable(true);
+            btnFavorito.setDisable(true);
         }
     }
 
@@ -1187,9 +1216,26 @@ public class JugadorController implements Initializable {
         return listaPrestamosNueva;
     }
 
+    public ObservableList<Carrito> getCarritos() {
+        Jugador jug = subcontroller.traerJugador(subcontroller.traerUsuarioAuxiliar().getDocumento());
+        String documento = jug.getDocumento();
+        listaCarrito.addAll(subcontroller.obtenerCarritos(documento));
+        for (Carrito prest : listaCarrito) {
+            if(prest.getDocumentoJugadorCarrito().equals(documento)) {
+                listaCarritoNueva.add(prest);
+            }else{
+                System.out.println("prest jugador: " + prest.getJugadorCarrito());
+            }
+        }
+        return listaCarritoNueva;
+    }
+
     /*
-     ******************************   Apartado mis favoritos   ************************************
+     ******************************   Apartado mi carrito   ************************************
      */
+
+    @FXML
+    private TableView<Carrito> tablaCarrito;
 
     @FXML
     private TableColumn<Compra, Integer> colCodigoCarrito;
@@ -1206,9 +1252,27 @@ public class JugadorController implements Initializable {
     @FXML
     private TableColumn<Compra, Integer> colPrecioCarrito;
 
+    public void inicializarCarritoView() {
+
+        colCodigoCarrito.setCellValueFactory(new PropertyValueFactory<>("codigoCarrito"));
+        colVideojuegoCarrito.setCellValueFactory(new PropertyValueFactory<>("nombreVideojuegoCarrito"));
+        colTipoCarrito.setCellValueFactory(new PropertyValueFactory<>("tipoFormatoVideojuegoCarrito"));
+        colPrecioCarrito.setCellValueFactory(new PropertyValueFactory<>("totalCarrito"));
+        colGeneroCarrito.setCellValueFactory(new PropertyValueFactory<>("tipoGeneroVideojuegoCarrito"));
+
+        tablaCarrito.getItems().clear();
+        tablaCarrito.setItems(getCarritos());
+
+        tablaCarrito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        });
+    }
+
     /*
-     ******************************   Apartado mi carrito   ************************************
+     ******************************   Apartado mi favorito   ************************************
      */
+
+    @FXML
+    private TableView<Favorito> tablaFavorito;
 
     @FXML
     private TableColumn<Compra, Integer> colCodigoFavorito;
@@ -1224,6 +1288,10 @@ public class JugadorController implements Initializable {
 
     @FXML
     private TableColumn<Compra, Integer> colPrecioFavorito;
+
+    /*
+    lkjlkjljlkjlkjlkj
+     */
 
     public void inicializarComprasView() {
 
@@ -1263,6 +1331,7 @@ public class JugadorController implements Initializable {
         cargarTipoBanco();
         mostrarDatosJugador();
         inicializarComprasView();
+        inicializarCarritoView();
     }
 
     @Override

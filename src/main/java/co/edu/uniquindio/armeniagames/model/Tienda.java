@@ -18,6 +18,8 @@ public class Tienda{
     private final ArrayList<Jugador> listaJugadores = new ArrayList<>();
     private final ArrayList<Administrador> listaAdministradores = new ArrayList<>();
     private final ArrayList<Compra> listaCompras = new ArrayList<>();
+    private final ArrayList<Favorito> listaFavorito = new ArrayList<>();
+    private final ArrayList<Carrito> listaCarrito = new ArrayList<>();
 
     public Tienda() {
     }
@@ -330,6 +332,24 @@ public class Tienda{
         getListaCompras().add(comp);
 
         return comp;
+    }
+
+    public Carrito guardarCarrito(Carrito carrito) {
+
+        Carrito car = new Carrito();
+
+        car.setDocumentoJugadorCarrito(carrito.getDocumentoJugadorCarrito());
+        car.setJugadorCarrito(carrito.getJugadorCarrito());
+        car.setApellidoCarrito(carrito.getApellidoCarrito());
+        car.setCodigoCarrito(carrito.getCodigoCarrito());
+        car.setTotalCarrito(carrito.getTotalCarrito());
+        car.setNombreVideojuegoCarrito(carrito.getNombreVideojuegoCarrito());
+        car.setTipoFormatoVideojuegoCarrito(carrito.getTipoFormatoVideojuegoCarrito());
+        car.setTipoGeneroVideojuegoCarrito(carrito.getTipoGeneroVideojuegoCarrito());
+
+        getListaCarrito().add(car);
+
+        return car;
     }
 
     public boolean verificarJugadorExiste(String documento, TipoUsuario tipoUsuario) {
@@ -876,6 +896,14 @@ public class Tienda{
 
     public ArrayList<Compra> getListaCompras() {
         return listaCompras;
+    }
+
+    public ArrayList<Favorito> getListaFavoritos() {
+        return listaFavorito;
+    }
+
+    public ArrayList<Carrito> getListaCarrito() {
+        return listaCarrito;
     }
 
 }

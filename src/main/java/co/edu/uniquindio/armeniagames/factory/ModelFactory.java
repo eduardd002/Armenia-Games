@@ -47,16 +47,19 @@ public class ModelFactory {
             ArrayList<Jugador> listaJugadores;
             ArrayList<Videojuego> listaVideojuegos;
             ArrayList<Compra> listaCompras;
+            ArrayList<Carrito> listaCarrito;
 
             listaAdministradores = persistencia.cargarAdministrador();
             listaJugadores = persistencia.cargarJugador();
             listaVideojuegos = persistencia.cargarVideojuego();
             listaCompras = persistencia.cargarCompra();
+            listaCarrito = persistencia.cargarCarrito();
 
             getTienda().getListaAdministradores().addAll(listaAdministradores);
             getTienda().getListaJugadores().addAll(listaJugadores);
             getTienda().getListaVideojuegos().addAll(listaVideojuegos);
             getTienda().getListaCompras().addAll(listaCompras);
+            getTienda().getListaCarrito().addAll(listaCarrito);
 
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Datos no cargados", 3, mensajesExcepcionConstant.ERROR_CARGAR_DATOS);
@@ -395,6 +398,25 @@ public class ModelFactory {
                     mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
         }
         return prestamo;
+    }
+
+    public Carrito guardarCarrito(Carrito car) {
+
+        Carrito carrit = null;
+
+        try {
+            carrit = getTienda().guardarCarrito(car);
+            persistencia.guardarCarrito(getListaCarrito(car.getJugadorCarrito()));
+            persistencia.guardaRegistroLog("Videojuego Guardado En Carrito", 1, mensajesInformacionConstant.INFORMACION_CARRITO_GUARDADO);
+            mostrarMensaje("Notificacion Guardado", "Videojuego Guardado En Carrito", mensajesInformacionConstant.INFORMACION_CARRITO_GUARDADO,
+                    Alert.AlertType.INFORMATION);
+        } catch (IOException e) {
+            persistencia.guardaRegistroLog("Videojuego No Guardado En Carrito", 3,
+                    mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
+            mostrarMensaje("Notificacion Guardado", "Videojuego No Guardado En Carrito",
+                    mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
+        }
+        return carrit;
     }
 
     public void actualizarAdministrador(Administrador administrador) {
@@ -755,6 +777,22 @@ public class ModelFactory {
 
     public ArrayList<Compra> getListaCompras2() {
         return getTienda().getListaCompras();
+    }
+
+    public ArrayList<Favorito> getListaFavorito(String jug) {
+        return getTienda().getListaFavoritos();
+    }
+
+    public ArrayList<Favorito> getListaFavorito2() {
+        return getTienda().getListaFavoritos();
+    }
+
+    public ArrayList<Carrito> getListaCarrito(String jug) {
+        return getTienda().getListaCarrito();
+    }
+
+    public ArrayList<Carrito> getListaCarrito2() {
+        return getTienda().getListaCarrito();
     }
 
 }

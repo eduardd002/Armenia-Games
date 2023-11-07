@@ -72,59 +72,84 @@
                               </Button>
                               <TextField id="txt" fx:id="txtPrecio" disable="true" layoutX="77.0" layoutY="325.0" />
                               <ImageView fx:id="imgVideojuego" fitHeight="150.0" fitWidth="200.0" layoutX="537.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button id="btn" fx:id="btnCarrito" disable="true" layoutX="175.0" layoutY="400.0" mnemonicParsing="false" onAction="#carrito" text="Agregar al carrito" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button id="btn" fx:id="btnFavorito" disable="true" layoutX="452.0" layoutY="400.0" mnemonicParsing="false" onAction="#favorito" text="Agregar a favoritos" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </AnchorPane>
                   </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="140.0" text="Ventana Principal">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="124.0" text="Ventana Principal">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
                      </graphic>
                 </Tab>
-                <Tab id="Tab">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <Tab text="Mi Carrito">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label id="LabelText" layoutX="92.0" layoutY="240.0" text="Nombre(s):" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="92.0" layoutY="320.0" text="Apellido(s):" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="411.0" layoutY="40.0" text="Estado Civil:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="411.0" layoutY="120.0" text="Telefono:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="411.0" layoutY="320.0" text="Correo:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="411.0" layoutY="240.0" text="Contraseña:" textFill="WHITE" />
-                              <TextField id="txt" fx:id="txtNombre" layoutX="92.0" layoutY="265.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
-                              <TextField id="txt" fx:id="txtApellido" layoutX="92.0" layoutY="345.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
-                              <TextField id="txt" fx:id="txtTelefono" layoutX="411.0" layoutY="145.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
-                              <TextField id="txt" fx:id="txtCorreo" layoutX="411.0" layoutY="345.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
-                              <PasswordField id="txt" fx:id="txtContrasenia" layoutX="411.0" layoutY="265.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="130.0" />
-                              <ComboBox id="txt" fx:id="comboEstadoCivil" layoutX="411.0" layoutY="65.0" prefWidth="150.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ComboBox>
-                              <Button id="btn" fx:id="btnActualizar" layoutX="92.0" layoutY="415.0" mnemonicParsing="false" onAction="#actualizarDatos" text="Actualizar Datos" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button id="btn" fx:id="btnEliminarCuenta" layoutX="411.0" layoutY="415.0" mnemonicParsing="false" onAction="#eliminarCuenta" text="Eliminar la cuenta" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <ImageView fx:id="imgUsuario" fitHeight="150.0" fitWidth="200.0" layoutX="82.0" layoutY="49.0" onMousePressed="#cambiarFoto" pickOnBounds="true" preserveRatio="true" />
+                              <TableView fx:id="tablaCarrito1" layoutX="124.0" layoutY="72.0" prefHeight="325.0" prefWidth="452.0">
+                                 <columns>
+                                    <TableColumn fx:id="colCodigCarrito" prefWidth="75.0" text="Codigo" />
+                                    <TableColumn fx:id="colVideojuegoCarrito" prefWidth="86.66670227050781" text="Videojuego" />
+                                    <TableColumn fx:id="colGeneroCarrito" prefWidth="86.66670227050781" text="Genero" />
+                                    <TableColumn fx:id="colTipoCarrito" prefWidth="69.99993896484375" text="Tipo" />
+                                    <TableColumn fx:id="colPrecioCarrito" prefWidth="130.66665649414062" text="Precio" />
+                                 </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Mis Favoritos">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablaCarrito" layoutX="124.0" layoutY="72.0" prefHeight="325.0" prefWidth="452.0">
+                                <columns>
+                                  <TableColumn fx:id="colCodigoFavorito" prefWidth="75.0" text="Codigo" />
+                                  <TableColumn fx:id="colVideojuegoFavorito" prefWidth="86.66670227050781" text="Videojuego" />
+                                    <TableColumn fx:id="colGeneroFavorito" prefWidth="86.66670227050781" text="Genero" />
+                                    <TableColumn fx:id="colTipoFavorito" prefWidth="69.99993896484375" text="Tipo" />
+                                    <TableColumn fx:id="colPrecioFavorito" prefWidth="130.66665649414062" text="Precio" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab id="Tab">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView id="Tabla" fx:id="tablaPrestamos" layoutX="39.0" layoutY="38.0" prefHeight="398.0" prefWidth="623.0">
+                                <columns>
+                                  <TableColumn id="TablaInterna" fx:id="colCodigo" prefWidth="51.0" text="Código" />
+                                  <TableColumn id="TablaInterna" fx:id="colNombre" prefWidth="82.0" text="Nombre" />
+                                    <TableColumn id="TablaInterna" fx:id="colTipoFormato" prefWidth="100.0" text="Formato" />
+                                    <TableColumn id="TablaInterna" fx:id="colPrecio" prefWidth="79.0" text="Precio" />
+                                    <TableColumn id="TablaInterna" fx:id="colFechaPrestamo" prefWidth="146.0" text="Fecha Compra" />
+                                    <TableColumn id="TablaInterna" fx:id="colFechaFinalizacion" prefWidth="162.0" text="Reembolso Hasta" />
+                                </columns>
+                              </TableView>
                            </children>
                         </AnchorPane>
-                  </content>
+                     </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="126.0" text="Mi Perfil">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="119.0" text="Mis Videojuegos">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
                      </graphic>
-                </Tab>
+                  </Tab>
                   <Tab id="Tab">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -165,7 +190,7 @@
                         </AnchorPane>
                     </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="115.0" text="Mi Pago">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="74.0" text="Mi Pago">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -214,38 +239,55 @@
                         </AnchorPane>
                     </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="107.0" text="Mi Envio">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="72.0" text="Mi Envio">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
                      </graphic>
                   </Tab>
-                  <Tab id="Tab">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <Tab id="Tab">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView id="Tabla" fx:id="tablaPrestamos" layoutX="39.0" layoutY="38.0" prefHeight="398.0" prefWidth="623.0">
-                                <columns>
-                                  <TableColumn id="TablaInterna" fx:id="colCodigo" prefWidth="51.0" text="Código" />
-                                  <TableColumn id="TablaInterna" fx:id="colNombre" prefWidth="82.0" text="Nombre" />
-                                    <TableColumn id="TablaInterna" fx:id="colTipoFormato" prefWidth="100.0" text="Formato" />
-                                    <TableColumn id="TablaInterna" fx:id="colPrecio" prefWidth="79.0" text="Precio" />
-                                    <TableColumn id="TablaInterna" fx:id="colFechaPrestamo" prefWidth="146.0" text="Fecha Compra" />
-                                    <TableColumn id="TablaInterna" fx:id="colFechaFinalizacion" prefWidth="162.0" text="Reembolso Hasta" />
-                                </columns>
-                              </TableView>
+                              <Label id="LabelText" layoutX="92.0" layoutY="240.0" text="Nombre(s):" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="92.0" layoutY="320.0" text="Apellido(s):" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="411.0" layoutY="40.0" text="Estado Civil:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="411.0" layoutY="120.0" text="Telefono:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="411.0" layoutY="320.0" text="Correo:" textFill="WHITE" />
+                              <Label id="LabelText" layoutX="411.0" layoutY="240.0" text="Contraseña:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtNombre" layoutX="92.0" layoutY="265.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
+                              <TextField id="txt" fx:id="txtApellido" layoutX="92.0" layoutY="345.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
+                              <TextField id="txt" fx:id="txtTelefono" layoutX="411.0" layoutY="145.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
+                              <TextField id="txt" fx:id="txtCorreo" layoutX="411.0" layoutY="345.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="200.0" />
+                              <PasswordField id="txt" fx:id="txtContrasenia" layoutX="411.0" layoutY="265.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="130.0" />
+                              <ComboBox id="txt" fx:id="comboEstadoCivil" layoutX="411.0" layoutY="65.0" prefWidth="150.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ComboBox>
+                              <Button id="btn" fx:id="btnActualizar" layoutX="92.0" layoutY="415.0" mnemonicParsing="false" onAction="#actualizarDatos" text="Actualizar Datos" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button id="btn" fx:id="btnEliminarCuenta" layoutX="411.0" layoutY="415.0" mnemonicParsing="false" onAction="#eliminarCuenta" text="Eliminar la cuenta" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <ImageView fx:id="imgUsuario" fitHeight="150.0" fitWidth="200.0" layoutX="82.0" layoutY="49.0" onMousePressed="#cambiarFoto" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </AnchorPane>
-                     </content>
+                  </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="127.0" text="Mis Videojuegos">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="82.0" text="Mi Perfil">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
                      </graphic>
-                  </Tab>
+                </Tab>
               </tabs>
             </TabPane>
          </children>

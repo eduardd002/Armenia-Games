@@ -13,6 +13,7 @@ public class MensajesInformacionConstant {
     public final String INFORMACION_VIDEOJUEGO_ELIMINADO = "El videojuego se ha eliminado exitosamente";
     public final String INFORMACION_VIDEOJUEGO_ACTUALIZADO = "El videojuego se ha actualizado exitosamente";
     public final String INFORMACION_PRESTAMO_GUARDADO = "El prestamo se ha guardado exitosamente";
+    public final String INFORMACION_CARRITO_GUARDADO = "El videojuego se ha guardado en el carrito exitosamente";
     public final String INFORMACION_ADMINISTRADOR_ACTUALIZADO = "El administrador se ha actualizado exitosamente";
     public final String INFORMACION_ADMINISTRADOR_ELIMINADO = "El administrador se ha eliminado exitosamente";
     public final String INFORMACION_JUGADOR_ACTUALIZADO = "El jugador se ha actualizado exitosamente";

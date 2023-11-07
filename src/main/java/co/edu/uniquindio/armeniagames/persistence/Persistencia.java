@@ -18,6 +18,8 @@ public class Persistencia  implements PersistenciaService {
    public static final String rutaLog = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\LogFile.txt";
    public static final String rutaVideojuego = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\VideojuegoFile.txt";
    public static final String rutaCompra = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\CompraFile.txt";
+   public static final String rutaCarrito = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\CarritoFile.txt";
+   public static final String rutaFavorito = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\FavoritoFile.txt";
 
    public void guardaRegistroLog(String mensajeLog, int nivel, String accion) {
       archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLog);
@@ -218,6 +220,50 @@ public class Persistencia  implements PersistenciaService {
                  append(prestamo.getFactura()).append("\n");
       }
       archivoUtil.guardarArchivo(rutaCompra, contenido.toString(), false);
+   }
+
+   public void guardarCarrito(ArrayList<Carrito> listaCarrito) throws IOException {
+      StringBuilder contenido = new StringBuilder();
+
+      for (Carrito car : listaCarrito) {
+         contenido.append(car.getDocumentoJugadorCarrito()).append("--").
+                 append(car.getJugadorCarrito()).append("--").
+                 append(car.getApellidoCarrito()).append("--").
+                 append(car.getCodigoCarrito()).append("--").
+                 append(car.getNombreVideojuegoCarrito()).append("--").
+                 append(car.getTipoFormatoVideojuegoCarrito()).append("--").
+                 append(car.getTipoGeneroVideojuegoCarrito()).append("--").
+                 append(car.getTotalCarrito()).append("\n");
+      }
+      archivoUtil.guardarArchivo(rutaCarrito, contenido.toString(), false);
+   }
+
+   public ArrayList<Carrito> cargarCarrito() throws IOException {
+
+      ArrayList<Carrito> prestamo = new ArrayList<>();
+      ArrayList<String> contenido = archivoUtil.leerArchivo(rutaCarrito);
+
+      String linea;
+
+      for (String s : contenido) {
+
+         linea = s;
+
+         Carrito prest = new Carrito();
+
+         prest.setDocumentoJugadorCarrito(linea.split("--")[0]);
+         prest.setJugadorCarrito(linea.split("--")[1]);
+         prest.setApellidoCarrito(linea.split("--")[2]);
+         prest.setCodigoCarrito(linea.split("--")[3]);
+         prest.setNombreVideojuegoCarrito(linea.split("--")[4]);
+         prest.setTipoFormatoVideojuegoCarrito(TipoFormatoVideojuego.valueOf(linea.split("--")[5]));
+         prest.setTipoGeneroVideojuegoCarrito(TipoGeneroVideojuego.valueOf(linea.split("--")[6]));
+
+         prest.setTotalCarrito(Integer.parseInt(linea.split("--")[7]));
+
+         prestamo.add(prest);
+      }
+      return prestamo;
    }
 
    public ArrayList<Compra> cargarCompra() throws IOException {
