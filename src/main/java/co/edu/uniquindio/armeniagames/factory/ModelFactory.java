@@ -48,18 +48,21 @@ public class ModelFactory {
             ArrayList<Videojuego> listaVideojuegos;
             ArrayList<Compra> listaCompras;
             ArrayList<Carrito> listaCarrito;
+            ArrayList<Favorito> listaFavorito;
 
             listaAdministradores = persistencia.cargarAdministrador();
             listaJugadores = persistencia.cargarJugador();
             listaVideojuegos = persistencia.cargarVideojuego();
             listaCompras = persistencia.cargarCompra();
             listaCarrito = persistencia.cargarCarrito();
+            listaFavorito = persistencia.cargarFavorito();
 
             getTienda().getListaAdministradores().addAll(listaAdministradores);
             getTienda().getListaJugadores().addAll(listaJugadores);
             getTienda().getListaVideojuegos().addAll(listaVideojuegos);
             getTienda().getListaCompras().addAll(listaCompras);
             getTienda().getListaCarrito().addAll(listaCarrito);
+            getTienda().getListaFavoritos().addAll(listaFavorito);
 
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Datos no cargados", 3, mensajesExcepcionConstant.ERROR_CARGAR_DATOS);
@@ -425,7 +428,7 @@ public class ModelFactory {
 
         try {
             favorito = getTienda().guardarFavorito(fav);
-            persistencia.guardarFavorito(getListaCarrito(fav.getJugadorFavorito()));
+            persistencia.guardarFavorito(getListaFavorito(fav.getJugadorFavorito()));
             persistencia.guardaRegistroLog("Videojuego Guardado En Favorito", 1, mensajesInformacionConstant.INFORMACION_FAVORITO_GUARDADO);
             mostrarMensaje("Notificacion Guardado", "Videojuego Guardado En Favorito", mensajesInformacionConstant.INFORMACION_FAVORITO_GUARDADO,
                     Alert.AlertType.INFORMATION);

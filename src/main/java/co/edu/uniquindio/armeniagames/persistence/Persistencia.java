@@ -316,7 +316,7 @@ public class Persistencia  implements PersistenciaService {
    public ArrayList<Favorito> cargarFavorito() throws IOException {
 
       ArrayList<Favorito> prestamo = new ArrayList<>();
-      ArrayList<String> contenido = archivoUtil.leerArchivo(rutaCarrito);
+      ArrayList<String> contenido = archivoUtil.leerArchivo(rutaFavorito);
 
       String linea;
 
