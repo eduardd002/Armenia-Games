@@ -1486,3 +1486,31 @@ nov 07, 2023 3:49:36 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoU
 INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-07
 nov 07, 2023 3:49:37 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
 INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-11-07
+nov 07, 2023 4:55:24 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-11-07
+nov 07, 2023 4:55:36 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-11-07
+nov 07, 2023 4:55:40 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-07
+nov 07, 2023 4:55:41 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: Cargar Ventana Jugador
+/C:/Users/eduar/IdeaProjects/AGE/target/classes/co/edu/uniquindio/armeniagames/main/JugadorView.fxml
+,Ha ocurrido al cargar la ventana,2023-11-07
+nov 07, 2023 4:56:33 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-11-07
+nov 07, 2023 4:57:28 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-11-07
+nov 07, 2023 4:57:49 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-07
+nov 07, 2023 4:57:50 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-11-07
+nov 07, 2023 4:57:56 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El videojuego se ha guardado en el carrito exitosamente,Videojuego Guardado En Carrito,2023-11-07
+nov 07, 2023 5:01:41 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-11-07
+nov 07, 2023 5:01:55 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-11-07
+nov 07, 2023 5:01:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-07
+nov 07, 2023 5:02:01 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-11-07

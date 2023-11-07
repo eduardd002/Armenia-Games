@@ -296,4 +296,49 @@ public class Persistencia  implements PersistenciaService {
       }
       return prestamo;
    }
+
+   public void guardarFavorito(ArrayList<Favorito> listaCarrito) throws IOException {
+      StringBuilder contenido = new StringBuilder();
+
+      for (Favorito car : listaCarrito) {
+         contenido.append(car.getDocumentoJugadorFavorito()).append("--").
+                 append(car.getJugadorFavorito()).append("--").
+                 append(car.getApellidoFavorito()).append("--").
+                 append(car.getCodigoFavorito()).append("--").
+                 append(car.getNombreVideojuegoFavorito()).append("--").
+                 append(car.getTipoFormatoVideojuegoFavorito()).append("--").
+                 append(car.getTipoGeneroVideojuegoFavorito()).append("--").
+                 append(car.getTotalFavorito()).append("\n");
+      }
+      archivoUtil.guardarArchivo(rutaFavorito, contenido.toString(), false);
+   }
+
+   public ArrayList<Favorito> cargarFavorito() throws IOException {
+
+      ArrayList<Favorito> prestamo = new ArrayList<>();
+      ArrayList<String> contenido = archivoUtil.leerArchivo(rutaCarrito);
+
+      String linea;
+
+      for (String s : contenido) {
+
+         linea = s;
+
+         Favorito prest = new Favorito();
+
+         prest.setDocumentoJugadorFavorito(linea.split("--")[0]);
+         prest.setJugadorFavorito(linea.split("--")[1]);
+         prest.setApellidoFavorito(linea.split("--")[2]);
+         prest.setCodigoFavorito(linea.split("--")[3]);
+         prest.setNombreVideojuegoFavorito(linea.split("--")[4]);
+         prest.setTipoFormatoVideojuegoFavorito(TipoFormatoVideojuego.valueOf(linea.split("--")[5]));
+         prest.setTipoGeneroVideojuegoFavorito(TipoGeneroVideojuego.valueOf(linea.split("--")[6]));
+
+         prest.setTotalFavorito(Integer.parseInt(linea.split("--")[7]));
+
+         prestamo.add(prest);
+      }
+      return prestamo;
+   }
+
 }

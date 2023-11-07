@@ -419,6 +419,25 @@ public class ModelFactory {
         return carrit;
     }
 
+    public Favorito guardarFavorito(Favorito fav) {
+
+        Favorito favorito = null;
+
+        try {
+            favorito = getTienda().guardarFavorito(fav);
+            persistencia.guardarFavorito(getListaCarrito(fav.getJugadorFavorito()));
+            persistencia.guardaRegistroLog("Videojuego Guardado En Favorito", 1, mensajesInformacionConstant.INFORMACION_FAVORITO_GUARDADO);
+            mostrarMensaje("Notificacion Guardado", "Videojuego Guardado En Favorito", mensajesInformacionConstant.INFORMACION_FAVORITO_GUARDADO,
+                    Alert.AlertType.INFORMATION);
+        } catch (IOException e) {
+            persistencia.guardaRegistroLog("Videojuego No Guardado En Favorito", 3,
+                    mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
+            mostrarMensaje("Notificacion Guardado", "Videojuego No Guardado En Carrito",
+                    mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
+        }
+        return favorito;
+    }
+
     public void actualizarAdministrador(Administrador administrador) {
 
         try {

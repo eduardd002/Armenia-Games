@@ -56,7 +56,8 @@ public class JugadorController implements Initializable {
 
     @FXML
     private Button btnEliminarCuenta, btnConsulta, btnPrestamo, btnSalir,
-            btnActualizarPago, btnActualizar, btnActualizarEnvio, btnCarrito, btnFavorito;
+            btnActualizarPago, btnActualizar, btnActualizarEnvio, btnCarrito, btnFavorito,
+            btnEliminarCarrito, btnEliminarFavorito;
 
     @FXML
     private DatePicker dateCaducidad;
@@ -122,6 +123,24 @@ public class JugadorController implements Initializable {
     @FXML
     public void carrito() {
         agregarCarrito();
+    }
+
+    @FXML
+    public void eliminarFavorito() {
+        eliminarVideojuegoFavorito();
+    }
+
+    @FXML
+    public void eliminarCarrito() {
+        eliminarVideojuegoCarrito();
+    }
+
+    private void eliminarVideojuegoFavorito() {
+        System.out.println("evf");
+    }
+
+    private void eliminarVideojuegoCarrito() {
+        System.out.println("evc");
     }
 
     @FXML
@@ -202,6 +221,28 @@ public class JugadorController implements Initializable {
     }
 
     public void agregarFavorito() {
+
+        Favorito car;
+        Favorito carrito = new Favorito();
+
+        Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
+        Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
+
+        carrito.setDocumentoJugadorFavorito(jugador.getDocumento());
+        carrito.setJugadorFavorito(jugador.getNombrePersona());
+        carrito.setApellidoFavorito(jugador.getApellido());
+        carrito.setCodigoFavorito(videojuego.getCodigo());
+        carrito.setNombreVideojuegoFavorito(videojuego.getNombreVideojuego());
+        carrito.setTipoGeneroVideojuegoFavorito(videojuego.getTipoGeneroVideojuego());
+        carrito.setTipoFormatoVideojuegoFavorito(videojuego.getTipoFormatoVideojuego());
+        carrito.setTotalFavorito(videojuego.getPrecio());
+
+        car = subcontroller.guardarFavorito(carrito);
+
+        if (car != null) {
+            listaFavoritoNueva.add(car);
+            tablaCarrito.setItems(listaCarritoNueva);
+        }
 
     }
 
@@ -1289,6 +1330,35 @@ public class JugadorController implements Initializable {
     @FXML
     private TableColumn<Compra, Integer> colPrecioFavorito;
 
+    public ObservableList<Favorito> getFavoritos() {
+        Jugador jug = subcontroller.traerJugador(subcontroller.traerUsuarioAuxiliar().getDocumento());
+        String documento = jug.getDocumento();
+        listaFavorito.addAll(subcontroller.obtenerFavoritos(documento));
+        for (Favorito prest : listaFavorito) {
+            if(prest.getDocumentoJugadorFavorito().equals(documento)) {
+                listaFavoritoNueva.add(prest);
+            }else{
+                System.out.println("prest jugador: " + prest.getJugadorFavorito());
+            }
+        }
+        return listaFavoritoNueva;
+    }
+
+    public void inicializarFavoritoView() {
+
+        colCodigoFavorito.setCellValueFactory(new PropertyValueFactory<>("codigoFavorito"));
+        colVideojuegoFavorito.setCellValueFactory(new PropertyValueFactory<>("nombreVideojuegoFavorito"));
+        colTipoFavorito.setCellValueFactory(new PropertyValueFactory<>("tipoFormatoVideojuegoFavorito"));
+        colPrecioFavorito.setCellValueFactory(new PropertyValueFactory<>("totalFavorito"));
+        colGeneroFavorito.setCellValueFactory(new PropertyValueFactory<>("tipoGeneroVideojuegoFavorito"));
+
+        tablaFavorito.getItems().clear();
+        tablaFavorito.setItems(getFavoritos());
+
+        tablaFavorito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        });
+    }
+
     /*
     lkjlkjljlkjlkjlkj
      */
@@ -1332,6 +1402,7 @@ public class JugadorController implements Initializable {
         mostrarDatosJugador();
         inicializarComprasView();
         inicializarCarritoView();
+        inicializarFavoritoView();
     }
 
     @Override

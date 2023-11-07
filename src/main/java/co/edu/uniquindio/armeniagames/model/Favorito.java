@@ -5,76 +5,76 @@ import co.edu.uniquindio.armeniagames.enumm.TipoGeneroVideojuego;
 
 public class Favorito {
 
-    private int total;
-    private String documentoJugador, jugador, apellido, codigo, nombreVideojuego;
+    private int totalFavorito;
+    private String documentoJugadorFavorito, jugadorFavorito, apellidoFavorito, codigoFavorito, nombreVideojuegoFavorito;
 
-    private TipoFormatoVideojuego tipoFormatoVideojuego;
+    private TipoFormatoVideojuego tipoFormatoVideojuegoFavorito;
 
-    private TipoGeneroVideojuego tipoGeneroVideojuego;
+    private TipoGeneroVideojuego tipoGeneroVideojuegoFavorito;
 
     public Favorito (){};
 
-    public int getTotal() {
-        return total;
+    public int getTotalFavorito() {
+        return totalFavorito;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setTotalFavorito(int totalFavorito) {
+        this.totalFavorito = totalFavorito;
     }
 
-    public String getDocumentoJugador() {
-        return documentoJugador;
+    public String getDocumentoJugadorFavorito() {
+        return documentoJugadorFavorito;
     }
 
-    public void setDocumentoJugador(String documentoJugador) {
-        this.documentoJugador = documentoJugador;
+    public void setDocumentoJugadorFavorito(String documentoJugadorFavorito) {
+        this.documentoJugadorFavorito = documentoJugadorFavorito;
     }
 
-    public String getJugador() {
-        return jugador;
+    public String getJugadorFavorito() {
+        return jugadorFavorito;
     }
 
-    public void setJugador(String jugador) {
-        this.jugador = jugador;
+    public void setJugadorFavorito(String jugadorFavorito) {
+        this.jugadorFavorito = jugadorFavorito;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidoFavorito() {
+        return apellidoFavorito;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidoFavorito(String apellidoFavorito) {
+        this.apellidoFavorito = apellidoFavorito;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getCodigoFavorito() {
+        return codigoFavorito;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigoFavorito(String codigoFavorito) {
+        this.codigoFavorito = codigoFavorito;
     }
 
-    public String getNombreVideojuego() {
-        return nombreVideojuego;
+    public String getNombreVideojuegoFavorito() {
+        return nombreVideojuegoFavorito;
     }
 
-    public void setNombreVideojuego(String nombreVideojuego) {
-        this.nombreVideojuego = nombreVideojuego;
+    public void setNombreVideojuegoFavorito(String nombreVideojuegoFavorito) {
+        this.nombreVideojuegoFavorito = nombreVideojuegoFavorito;
     }
 
-    public TipoFormatoVideojuego getTipoFormatoVideojuego() {
-        return tipoFormatoVideojuego;
+    public TipoFormatoVideojuego getTipoFormatoVideojuegoFavorito() {
+        return tipoFormatoVideojuegoFavorito;
     }
 
-    public void setTipoFormatoVideojuego(TipoFormatoVideojuego tipoFormatoVideojuego) {
-        this.tipoFormatoVideojuego = tipoFormatoVideojuego;
+    public void setTipoFormatoVideojuegoFavorito(TipoFormatoVideojuego tipoFormatoVideojuegoFavorito) {
+        this.tipoFormatoVideojuegoFavorito = tipoFormatoVideojuegoFavorito;
     }
 
-    public TipoGeneroVideojuego getTipoGeneroVideojuego() {
-        return tipoGeneroVideojuego;
+    public TipoGeneroVideojuego getTipoGeneroVideojuegoFavorito() {
+        return tipoGeneroVideojuegoFavorito;
     }
 
-    public void setTipoGeneroVideojuego(TipoGeneroVideojuego tipoGeneroVideojuego) {
-        this.tipoGeneroVideojuego = tipoGeneroVideojuego;
+    public void setTipoGeneroVideojuegoFavorito(TipoGeneroVideojuego tipoGeneroVideojuegoFavorito) {
+        this.tipoGeneroVideojuegoFavorito = tipoGeneroVideojuegoFavorito;
     }
 }

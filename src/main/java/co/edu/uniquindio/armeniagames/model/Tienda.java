@@ -352,6 +352,24 @@ public class Tienda{
         return car;
     }
 
+    public Favorito guardarFavorito(Favorito fav) {
+
+        Favorito favorito = new Favorito();
+
+        favorito.setDocumentoJugadorFavorito(fav.getDocumentoJugadorFavorito());
+        favorito.setJugadorFavorito(fav.getJugadorFavorito());
+        favorito.setApellidoFavorito(fav.getApellidoFavorito());
+        favorito.setCodigoFavorito(fav.getCodigoFavorito());
+        favorito.setTotalFavorito(fav.getTotalFavorito());
+        favorito.setNombreVideojuegoFavorito(fav.getNombreVideojuegoFavorito());
+        favorito.setTipoFormatoVideojuegoFavorito(fav.getTipoFormatoVideojuegoFavorito());
+        favorito.setTipoGeneroVideojuegoFavorito(fav.getTipoGeneroVideojuegoFavorito());
+
+        getListaFavoritos().add(favorito);
+
+        return favorito;
+    }
+
     public boolean verificarJugadorExiste(String documento, TipoUsuario tipoUsuario) {
 
         Jugador jugador;

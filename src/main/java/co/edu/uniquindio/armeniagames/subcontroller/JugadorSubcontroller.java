@@ -42,6 +42,10 @@ public class JugadorSubcontroller {
         return factoryController.getListaCarrito(jug);
     }
 
+    public ArrayList<Favorito> obtenerFavoritos(String jug){
+        return factoryController.getListaFavorito(jug);
+    }
+
     public void email(String titulo, String cuerpo, String correo, String img) {
         factoryController.correo(titulo, cuerpo, correo, img);
     }
@@ -64,6 +68,10 @@ public class JugadorSubcontroller {
 
     public Carrito guardarCarrito(Carrito carrito){
         return factoryController.guardarCarrito(carrito);
+    }
+
+    public Favorito guardarFavorito(Favorito favorito){
+        return factoryController.guardarFavorito(favorito);
     }
 
     public void actualizarHistorial(String jugador, int jugados){
