@@ -111,6 +111,16 @@ public class JugadorController implements Initializable {
     }
 
     @FXML
+    public void favorito() {
+        agregarFavorito();
+    }
+
+    @FXML
+    public void carrito() {
+        agregarCarrito();
+    }
+
+    @FXML
     public void consulta() {
         consultaJugador();
     }
@@ -160,6 +170,14 @@ public class JugadorController implements Initializable {
             actualizarInventario();
             actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
         }
+    }
+
+    public void agregarCarrito() {
+
+    }
+
+    public void agregarFavorito() {
+
     }
 
     public void limpiarCampos(){
@@ -1168,6 +1186,44 @@ public class JugadorController implements Initializable {
         }
         return listaPrestamosNueva;
     }
+
+    /*
+     ******************************   Apartado mis favoritos   ************************************
+     */
+
+    @FXML
+    private TableColumn<Compra, Integer> colCodigoCarrito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colVideojuegoCarrito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colGeneroCarrito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colTipoCarrito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colPrecioCarrito;
+
+    /*
+     ******************************   Apartado mi carrito   ************************************
+     */
+
+    @FXML
+    private TableColumn<Compra, Integer> colCodigoFavorito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colVideojuegoFavorito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colGeneroFavorito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colTipoFavorito;
+
+    @FXML
+    private TableColumn<Compra, Integer> colPrecioFavorito;
 
     public void inicializarComprasView() {
 
