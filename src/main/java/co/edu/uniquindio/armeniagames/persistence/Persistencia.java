@@ -217,6 +217,7 @@ public class Persistencia  implements PersistenciaService {
                  append(prestamo.getFechaCompraInicial()).append("--").
                  append(prestamo.getFechaCompraFinal()).append("--").
                  append(prestamo.getTotal()).append("--").
+                 append(prestamo.getUnidades()).append("--").
                  append(prestamo.getFactura()).append("\n");
       }
       archivoUtil.guardarArchivo(rutaCompra, contenido.toString(), false);
@@ -290,7 +291,8 @@ public class Persistencia  implements PersistenciaService {
          prest.setFechaCompraInicial(LocalDate.parse(linea.split("--")[7]));
          prest.setFechaCompraFinal(LocalDate.parse(linea.split("--")[8]));
          prest.setTotal(Integer.parseInt(linea.split("--")[9]));
-         prest.setFactura(Integer.parseInt(linea.split("--")[10]));
+         prest.setUnidades(Integer.parseInt(linea.split("--")[10]));
+         prest.setFactura(Integer.parseInt(linea.split("--")[11]));
 
          prestamo.add(prest);
       }

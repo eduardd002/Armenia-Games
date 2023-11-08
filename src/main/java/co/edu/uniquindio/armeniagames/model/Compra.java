@@ -7,7 +7,10 @@ import java.time.LocalDate;
 
 public class Compra {
 
-    private int factura, total;
+    private int factura;
+    private int total;
+
+    private int unidades;
     private String documentoJugador, jugador, apellido, codigo, nombreVideojuego;
 
     private TipoFormatoVideojuego tipoFormatoVideojuego;
@@ -20,6 +23,14 @@ public class Compra {
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public int getUnidades() {
+        return unidades;
+    }
+
+    public void setUnidades(int unidades) {
+        this.unidades = unidades;
     }
 
     public void setCodigo(String codigo) {

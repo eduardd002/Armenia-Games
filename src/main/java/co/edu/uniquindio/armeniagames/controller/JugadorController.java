@@ -164,6 +164,7 @@ public class JugadorController implements Initializable {
         Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
         Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
         LocalDate fecha = LocalDate.now();
+        int unidades = Integer.parseInt(txtUnidadesComprar.getText());
 
         int bandera = subcontroller.traerAlquileres().size();
 
@@ -177,19 +178,20 @@ public class JugadorController implements Initializable {
         comp.setTipoFormatoVideojuego(videojuego.getTipoFormatoVideojuego());
         comp.setFechaCompraInicial(fecha);
         comp.setFechaCompraFinal(fecha);
+        comp.setUnidades(unidades);
         comp.setTotal(videojuego.getPrecio());
 
         compra = subcontroller.guardarPrestamo(comp);
 
         if (compra != null) {
-
             subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + comp.getNombreVideojuego()), jugador.getCorreo(), img);
             for (Administrador admin : subcontroller.traerAdmins()) {
                 subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
             }
             listaPrestamosNueva.add(compra);
             tablaPrestamos.setItems(listaPrestamosNueva);
-
+            cerrarVentana(btnPrestamo);
+            main.cargarVentanaReporte();
             actualizarInventario();
             actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
         }
@@ -306,8 +308,9 @@ public class JugadorController implements Initializable {
         Videojuego vid = subcontroller.obtenerVideojuego(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
 
         int inventarioActual = Integer.parseInt(txtUnidadesDisponibles.getText());
+        int compradas = Integer.parseInt(txtUnidadesComprar.getText());
 
-        subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual);
+        subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual, compradas);
         txtUnidadesDisponibles.setText(String.valueOf(vid.getUnidades()));
     }
 

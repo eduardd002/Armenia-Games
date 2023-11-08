@@ -327,6 +327,7 @@ public class Tienda{
         comp.setTipoFormatoVideojuego(compra.getTipoFormatoVideojuego());
         comp.setTipoGeneroVideojuego(compra.getTipoGeneroVideojuego());
         comp.setFechaCompraInicial(compra.getFechaCompraInicial());
+        comp.setUnidades(compra.getUnidades());
         comp.setFechaCompraFinal(compra.getFechaCompraFinal().plusMonths(3));
 
         getListaCompras().add(comp);
@@ -432,6 +433,19 @@ public class Tienda{
         return vid;
     }
 
+    public Videojuego obtenerVideojuego2(String codigo) {
+
+        Videojuego vid = null;
+
+        for (Videojuego videojuego : listaVideojuegos) {
+            if (videojuego.getCodigo().equals(codigo)) {
+                vid = videojuego;
+                break;
+            }
+        }
+        return vid;
+    }
+
     public Compra obtenerCompra(int factura) {
 
         Compra comp = null;
@@ -510,20 +524,30 @@ public class Tienda{
 
     public boolean devolverVideojuego(int factura) throws CompraNoExisteException{
 
-        boolean bandera = false;
+        Compra com;
+        com = obtenerCompra(factura);
 
-        Compra com = obtenerCompra(factura);
-
-        if(com == null){
-            bandera = false;
-            throw new CompraNoExisteException();
-        }else{
-            Videojuego vd = obtenerVideojuego(com.getCodigo());
+        if(com != null){
             getListaCompras().remove(com);
-            incrementarInventario(com.getCodigo(), vd.getUnidades());
-            bandera = true;
+            Videojuego vd = obtenerVideojuego2(com.getCodigo());
+            incrementarInventario(com.getCodigo(), vd.getUnidades(), com.getUnidades());
+        }else{
+            throw new CompraNoExisteException();
         }
-        return bandera;
+        return true;
+    }
+
+    public boolean eliminarJugador(String documento) throws JugadorNoExisteException {
+
+        Jugador jugador;
+        jugador = obtenerJugador(documento);
+
+        if (jugador != null) {
+            getListaJugadores().remove(jugador);
+        } else {
+            throw new JugadorNoExisteException();
+        }
+        return true;
     }
 
     public boolean actualizarVideojuego(Videojuego videojuego)
@@ -630,20 +654,6 @@ public class Tienda{
                 }
             }
         }
-    }
-
-    public boolean eliminarJugador(String documento) throws JugadorNoExisteException {
-
-        Jugador jugador;
-
-        jugador = obtenerJugador(documento);
-
-        if (jugador != null) {
-            getListaJugadores().remove(jugador);
-        } else {
-            throw new JugadorNoExisteException();
-        }
-        return true;
     }
 
     public boolean cambiarClaveJugador(String correo, String clave, String confirmacion)
@@ -773,7 +783,7 @@ public class Tienda{
         return rand.nextInt(900000) + 100000;
     }
 
-    public void disminuirInventario(String videojuego, int inventarioActual) {
+    public void disminuirInventario(String videojuego, int inventarioActual, int compradas) {
 
         Videojuego vid;
 
@@ -784,7 +794,7 @@ public class Tienda{
             for (int i = 0; i < getListaVideojuegos().size(); i++) {
                 if (getListaVideojuegos().get(i).getNombreVideojuego().equals(videojuego)) {
 
-                    vid.setUnidades(inventarioActual - 1);
+                    vid.setUnidades(inventarioActual - compradas);
 
                     getListaVideojuegos().set(i, vid);
                 }
@@ -792,18 +802,18 @@ public class Tienda{
         }
     }
 
-    public void incrementarInventario(String videojuego, int inventarioActual) {
+    public void incrementarInventario(String videojuego, int inventarioActual, int compradas) {
 
         Videojuego vid;
 
-        vid = obtenerVideojuego(videojuego);
+        vid = obtenerVideojuego2(videojuego);
 
         if (vid != null) {
 
             for (int i = 0; i < getListaVideojuegos().size(); i++) {
-                if (getListaVideojuegos().get(i).getNombreVideojuego().equals(videojuego)) {
+                if (getListaVideojuegos().get(i).getCodigo().equals(videojuego)) {
 
-                    vid.setUnidades(inventarioActual + 1);
+                    vid.setUnidades(inventarioActual + compradas);
 
                     getListaVideojuegos().set(i, vid);
                 }

@@ -82,8 +82,8 @@ public class JugadorSubcontroller {
         return factoryController.obtenerVideojuego(codigo);
     }
 
-    public void actualizarVideojuego(String videojuego, int inventarioActual) {
-        factoryController.actualizarInventario(videojuego, inventarioActual);
+    public void actualizarVideojuego(String videojuego, int inventarioActual, int compradas) {
+        factoryController.actualizarInventario(videojuego, inventarioActual, compradas);
     }
 
     public ModelFactory getFactoryController() {

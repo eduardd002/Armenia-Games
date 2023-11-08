@@ -295,6 +295,7 @@ public class ModelFactory {
         try {
             videojuegoDevuleto = getTienda().devolverVideojuego(factura);
             persistencia.guardarVideojuego(getListaVideojuegos());
+            persistencia.guardarCompra(getListaCompras2());
             persistencia.guardarJugador(getListaJugadores());
             mostrarMensaje("Notificación Devolucion", "Videojuego Devuelto", mensajesInformacionConstant.INFORMACION_VIDEOJUEGO_DEVUELTO,
                     Alert.AlertType.INFORMATION);
@@ -309,30 +310,6 @@ public class ModelFactory {
             persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO);
         }
         return videojuegoDevuleto;
-    }
-
-    public Videojuego guardarVideojuego(Videojuego vid) {
-
-        Videojuego videojuego = null;
-
-        try {
-            videojuego = getTienda().guardarVideojuego(vid);
-            persistencia.guardarVideojuego(getListaVideojuegos());
-            persistencia.guardaRegistroLog("Videojuego Guardado", 1, mensajesInformacionConstant.INFORMACION_VIDEOJUEGO_GUARDADO);
-            mostrarMensaje("Notificacion Guardado", "Videojuego Guardado", mensajesInformacionConstant.INFORMACION_VIDEOJUEGO_GUARDADO,
-                    Alert.AlertType.INFORMATION);
-        } catch (VideojuegoExisteException e) {
-            persistencia.guardaRegistroLog("Videojuego No Guardado", 3,
-                    mensajesExcepcionConstant.ERROR_VIDEOJUEGO_YA_EXISTE + e.getMessage());
-            mostrarMensaje("Notificacion Guardado", "Videojuego No Guardado",
-                    mensajesExcepcionConstant.ERROR_VIDEOJUEGO_YA_EXISTE, Alert.AlertType.ERROR);
-        } catch (IOException e) {
-            persistencia.guardaRegistroLog("Videojuego No Guardado", 3,
-                    mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
-            mostrarMensaje("Notificacion Guardado", "Videojuego No Guardado",
-                    mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
-        }
-        return videojuego;
     }
 
     public boolean eliminarVideojuego(String codigo) {
@@ -357,6 +334,30 @@ public class ModelFactory {
                     mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
         }
         return videojuegoExiste;
+    }
+
+    public Videojuego guardarVideojuego(Videojuego vid) {
+
+        Videojuego videojuego = null;
+
+        try {
+            videojuego = getTienda().guardarVideojuego(vid);
+            persistencia.guardarVideojuego(getListaVideojuegos());
+            persistencia.guardaRegistroLog("Videojuego Guardado", 1, mensajesInformacionConstant.INFORMACION_VIDEOJUEGO_GUARDADO);
+            mostrarMensaje("Notificacion Guardado", "Videojuego Guardado", mensajesInformacionConstant.INFORMACION_VIDEOJUEGO_GUARDADO,
+                    Alert.AlertType.INFORMATION);
+        } catch (VideojuegoExisteException e) {
+            persistencia.guardaRegistroLog("Videojuego No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_VIDEOJUEGO_YA_EXISTE + e.getMessage());
+            mostrarMensaje("Notificacion Guardado", "Videojuego No Guardado",
+                    mensajesExcepcionConstant.ERROR_VIDEOJUEGO_YA_EXISTE, Alert.AlertType.ERROR);
+        } catch (IOException e) {
+            persistencia.guardaRegistroLog("Videojuego No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
+            mostrarMensaje("Notificacion Guardado", "Videojuego No Guardado",
+                    mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
+        }
+        return videojuego;
     }
 
     public boolean actualizarVideojuego(Videojuego videojuego) {
@@ -711,10 +712,10 @@ public class ModelFactory {
         return jug;
     }
 
-    public void actualizarInventario(String videojuego, int inventarioActual) {
+    public void actualizarInventario(String videojuego, int inventarioActual, int compradas) {
 
         try {
-            getTienda().disminuirInventario(videojuego, inventarioActual);
+            getTienda().disminuirInventario(videojuego, inventarioActual, compradas);
             persistencia.guardarVideojuego(getListaVideojuegos());
             persistencia.guardaRegistroLog("Inventario Actualizado", 1, mensajesInformacionConstant.INFORMACION_INVENTARIO_ACTUALIZADO);
         } catch (Exception e) {
