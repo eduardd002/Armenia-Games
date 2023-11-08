@@ -80,7 +80,7 @@ public class JugadorController implements Initializable {
     private TableColumn<Compra, Integer> colPrecio;
 
     @FXML
-    private TableColumn<Compra, TipoFormatoVideojuego> colTipoFormato;
+    private TableColumn<Compra, Integer> colCantidad;
 
     @FXML
     private ComboBox<TipoEstadoCivil> comboEstadoCivil;
@@ -1390,7 +1390,7 @@ public class JugadorController implements Initializable {
 
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombreVideojuego"));
-        colTipoFormato.setCellValueFactory(new PropertyValueFactory<>("tipoFormatoVideojuego"));
+        colCantidad.setCellValueFactory(new PropertyValueFactory<>("unidades"));
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("total"));
         colFechaPrestamo.setCellValueFactory(new PropertyValueFactory<>("fechaCompraInicial"));
         colFechaFinalizacion.setCellValueFactory(new PropertyValueFactory<>("fechaCompraFinal"));

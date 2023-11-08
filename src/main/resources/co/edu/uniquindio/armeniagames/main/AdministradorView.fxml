@@ -129,11 +129,12 @@
                               <TableView id="Tabla" fx:id="tablaAlquileres" layoutX="36.0" layoutY="62.0" prefHeight="331.0" prefWidth="587.0">
                                 <columns>
                                   <TableColumn id="TablaInterna" fx:id="colNombrePrestamo" prefWidth="54.66666030883789" text="Nombre" />
-                                    <TableColumn fx:id="colFactura" prefWidth="108.66673278808594" text="Factura" />
-                                    <TableColumn id="TablaInterna" fx:id="colVideojuegoPrestamo" prefWidth="78.0" text="Videojuego" />
-                                    <TableColumn id="TablaInterna" fx:id="colPrecio" prefWidth="75.99999237060547" text="Precio" />
-                                    <TableColumn id="TablaInterna" fx:id="colFechaIPrestamo" prefWidth="124.6666259765625" text="Fecha de Compra" />
-                                    <TableColumn id="TablaInterna" fx:id="colFechaFPrestamo" prefWidth="144.00003051757812" text="Reembolso hasta" />
+                                    <TableColumn fx:id="colFactura" prefWidth="52.666648864746094" text="Factura" />
+                                    <TableColumn id="TablaInterna" fx:id="colVideojuegoPrestamo" prefWidth="74.0" text="Videojuego" />
+                                    <TableColumn id="TablaInterna" fx:id="colCantidad" prefWidth="124.00001525878906" text="Cantidad" />
+                                    <TableColumn id="TablaInterna" fx:id="colPrecio" prefWidth="59.99995422363281" text="Precio" />
+                                    <TableColumn id="TablaInterna" fx:id="colFechaIPrestamo" prefWidth="110.66668701171875" text="Fecha de Compra" />
+                                    <TableColumn id="TablaInterna" fx:id="colFechaFPrestamo" prefWidth="110.00002034505212" text="Reembolso hasta" />
                                 </columns>
                               </TableView>
                               <Button id="btn" fx:id="btnDevolver" layoutX="290.0" layoutY="421.0" mnemonicParsing="false" onAction="#devolver" text="Devolucion" textFill="WHITE">

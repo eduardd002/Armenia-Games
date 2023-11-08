@@ -46,7 +46,7 @@ public class AdministradorController implements Initializable {
     @FXML
     private TableColumn<Compra, String> colNombrePrestamo, colVideojuegoPrestamo;
     @FXML
-    private TableColumn<Compra, Integer> colFactura, colPrecio;
+    private TableColumn<Compra, Integer> colFactura, colPrecio, colCantidad;
 
     @FXML
     private ComboBox<TipoEstadoCivil> comboEstadoCivil;
@@ -291,6 +291,7 @@ public class AdministradorController implements Initializable {
 
         colFactura.setCellValueFactory(new PropertyValueFactory<>("factura"));
         colNombrePrestamo.setCellValueFactory(new PropertyValueFactory<>("jugador"));
+        colCantidad.setCellValueFactory(new PropertyValueFactory<>("unidades"));
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("total"));
         colVideojuegoPrestamo.setCellValueFactory(new PropertyValueFactory<>("nombreVideojuego"));
         colFechaIPrestamo.setCellValueFactory(new PropertyValueFactory<>("fechaCompraInicial"));
