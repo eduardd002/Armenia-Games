@@ -37,7 +37,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btn" fx:id="btnIngresar" disable="true" layoutX="366.0" layoutY="350.0" mnemonicParsing="false" onAction="#ingresar" text="Ingresar" textFill="WHITE">
+            <Button id="btn" fx:id="btnIngresar" layoutX="366.0" layoutY="350.0" mnemonicParsing="false" onAction="#ingresar" text="Ingresar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -51,9 +51,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
             <Label layoutX="335.0" layoutY="245.0" text="Correo:" textFill="WHITE" />
-            <TextField id="txt" fx:id="txtUsuario" disable="true" layoutX="425.0" layoutY="237.0" onKeyTyped="#eventoText" />
+            <TextField id="txt" fx:id="txtUsuario" disable="true" layoutX="425.0" layoutY="237.0" onKeyTyped="#eventoText" text="eraul4912@gmail.com" />
             <Label layoutX="335.0" layoutY="300.0" text="Contraseña:" textFill="WHITE" />
-            <PasswordField id="txt" fx:id="txtContrasenia" disable="true" layoutX="425.0" layoutY="292.0" onKeyTyped="#eventoText2" />
+            <PasswordField id="txt" fx:id="txtContrasenia" disable="true" layoutX="425.0" layoutY="292.0" onKeyTyped="#eventoText2" text="Aa&amp;5wdfsdf" />
             <Button id="btn" fx:id="btnChat" layoutX="18.0" layoutY="13.0" mnemonicParsing="false" onAction="#chat" prefHeight="30.0" prefWidth="47.0">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">

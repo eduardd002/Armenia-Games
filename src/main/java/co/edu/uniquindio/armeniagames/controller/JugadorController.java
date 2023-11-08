@@ -69,9 +69,9 @@ public class JugadorController implements Initializable {
     private TableColumn<Compra, String> colNombre, colCodigo;
 
     @FXML
-    private TextField txtNombreVideojuego, txtUnidadesDisponibles, txtCuenta,
+    private TextField txtUnidadesDisponibles, txtCuenta,
             txtNombre, txtTelefono, txtApellido, txtTitular, txtPostal, txtDireccion,
-            txtBarrio, txtCorreo, txtPrecio;
+            txtBarrio, txtCorreo, txtPrecio, txtUnidadesComprar;
 
     @FXML
     private TableView<Compra> tablaPrestamos;
@@ -220,6 +220,26 @@ public class JugadorController implements Initializable {
         }
     }
 
+    @FXML
+    public void stock(KeyEvent event) {
+
+        Object evt = event.getSource();
+
+        if (evt.equals(txtUnidadesComprar)) {
+            if (Character.isLetter(event.getCharacter().charAt(0)) ||
+                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+                txtUnidadesComprar.deletePreviousChar();
+            }
+            try{
+                int disponibles = Integer.parseInt(txtUnidadesDisponibles.getText());
+                int comprar = Integer.parseInt(txtUnidadesComprar.getText());
+                btnPrestamo.setDisable((comprar > disponibles) || comprar < 1);
+            }catch (NumberFormatException e){
+
+            }
+        }
+    }
+
     public void agregarFavorito() {
 
         Favorito car;
@@ -248,7 +268,7 @@ public class JugadorController implements Initializable {
 
     public void limpiarCampos(){
         comboVideojuegosDisponiblesAlquiler.setValue(null);
-        txtNombreVideojuego.setText(null);
+        txtUnidadesComprar.setText(null);
         comboTipoFormato.setValue(null);
         txtPrecio.setText(null);
         txtUnidadesDisponibles.setText(null);
@@ -263,12 +283,12 @@ public class JugadorController implements Initializable {
 
         Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(codigo);
 
-        txtNombreVideojuego.setText(videojuego.getNombreVideojuego());
         txtUnidadesDisponibles.setText(String.valueOf(videojuego.getUnidades()));
         txtPrecio.setText(String.valueOf(videojuego.getPrecio()));
         comboTipoFormato.setValue(videojuego.getTipoFormatoVideojuego());
         Image img = new Image(videojuego.getImagenVideojuego());
         imgVideojuego.setImage(img);
+        txtUnidadesComprar.setDisable(false);
 
         btnPrestamo.setDisable(false);
         btnCarrito.setDisable(false);
