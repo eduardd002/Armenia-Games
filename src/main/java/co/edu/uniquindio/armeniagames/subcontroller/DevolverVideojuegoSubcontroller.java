@@ -15,8 +15,8 @@ public class DevolverVideojuegoSubcontroller {
         tienda = factoryController.getTienda();
     }
 
-    public ArrayList<Jugador> traerJugadores() {
-        return factoryController.getListaJugadores();
+    public Jugador traerJugador(String documento) {
+        return factoryController.traerJugadorEnvioYPago(documento);
     }
 
     public ArrayList<Compra> traerCompras() {

@@ -29,6 +29,7 @@
                   </ImageView>
                </graphic>
             </Button>
+            <TextField fx:id="txtDocumento" layoutX="238.0" layoutY="175.0" />
             </children>
          <stylesheets>
             <URL value="@DevolverRenovarStyle.css" />

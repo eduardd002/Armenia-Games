@@ -27,16 +27,12 @@ public class DevolverVideojuegoController implements Initializable {
     private Button btnSalir, btnDevolver;
 
     @FXML
-    private TextField txtFactura;
+    private TextField txtFactura, txtDocumento;
 
     @FXML
     public void salir(){
         cerrarVentana2(btnSalir);
         main.cargarVentanaAdministrador();
-    }
-
-    public void actualizarHistorial(String lector, int librosLeidos) {
-        subcontroller.actualizarHistorial(lector, librosLeidos);
     }
 
     @FXML
@@ -47,29 +43,19 @@ public class DevolverVideojuegoController implements Initializable {
     public void devolverAlquiler() {
 
         int factura = Integer.parseInt(txtFactura.getText());
-        ArrayList<Jugador> jugador = subcontroller.traerJugadores();
-        ArrayList<Compra> compras = subcontroller.traerCompras();
-        ArrayList<Videojuego> videojuegos = subcontroller.traerVideojuegos();
+        Jugador jugadore = subcontroller.traerJugador(txtDocumento.getText());
 
         boolean devuelta;
 
         devuelta = subcontroller.devolverCompra(factura);
 
-        if(devuelta){
-            for (Compra copm : compras) {
-                for (Jugador jug : jugador) {
-                    for (Videojuego vd : videojuegos){
-                        if(copm.getCodigo().equals(vd.getCodigo()) &&
-                                copm.getJugador().equals(jug.getNombrePersona())){
-                            actualizarHistorial(jug.getDocumento(), jug.getVideojuegosComprados() - 1);
-                        }
-                    }
-                }
-            }
-            cerrarVentana();
-            main.cargarVentanaAdministrador();
+        if (devuelta) {
+            subcontroller.actualizarHistorial(jugadore.getDocumento(), (jugadore.getVideojuegosComprados() - 1));
         }
+        cerrarVentana();
+        main.cargarVentanaAdministrador();
     }
+
 
     @FXML
     public void eventoText(KeyEvent event) {

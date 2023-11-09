@@ -893,17 +893,15 @@ public class Tienda{
         }
     }
 
-    public void actualizarHistorial2(String jugador, int comprados) {
+    public void actualizarHistorial2(String jugador, int jugados) {
 
         Jugador jug;
 
         jug = obtenerJugador(jugador);
-
         if (jug != null) {
-
             for (int i = 0; i < getListaJugadores().size(); i++) {
                 if (getListaJugadores().get(i).getDocumento().equals(jugador)) {
-                    jug.setVideojuegosComprados(comprados);
+                    jug.setVideojuegosComprados(jugados);
                     getListaJugadores().set(i, jug);
                 }
             }

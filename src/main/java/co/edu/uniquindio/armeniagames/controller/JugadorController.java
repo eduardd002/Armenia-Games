@@ -179,7 +179,7 @@ public class JugadorController implements Initializable {
         comp.setFechaCompraInicial(fecha);
         comp.setFechaCompraFinal(fecha);
         comp.setUnidades(unidades);
-        comp.setTotal(videojuego.getPrecio());
+        comp.setTotal(videojuego.getPrecio()*unidades);
 
         compra = subcontroller.guardarPrestamo(comp);
 
