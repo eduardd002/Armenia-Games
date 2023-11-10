@@ -36,7 +36,7 @@
                               <Label id="LabelText" layoutX="77.0" layoutY="90.0" text="Videojuegos disponibles:" textFill="WHITE" />
                               <Label id="LabelText" layoutX="77.0" layoutY="300.0" text="Unidades disponibles:" textFill="WHITE" />
                               <Label id="LabelText" layoutX="299.0" layoutY="200.0" text="Precio (unidad):" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnPrestamo" disable="true" layoutX="348.0" layoutY="400.0" mnemonicParsing="false" onAction="#prestamo" text="Comprar" textFill="WHITE">
+                              <Button id="btn" fx:id="btnPrestamo" disable="true" layoutX="245.0" layoutY="400.0" mnemonicParsing="false" onAction="#prestamo" text="Comprar" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -72,12 +72,12 @@
                               </Button>
                               <TextField id="txt" fx:id="txtPrecio" disable="true" layoutX="299.0" layoutY="225.0" />
                               <ImageView fx:id="imgVideojuego" fitHeight="150.0" fitWidth="200.0" layoutX="537.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button id="btn" fx:id="btnCarrito" disable="true" layoutX="175.0" layoutY="400.0" mnemonicParsing="false" onAction="#carrito" text="Agregar al carrito" textFill="WHITE">
+                              <Button id="btn" fx:id="btnCarrito" disable="true" layoutX="77.0" layoutY="400.0" mnemonicParsing="false" onAction="#carrito" text="Agregar al carrito" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button id="btn" fx:id="btnFavorito" disable="true" layoutX="452.0" layoutY="400.0" mnemonicParsing="false" onAction="#favorito" text="Agregar a favoritos" textFill="WHITE">
+                              <Button id="btn" fx:id="btnFavorito" disable="true" layoutX="359.0" layoutY="400.0" mnemonicParsing="false" onAction="#favorito" text="Agregar a favoritos" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -97,16 +97,18 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView fx:id="tablaCarrito" layoutX="124.0" layoutY="72.0" prefHeight="325.0" prefWidth="452.0">
+                              <TableView fx:id="tablaCarrito" layoutX="82.0" layoutY="72.0" prefHeight="325.0" prefWidth="536.0">
                                  <columns>
                                     <TableColumn fx:id="colCodigoCarrito" prefWidth="75.0" text="Codigo" />
                                     <TableColumn fx:id="colVideojuegoCarrito" prefWidth="86.66670227050781" text="Videojuego" />
                                     <TableColumn fx:id="colGeneroCarrito" prefWidth="86.66670227050781" text="Genero" />
                                     <TableColumn fx:id="colTipoCarrito" prefWidth="69.99993896484375" text="Tipo" />
                                     <TableColumn fx:id="colPrecioCarrito" prefWidth="130.66665649414062" text="Precio" />
+                                    <TableColumn fx:id="colUnidadesCarrito" prefWidth="84.0" text="Unidades" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="btnEliminarCarrito" layoutX="324.0" layoutY="418.0" mnemonicParsing="false" onAction="#eliminarCarrito" text="Eliminar" />
+                              <Button id="btn" fx:id="btnEliminarCarrito" layoutX="218.0" layoutY="418.0" mnemonicParsing="false" onAction="#eliminarCarrito" text="Eliminar" textFill="WHITE" />
+                              <Button id="btn" fx:id="btnComprarCarrito" layoutX="440.0" layoutY="418.0" mnemonicParsing="false" onAction="#comprarCarrito" text="Comprar" textFill="WHITE" />
                            </children></AnchorPane>
                     </content>
                   </Tab>
@@ -123,7 +125,7 @@
                                     <TableColumn fx:id="colPrecioFavorito" prefWidth="130.66665649414062" text="Precio" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="btnEliminarFavorito" layoutX="321.0" layoutY="413.0" mnemonicParsing="false" onAction="#eliminarFavorito" text="Eliminar" />
+                              <Button id="btn" fx:id="btnEliminarFavorito" layoutX="321.0" layoutY="417.0" mnemonicParsing="false" onAction="#eliminarFavorito" text="Eliminar" textFill="WHITE" />
                            </children></AnchorPane>
                     </content>
                   </Tab>

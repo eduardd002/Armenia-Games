@@ -6,6 +6,8 @@ import co.edu.uniquindio.armeniagames.enumm.TipoGeneroVideojuego;
 public class Carrito {
 
     private int totalCarrito;
+
+    private int unidadesCarrito;
     private String documentoJugadorCarrito, jugadorCarrito, apellidoCarrito, codigoCarrito, nombreVideojuegoCarrito;
 
     private TipoFormatoVideojuego tipoFormatoVideojuegoCarrito;
@@ -24,6 +26,14 @@ public class Carrito {
 
     public String getDocumentoJugadorCarrito() {
         return documentoJugadorCarrito;
+    }
+
+    public int getUnidadesCarrito() {
+        return unidadesCarrito;
+    }
+
+    public void setUnidadesCarrito(int unidadesCarrito) {
+        this.unidadesCarrito = unidadesCarrito;
     }
 
     public void setDocumentoJugadorCarrito(String documentoJugadorCarrito) {

@@ -257,25 +257,6 @@ public class Main extends Application implements MainService {
         }
     }
 
-    public void cargarVentanaReporte() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ReporteView.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root);
-            Stage newStage = new Stage();
-            newStage.centerOnScreen();
-            newStage.setTitle("Ventana Reporte");
-            newStage.setResizable(false);
-            newStage.setScene(scene);
-            newStage.show();
-            persistencia.guardaRegistroLog(mensajesInformacionConstant.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Reporte");
-        } catch (Exception e) {
-            e.printStackTrace();
-            persistencia.guardaRegistroLog(mensajesExcepcionConstant.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Reporte" + e.getMessage());
-        }
-    }
-
     public static void main(String[] args) {
         launch();
     }

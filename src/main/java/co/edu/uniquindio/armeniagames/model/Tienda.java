@@ -344,6 +344,7 @@ public class Tienda{
         car.setApellidoCarrito(carrito.getApellidoCarrito());
         car.setCodigoCarrito(carrito.getCodigoCarrito());
         car.setTotalCarrito(carrito.getTotalCarrito());
+        car.setUnidadesCarrito(carrito.getUnidadesCarrito());
         car.setNombreVideojuegoCarrito(carrito.getNombreVideojuegoCarrito());
         car.setTipoFormatoVideojuegoCarrito(carrito.getTipoFormatoVideojuegoCarrito());
         car.setTipoGeneroVideojuegoCarrito(carrito.getTipoGeneroVideojuegoCarrito());

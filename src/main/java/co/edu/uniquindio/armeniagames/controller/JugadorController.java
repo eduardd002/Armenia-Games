@@ -59,7 +59,7 @@ public class JugadorController implements Initializable {
     @FXML
     private Button btnEliminarCuenta, btnConsulta, btnPrestamo, btnSalir,
             btnActualizarPago, btnActualizar, btnActualizarEnvio, btnCarrito, btnFavorito,
-            btnEliminarCarrito, btnEliminarFavorito;
+            btnEliminarCarrito, btnEliminarFavorito, btnComprarCarrito;
 
     @FXML
     private DatePicker dateCaducidad;
@@ -115,6 +115,11 @@ public class JugadorController implements Initializable {
     public void prestamo() {
         compraJugador();
         limpiarCampos();
+    }
+
+    @FXML
+    public void comprarCarrito() {
+        comprarElCarrito();
     }
 
     @FXML
@@ -202,18 +207,20 @@ public class JugadorController implements Initializable {
             }
             listaPrestamosNueva.add(compra);
             tablaPrestamos.setItems(listaPrestamosNueva);
-            cerrarVentana(btnPrestamo);
-            main.cargarVentanaReporte();
             actualizarInventario();
             actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
         }
+    }
+
+    public void comprarElCarrito() {
+
     }
 
     public void agregarCarrito() {
 
         Carrito car;
         Carrito carrito = new Carrito();
-
+        int unidades = Integer.parseInt(txtUnidadesComprar.getText());
         Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
         Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
 
@@ -221,6 +228,7 @@ public class JugadorController implements Initializable {
         carrito.setJugadorCarrito(jugador.getNombrePersona());
         carrito.setApellidoCarrito(jugador.getApellido());
         carrito.setCodigoCarrito(videojuego.getCodigo());
+        carrito.setUnidadesCarrito(unidades);
         carrito.setNombreVideojuegoCarrito(videojuego.getNombreVideojuego());
         carrito.setTipoGeneroVideojuegoCarrito(videojuego.getTipoGeneroVideojuego());
         carrito.setTipoFormatoVideojuegoCarrito(videojuego.getTipoFormatoVideojuego());
@@ -248,6 +256,8 @@ public class JugadorController implements Initializable {
                 int disponibles = Integer.parseInt(txtUnidadesDisponibles.getText());
                 int comprar = Integer.parseInt(txtUnidadesComprar.getText());
                 btnPrestamo.setDisable((comprar > disponibles) || comprar < 1);
+                btnCarrito.setDisable((comprar > disponibles) || comprar < 1);
+                btnFavorito.setDisable((comprar > disponibles) || comprar < 1);
             }catch (NumberFormatException e){
 
             }
@@ -304,14 +314,8 @@ public class JugadorController implements Initializable {
         imgVideojuego.setImage(img);
         txtUnidadesComprar.setDisable(false);
 
-        btnPrestamo.setDisable(false);
-        btnCarrito.setDisable(false);
-        btnFavorito.setDisable(false);
-
         if (videojuego.getUnidades() == 0) {
-            btnPrestamo.setDisable(true);
-            btnCarrito.setDisable(true);
-            btnFavorito.setDisable(true);
+            txtUnidadesComprar.setDisable(true);
         }
     }
 
@@ -1326,12 +1330,16 @@ public class JugadorController implements Initializable {
     private TableColumn<Compra, Integer> colTipoCarrito;
 
     @FXML
+    private TableColumn<Compra, Integer> colUnidadesCarrito;
+
+    @FXML
     private TableColumn<Compra, Integer> colPrecioCarrito;
 
     public void inicializarCarritoView() {
 
         colCodigoCarrito.setCellValueFactory(new PropertyValueFactory<>("codigoCarrito"));
         colVideojuegoCarrito.setCellValueFactory(new PropertyValueFactory<>("nombreVideojuegoCarrito"));
+        colUnidadesCarrito.setCellValueFactory(new PropertyValueFactory<>("unidadesCarrito"));
         colTipoCarrito.setCellValueFactory(new PropertyValueFactory<>("tipoFormatoVideojuegoCarrito"));
         colPrecioCarrito.setCellValueFactory(new PropertyValueFactory<>("totalCarrito"));
         colGeneroCarrito.setCellValueFactory(new PropertyValueFactory<>("tipoGeneroVideojuegoCarrito"));

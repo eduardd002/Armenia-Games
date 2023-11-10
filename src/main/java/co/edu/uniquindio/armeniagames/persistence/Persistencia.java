@@ -234,6 +234,7 @@ public class Persistencia  implements PersistenciaService {
                  append(car.getNombreVideojuegoCarrito()).append("--").
                  append(car.getTipoFormatoVideojuegoCarrito()).append("--").
                  append(car.getTipoGeneroVideojuegoCarrito()).append("--").
+                 append(car.getUnidadesCarrito()).append("--").
                  append(car.getTotalCarrito()).append("\n");
       }
       archivoUtil.guardarArchivo(rutaCarrito, contenido.toString(), false);
@@ -258,9 +259,9 @@ public class Persistencia  implements PersistenciaService {
          prest.setCodigoCarrito(linea.split("--")[3]);
          prest.setNombreVideojuegoCarrito(linea.split("--")[4]);
          prest.setTipoFormatoVideojuegoCarrito(TipoFormatoVideojuego.valueOf(linea.split("--")[5]));
-         prest.setTipoGeneroVideojuegoCarrito(TipoGeneroVideojuego.valueOf(linea.split("--")[6]));
-
-         prest.setTotalCarrito(Integer.parseInt(linea.split("--")[7]));
+         prest.setUnidadesCarrito(Integer.parseInt(linea.split("--")[6]));
+         prest.setTipoGeneroVideojuegoCarrito(TipoGeneroVideojuego.valueOf(linea.split("--")[7]));
+         prest.setTotalCarrito(Integer.parseInt(linea.split("--")[8]));
 
          prestamo.add(prest);
       }
