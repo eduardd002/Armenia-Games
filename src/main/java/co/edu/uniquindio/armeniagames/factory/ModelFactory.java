@@ -308,6 +308,10 @@ public class ModelFactory {
             mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_JUGADOR_NO_EXISTE,
                     Alert.AlertType.ERROR);
             persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_JUGADOR_NO_EXISTE);
+        }catch (FechaPasoException e) {
+            mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_FECHA_PASO,
+                    Alert.AlertType.ERROR);
+            persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_FECHA_PASO);
         } catch (IOException e){
             mostrarMensaje("Notificación No Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO,
                     Alert.AlertType.ERROR);

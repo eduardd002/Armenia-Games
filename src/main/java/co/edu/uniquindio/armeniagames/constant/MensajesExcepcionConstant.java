@@ -11,6 +11,7 @@ public class MensajesExcepcionConstant {
     public final String ERROR_FAVORITO_NO_ELIMINADO = "El favorito no se pudo eliminar con exito";
     public final String ERROR_CARRITO_NO_ELIMINADO = "El carrito no se pudo eliminar con exito";
     public final String ERROR_CARGAR_DATOS = "Ha ocurrido al cargar los datos";
+    public final String ERROR_FECHA_PASO = "La fecha para la devolucion ya paso";
     public final String ERROR_CORREO_NO_ENVIADO = "El correo no se ha podido enviar correctamente";
     public final String ERROR_CARGAR_VENTANA = "Ha ocurrido al cargar la ventana";
     public final String ERROR_GENERAL = "Ha ocurrido un error inesperado";

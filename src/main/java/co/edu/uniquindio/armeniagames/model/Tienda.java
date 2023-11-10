@@ -6,6 +6,7 @@ import co.edu.uniquindio.armeniagames.exception.*;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -523,7 +524,7 @@ public class Tienda{
         return vid;
     }
 
-    public boolean devolverVideojuego(int factura, String documento) throws CompraNoExisteException, JugadorNoExisteException {
+    public boolean devolverVideojuego(int factura, String documento) throws CompraNoExisteException, JugadorNoExisteException, FechaPasoException {
 
         Compra com;
         com = obtenerCompra(factura);
@@ -535,9 +536,13 @@ public class Tienda{
         }
 
         if(com != null){
-            getListaCompras().remove(com);
-            Videojuego vd = obtenerVideojuego2(com.getCodigo());
-            incrementarInventario(com.getCodigo(), vd.getUnidades(), com.getUnidades());
+            if(com.getFechaCompraFinal().isBefore(LocalDate.now())){
+                throw new FechaPasoException();
+            }else{
+                getListaCompras().remove(com);
+                Videojuego vd = obtenerVideojuego2(com.getCodigo());
+                incrementarInventario(com.getCodigo(), vd.getUnidades(), com.getUnidades());
+            }
         }else{
             throw new CompraNoExisteException();
         }
