@@ -550,6 +550,14 @@ public class Tienda{
         return true;
     }
 
+    public void eliminarCarrito(Carrito carrito) {
+        getListaCarrito().remove(carrito);
+    }
+
+    public void eliminarFavorito(Favorito favorito) {
+        getListaFavoritos().remove(favorito);
+    }
+
     public boolean actualizarVideojuego(Videojuego videojuego)
             throws VideojuegoNoExisteException {
 

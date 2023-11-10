@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
 
 public class JugadorController implements Initializable {
 
+    public Carrito carritoSeleccionado;
+    public Favorito favoritoSeleccionado;
     public Main main = new Main();
     public ModelFactory factoryController = new ModelFactory();
     public JugadorSubcontroller subcontroller;
@@ -136,11 +138,21 @@ public class JugadorController implements Initializable {
     }
 
     private void eliminarVideojuegoFavorito() {
-        System.out.println("evf");
+        if (favoritoSeleccionado != null) {
+            subcontroller.eliminarFavorito(favoritoSeleccionado);
+            listaFavoritoNueva.remove(favoritoSeleccionado);
+            tablaFavorito.setItems(listaFavoritoNueva);
+            tablaFavorito.refresh();
+        }
     }
 
     private void eliminarVideojuegoCarrito() {
-        System.out.println("evc");
+        if (carritoSeleccionado != null) {
+            subcontroller.eliminarCarrito(carritoSeleccionado);
+            listaCarritoNueva.remove(carritoSeleccionado);
+            tablaCarrito.setItems(listaCarritoNueva);
+            tablaCarrito.refresh();
+        }
     }
 
     @FXML
@@ -1328,6 +1340,7 @@ public class JugadorController implements Initializable {
         tablaCarrito.setItems(getCarritos());
 
         tablaCarrito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            carritoSeleccionado = newSelection;
         });
     }
 
@@ -1379,6 +1392,7 @@ public class JugadorController implements Initializable {
         tablaFavorito.setItems(getFavoritos());
 
         tablaFavorito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            favoritoSeleccionado = newSelection;
         });
     }
 

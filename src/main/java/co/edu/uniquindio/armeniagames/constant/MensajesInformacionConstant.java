@@ -15,6 +15,8 @@ public class MensajesInformacionConstant {
     public final String INFORMACION_PRESTAMO_GUARDADO = "El prestamo se ha guardado exitosamente";
     public final String INFORMACION_CARRITO_GUARDADO = "El videojuego se ha guardado en el carrito exitosamente";
     public final String INFORMACION_FAVORITO_GUARDADO = "El videojuego se ha guardado en favoritos exitosamente";
+    public final String INFORMACION_CARRITO_ELIMINADO = "El videojuego ha sido eliminado del carrito exitosamente";
+    public final String INFORMACION_FAVORITO_ELIMINADO = "El videojuego ha sido eliminado del favorito exitosamente";
     public final String INFORMACION_ADMINISTRADOR_ACTUALIZADO = "El administrador se ha actualizado exitosamente";
     public final String INFORMACION_ADMINISTRADOR_ELIMINADO = "El administrador se ha eliminado exitosamente";
     public final String INFORMACION_JUGADOR_ACTUALIZADO = "El jugador se ha actualizado exitosamente";

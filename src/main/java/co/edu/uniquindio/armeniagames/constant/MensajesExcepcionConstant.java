@@ -8,6 +8,8 @@ public class MensajesExcepcionConstant {
     public final String ERROR_JUGADOR_YA_EXISTE = "El jugador ya se encuentra registrado";
     public final String ERROR_CUENTA_BLOQUEADA = "Su cuenta ha sido bloqueada, comuniquese con la tienda";
     public final String ERROR_CLAVES_NO_COINCIDEN = "Las claves no coinciden";
+    public final String ERROR_FAVORITO_NO_ELIMINADO = "El favorito no se pudo eliminar con exito";
+    public final String ERROR_CARRITO_NO_ELIMINADO = "El carrito no se pudo eliminar con exito";
     public final String ERROR_CARGAR_DATOS = "Ha ocurrido al cargar los datos";
     public final String ERROR_CORREO_NO_ENVIADO = "El correo no se ha podido enviar correctamente";
     public final String ERROR_CARGAR_VENTANA = "Ha ocurrido al cargar la ventana";

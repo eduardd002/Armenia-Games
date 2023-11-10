@@ -46,6 +46,14 @@ public class JugadorSubcontroller {
         return factoryController.getListaFavorito(jug);
     }
 
+        public void eliminarFavorito(Favorito favorito) {
+        factoryController.eliminarFavorito(favorito);
+    }
+
+    public void eliminarCarrito(Carrito carrito) {
+        factoryController.eliminarCarrito(carrito);
+    }
+
     public void email(String titulo, String cuerpo, String correo, String img) {
         factoryController.correo(titulo, cuerpo, correo, img);
     }

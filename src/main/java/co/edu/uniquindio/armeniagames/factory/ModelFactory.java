@@ -675,6 +675,30 @@ public class ModelFactory {
         }
     }
 
+    public void eliminarFavorito(Favorito favorito) {
+
+        try {
+            getTienda().eliminarFavorito(favorito);
+            persistencia.guardarFavorito(getListaFavorito2());
+            persistencia.guardaRegistroLog("Favorito Eliminado", 1, mensajesInformacionConstant.INFORMACION_FAVORITO_ELIMINADO);
+        } catch (Exception e) {
+            persistencia.guardaRegistroLog("Favorito No Eliminado", 3,
+                    mensajesExcepcionConstant.ERROR_FAVORITO_NO_ELIMINADO + e.getMessage());
+        }
+    }
+
+    public void eliminarCarrito(Carrito carrito) {
+
+        try {
+            getTienda().eliminarCarrito(carrito);
+            persistencia.guardarCarrito(getListaCarrito2());
+            persistencia.guardaRegistroLog("Carrito Eliminado", 1, mensajesInformacionConstant.INFORMACION_CARRITO_ELIMINADO);
+        } catch (Exception e) {
+            persistencia.guardaRegistroLog("Carrito No Eliminado", 3,
+                    mensajesExcepcionConstant.ERROR_CARRITO_NO_ELIMINADO + e.getMessage());
+        }
+    }
+
     public int generarNum(){
         return getTienda().generarNumAleatorio();
     }
