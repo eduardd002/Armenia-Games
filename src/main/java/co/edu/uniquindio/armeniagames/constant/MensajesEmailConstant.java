@@ -9,6 +9,8 @@ public class MensajesEmailConstant {
     public final String MENSAJE_REGISTRO_CUERPO = "Bienvenido a Armenia Games";
     public final String MENSAJE_CLAVE = "Usted ha cambiado la clave";
     public final String MENSAJE_COMPRA = "Se ha comprador  un videojuego";
+    public final String MENSAJE_DEVOLUCION = "Se ha devuelto un videojuego";
+    public final String MENSAJE_DEVOLUCION_CUERPO = "Se ha realizado la devolucion del videojuego ";
     public final String MENSAJE_VENTA = "Se ha vendido un videojuego";
     public final String MENSAJE_COMPRA_CUERPO = "Usted ha realizado la compra del videojuego ";
     public final String MENSAJE_VENTA_CUERPO = "Se ha realizado la venta del videojuego ";

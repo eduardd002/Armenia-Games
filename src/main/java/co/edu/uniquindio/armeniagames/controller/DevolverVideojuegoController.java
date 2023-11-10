@@ -1,5 +1,6 @@
 package co.edu.uniquindio.armeniagames.controller;
 
+import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.main.Main;
 import co.edu.uniquindio.armeniagames.model.Compra;
@@ -44,13 +45,16 @@ public class DevolverVideojuegoController implements Initializable {
 
         int factura = Integer.parseInt(txtFactura.getText());
         Jugador jugadore = subcontroller.traerJugador(txtDocumento.getText());
-
+        Compra com = subcontroller.traerCompra(factura);
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
         boolean devuelta;
+        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\devolucion.jpg";
 
         devuelta = subcontroller.devolverCompra(factura);
 
         if (devuelta) {
             subcontroller.actualizarHistorial(jugadore.getDocumento(), (jugadore.getVideojuegosComprados() - 1));
+            subcontroller.email(mensajes.MENSAJE_DEVOLUCION, (mensajes.MENSAJE_DEVOLUCION_CUERPO + com.getNombreVideojuego()), jugadore.getCorreo(), img);
         }
         cerrarVentana();
         main.cargarVentanaAdministrador();

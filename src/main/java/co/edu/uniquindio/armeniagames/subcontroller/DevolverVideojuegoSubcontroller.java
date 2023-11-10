@@ -19,16 +19,16 @@ public class DevolverVideojuegoSubcontroller {
         return factoryController.traerJugadorEnvioYPago(documento);
     }
 
-    public ArrayList<Compra> traerCompras() {
-        return factoryController.getListaCompras2();
-    }
-
-    public ArrayList<Videojuego> traerVideojuegos() {
-        return factoryController.getListaVideojuegos();
+    public Compra traerCompra(int factura) {
+        return factoryController.obtenerCompra(factura);
     }
 
     public void actualizarHistorial(String jugador, int jugados){
         factoryController.actualizarHistorial2(jugador, jugados);
+    }
+
+    public void email(String titulo, String cuerpo, String correo, String img) {
+        factoryController.correo(titulo, cuerpo, correo, img);
     }
 
     public boolean devolverCompra(int factura) {

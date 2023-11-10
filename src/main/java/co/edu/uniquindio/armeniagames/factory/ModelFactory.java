@@ -556,6 +556,17 @@ public class ModelFactory {
         return cambio;
     }
 
+    public Compra obtenerCompra(int factura){
+        Compra c = null;
+
+        for (Compra compra : getTienda().getListaCompras()) {
+            if(compra.getFactura() == factura) {
+                c = compra;
+            }
+        }
+        return c;
+    }
+
     public boolean cambiarClaveAdministrador(String documento, String clave, String confirmacion) {
 
         boolean cambio = false;
