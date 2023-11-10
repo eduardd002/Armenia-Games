@@ -43,21 +43,22 @@ public class DevolverVideojuegoController implements Initializable {
 
     public void devolverAlquiler() {
 
-        int factura = Integer.parseInt(txtFactura.getText());
+        String doc = txtFactura.getText();
+        int factura = Integer.parseInt(doc);
         Jugador jugadore = subcontroller.traerJugador(txtDocumento.getText());
         Compra com = subcontroller.traerCompra(factura);
         MensajesEmailConstant mensajes = new MensajesEmailConstant();
         boolean devuelta;
         String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\devolucion.jpg";
 
-        devuelta = subcontroller.devolverCompra(factura);
+        devuelta = subcontroller.devolverCompra(factura, doc);
 
         if (devuelta) {
             subcontroller.actualizarHistorial(jugadore.getDocumento(), (jugadore.getVideojuegosComprados() - 1));
             subcontroller.email(mensajes.MENSAJE_DEVOLUCION, (mensajes.MENSAJE_DEVOLUCION_CUERPO + com.getNombreVideojuego()), jugadore.getCorreo(), img);
+            cerrarVentana();
+            main.cargarVentanaAdministrador();
         }
-        cerrarVentana();
-        main.cargarVentanaAdministrador();
     }
 
 
@@ -71,7 +72,21 @@ public class DevolverVideojuegoController implements Initializable {
                     !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
                 txtFactura.deletePreviousChar();
             }
-            btnDevolver.setDisable(txtFactura.getText().isEmpty());
+            txtDocumento.setDisable(txtFactura.getText().isEmpty());
+        }
+    }
+
+    @FXML
+    public void eventoText2(KeyEvent event) {
+        Object evt = event.getSource();
+
+        if (evt.equals(txtDocumento)) {
+
+            if (Character.isLetter(event.getCharacter().charAt(0)) ||
+                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+                txtDocumento.deletePreviousChar();
+            }
+            btnDevolver.setDisable(txtDocumento.getText().isEmpty());
         }
     }
 

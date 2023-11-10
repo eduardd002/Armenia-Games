@@ -25,6 +25,7 @@ public class MensajesExcepcionConstant {
     public final String ERROR_ADMINISTRADOR_NO_ACTUALIZADO = "El administrador no se ha actualizado existosamente";
     public final String ERROR_ADMINISTRADOR_NO_ELIMINADO = "El administrador no se ha eliminado existosamente";
     public final String ERROR_JUGADOR_NO_ACTUALIZADO = "El jugador no se ha actualizado existosamente";
+    public final String ERROR_JUGADOR_NO_EXISTE = "El jugador no existe";
     public final String ERROR_INVENTARIO_NO_ACTUALIZADO = "El jugador no se ha actualizado existosamente";
     public final String ERROR_JUGADOR_NO_ELIMINADO = "El jugador no se ha eliminado existosamente";
     public final String ERROR_CAMBIAR_CLAVE = "La clave no se ha podido cambiar exitosamente";

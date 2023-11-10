@@ -79,7 +79,7 @@ public class JugadorController implements Initializable {
     private TableView<Compra> tablaPrestamos;
 
     @FXML
-    private TableColumn<Compra, Integer> colPrecio;
+    private TableColumn<Compra, Integer> colPrecio, colFactura;
 
     @FXML
     private TableColumn<Compra, Integer> colCantidad;
@@ -369,13 +369,14 @@ public class JugadorController implements Initializable {
 
         Usuario jugador = subcontroller.traerUsuarioAuxiliar();
         boolean cuentaEliminada, rsMensaje;
-
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
         rsMensaje = factoryController.mostrarMensajeConfirmacion("¿Seguro desea eliminar la cuenta?");
-
+        String imgCorreo = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\eliminado.jpg";
         if (rsMensaje) {
             cuentaEliminada = subcontroller.eliminarJugador(jugador.getDocumento());
 
             if (cuentaEliminada) {
+                subcontroller.email(mensajes.MENSAJE_ELIMINADO, mensajes.MENSAJE_ELIMINADO_CUERPO, txtCorreo.getText(), imgCorreo);
                 cerrarVentana2();
                 main.cargarVentanaLogin();
             }
@@ -410,7 +411,7 @@ public class JugadorController implements Initializable {
     public void actualizarDatosJugador() {
 
         Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
-
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String telefono = txtTelefono.getText();
@@ -418,6 +419,7 @@ public class JugadorController implements Initializable {
         String clave = txtContrasenia.getText();
         TipoEstadoCivil estado = comboEstadoCivil.getSelectionModel().getSelectedItem();
         String img = imgUsuario.getImage().getUrl();
+        String imgCorreo = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\actualizado.jpg";
 
         jugador.setNombrePersona(nombre);
         jugador.setApellido(apellido);
@@ -455,6 +457,7 @@ public class JugadorController implements Initializable {
         jugador.setImagen(img);
 
         subcontroller.actualizarJugador(jugador);
+        subcontroller.email(mensajes.MENSAJE_ACTUALIZADO, mensajes.MENSAJE_ACTUALIZADO_CUERPO, correo, imgCorreo);
 
     }
 
@@ -1411,6 +1414,7 @@ public class JugadorController implements Initializable {
     public void inicializarComprasView() {
 
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        colFactura.setCellValueFactory(new PropertyValueFactory<>("factura"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombreVideojuego"));
         colCantidad.setCellValueFactory(new PropertyValueFactory<>("unidades"));
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("total"));

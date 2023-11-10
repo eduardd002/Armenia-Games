@@ -10,17 +10,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.DevolverVideojuegoController">
+<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.DevolverVideojuegoController">
     <children>
-        <Pane id="panel" prefHeight="400.0" prefWidth="600.0">
+        <Pane id="panel" prefHeight="300.0" prefWidth="500.0">
             <children>
-                <Label id="LabelText" layoutX="147.0" layoutY="72.0" text="Factura:" textFill="WHITE" />
-                <TextField id="txt" fx:id="txtFactura" layoutX="199.0" layoutY="65.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="182.0" />
-                <Button id="btn" fx:id="btnDevolver" disable="true" layoutX="264.0" layoutY="328.0" mnemonicParsing="false" onAction="#devolver" text="Devolver" textFill="WHITE">
+                <Label id="LabelText" layoutX="111.0" layoutY="82.0" text="Factura:" textFill="WHITE" />
+                <TextField id="txt" fx:id="txtFactura" layoutX="189.0" layoutY="75.0" onKeyTyped="#eventoText" prefHeight="39.0" prefWidth="182.0" />
+                <Button id="btn" fx:id="btnDevolver" disable="true" layoutX="215.0" layoutY="226.0" mnemonicParsing="false" onAction="#devolver" text="Devolver" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-              <Button id="btn" fx:id="btnSalir" layoutX="535.0" layoutY="11.0" mnemonicParsing="false" onAction="#salir" prefHeight="39.0" prefWidth="54.0" stylesheets="@AplicacionStyle.css">
+              <Button id="btn" fx:id="btnSalir" layoutX="437.0" layoutY="11.0" mnemonicParsing="false" onAction="#salir" prefHeight="39.0" prefWidth="54.0" stylesheets="@AplicacionStyle.css">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -29,7 +29,8 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField fx:id="txtDocumento" layoutX="238.0" layoutY="175.0" />
+            <TextField id="txt" fx:id="txtDocumento" disable="true" layoutX="189.0" layoutY="125.0" onKeyTyped="#eventoText2" />
+            <Label id="LabelText" layoutX="111.0" layoutY="131.0" text="Documento:" textFill="WHITE" />
             </children>
          <stylesheets>
             <URL value="@DevolverRenovarStyle.css" />

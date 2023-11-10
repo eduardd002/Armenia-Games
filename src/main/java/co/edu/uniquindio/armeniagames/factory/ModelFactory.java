@@ -289,11 +289,11 @@ public class ModelFactory {
         return jugador;
     }
 
-    public boolean devolverCompra(int factura){
+    public boolean devolverCompra(int factura, String documento){
         boolean videojuegoDevuleto = false;
 
         try {
-            videojuegoDevuleto = getTienda().devolverVideojuego(factura);
+            videojuegoDevuleto = getTienda().devolverVideojuego(factura, documento);
             persistencia.guardarVideojuego(getListaVideojuegos());
             persistencia.guardarCompra(getListaCompras2());
             persistencia.guardarJugador(getListaJugadores());
@@ -304,7 +304,11 @@ public class ModelFactory {
             mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO,
                     Alert.AlertType.ERROR);
             persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO);
-        }catch (Exception e){
+        }catch (JugadorNoExisteException e) {
+            mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_JUGADOR_NO_EXISTE,
+                    Alert.AlertType.ERROR);
+            persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_JUGADOR_NO_EXISTE);
+        } catch (IOException e){
             mostrarMensaje("Notificación No Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO,
                     Alert.AlertType.ERROR);
             persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO);

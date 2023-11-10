@@ -44,7 +44,7 @@ public class AdministradorController implements Initializable {
     private TableColumn<Compra, LocalDate> colFechaFPrestamo, colFechaIPrestamo;
 
     @FXML
-    private TableColumn<Compra, String> colNombrePrestamo, colVideojuegoPrestamo;
+    private TableColumn<Compra, String> colNombrePrestamo, colVideojuegoPrestamo, colDocumento;
     @FXML
     private TableColumn<Compra, Integer> colFactura, colPrecio, colCantidad;
 
@@ -291,6 +291,7 @@ public class AdministradorController implements Initializable {
 
         colFactura.setCellValueFactory(new PropertyValueFactory<>("factura"));
         colNombrePrestamo.setCellValueFactory(new PropertyValueFactory<>("jugador"));
+        colDocumento.setCellValueFactory(new PropertyValueFactory<>("documentoJugador"));
         colCantidad.setCellValueFactory(new PropertyValueFactory<>("unidades"));
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("total"));
         colVideojuegoPrestamo.setCellValueFactory(new PropertyValueFactory<>("nombreVideojuego"));

@@ -9,6 +9,10 @@ public class MensajesEmailConstant {
     public final String MENSAJE_REGISTRO_CUERPO = "Bienvenido a Armenia Games";
     public final String MENSAJE_CLAVE = "Usted ha cambiado la clave";
     public final String MENSAJE_COMPRA = "Se ha comprador  un videojuego";
+    public final String MENSAJE_ELIMINADO = "Se ha eliminado su cuenta";
+    public final String MENSAJE_ACTUALIZADO = "Se han actualizado los datos de su cuenta";
+    public final String MENSAJE_ELIMINADO_CUERPO = "Su cuenta ha sido eliminada con exito";
+    public final String MENSAJE_ACTUALIZADO_CUERPO = "Los datos de su cuenta se han actualizado con exito";
     public final String MENSAJE_DEVOLUCION = "Se ha devuelto un videojuego";
     public final String MENSAJE_DEVOLUCION_CUERPO = "Se ha realizado la devolucion del videojuego ";
     public final String MENSAJE_VENTA = "Se ha vendido un videojuego";

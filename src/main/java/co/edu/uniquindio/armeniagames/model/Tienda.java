@@ -523,10 +523,16 @@ public class Tienda{
         return vid;
     }
 
-    public boolean devolverVideojuego(int factura) throws CompraNoExisteException{
+    public boolean devolverVideojuego(int factura, String documento) throws CompraNoExisteException, JugadorNoExisteException {
 
         Compra com;
         com = obtenerCompra(factura);
+
+        for (Compra c : getListaCompras()) {
+            if(c.getDocumentoJugador().equals(documento)){
+                throw new JugadorNoExisteException();
+            }
+        }
 
         if(com != null){
             getListaCompras().remove(com);
