@@ -747,11 +747,26 @@ public class ModelFactory {
 
         Jugador jug = null;
 
-        for (Jugador jugador : getTienda().getListaJugadores()) {
-            if(jugador.getDocumento().equals(documento)) {
-                jug = jugador;
+            for (Jugador jugador : getTienda().getListaJugadores()) {
+                if (jugador.getDocumento().equals(documento)) {
+                    jug = jugador;
+                }
             }
-        }
+        return jug;
+    }
+
+    public Jugador traerJugadorEnvioYPago2(String documento) {
+
+        Jugador jug = null;
+
+            getTienda().obtenerJugador(documento);
+
+            for (Jugador jugador : getTienda().getListaJugadores()) {
+                if (jugador.getDocumento().equals(documento)) {
+                    jug = jugador;
+                }
+            }
+
         return jug;
     }
 

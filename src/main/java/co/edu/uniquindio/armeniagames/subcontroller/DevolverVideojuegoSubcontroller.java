@@ -16,7 +16,7 @@ public class DevolverVideojuegoSubcontroller {
     }
 
     public Jugador traerJugador(String documento) {
-        return factoryController.traerJugadorEnvioYPago(documento);
+        return factoryController.traerJugadorEnvioYPago2(documento);
     }
 
     public Compra traerCompra(int factura) {

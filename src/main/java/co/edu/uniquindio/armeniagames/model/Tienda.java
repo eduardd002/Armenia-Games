@@ -528,11 +528,10 @@ public class Tienda{
 
         Compra com;
         com = obtenerCompra(factura);
-
-        for (Compra c : getListaCompras()) {
-            if(c.getDocumentoJugador().equals(documento)){
-                throw new JugadorNoExisteException();
-            }
+        Jugador jug = obtenerJugador(documento);
+        System.out.println(documento);
+        if(jug == null){
+            throw new JugadorNoExisteException();
         }
 
         if(com != null){
@@ -913,7 +912,7 @@ public class Tienda{
         }
     }
 
-    public void actualizarHistorial2(String jugador, int jugados) {
+    public void actualizarHistorial2(String jugador, int jugados) throws JugadorNoExisteException {
 
         Jugador jug;
 
@@ -925,6 +924,8 @@ public class Tienda{
                     getListaJugadores().set(i, jug);
                 }
             }
+        }else{
+            throw new JugadorNoExisteException();
         }
     }
 

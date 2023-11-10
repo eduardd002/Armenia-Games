@@ -213,7 +213,45 @@ public class JugadorController implements Initializable {
     }
 
     public void comprarElCarrito() {
+        for (Carrito car : listaCarritoNueva) {
+            Compra compra;
+            Compra comp = new Compra();
+            MensajesEmailConstant mensajes = new MensajesEmailConstant();
+            String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
 
+            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(car.getNombreVideojuegoCarrito());
+            Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
+            LocalDate fecha = LocalDate.now();
+            int unidades = car.getUnidadesCarrito();
+
+            int bandera = subcontroller.traerAlquileres().size();
+
+            comp.setFactura(bandera + 1);
+            comp.setDocumentoJugador(jugador.getDocumento());
+            comp.setJugador(jugador.getNombrePersona());
+            comp.setApellido(jugador.getApellido());
+            comp.setCodigo(videojuego.getCodigo());
+            comp.setNombreVideojuego(videojuego.getNombreVideojuego());
+            comp.setTipoGeneroVideojuego(videojuego.getTipoGeneroVideojuego());
+            comp.setTipoFormatoVideojuego(videojuego.getTipoFormatoVideojuego());
+            comp.setFechaCompraInicial(fecha);
+            comp.setFechaCompraFinal(fecha);
+            comp.setUnidades(unidades);
+            comp.setTotal(videojuego.getPrecio()*unidades);
+
+            compra = subcontroller.guardarPrestamo(comp);
+
+            if (compra != null) {
+                subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + comp.getNombreVideojuego()), jugador.getCorreo(), img);
+                for (Administrador admin : subcontroller.traerAdmins()) {
+                    subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
+                }
+                listaPrestamosNueva.add(compra);
+                tablaPrestamos.setItems(listaPrestamosNueva);
+                actualizarInventario2();
+                actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
+            }
+        }
     }
 
     public void agregarCarrito() {
@@ -328,6 +366,18 @@ public class JugadorController implements Initializable {
 
         subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual, compradas);
         txtUnidadesDisponibles.setText(String.valueOf(vid.getUnidades()));
+    }
+
+    public void actualizarInventario2() {
+
+        Videojuego vid = subcontroller.obtenerVideojuego(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
+
+        for (Carrito car : listaCarritoNueva) {
+            int compradas = Integer.parseInt(String.valueOf(car.getUnidadesCarrito()));
+
+            subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), vid.getUnidades(), compradas);
+            txtUnidadesDisponibles.setText(String.valueOf(vid.getUnidades()));
+        }
     }
 
     public void actualizarHistorial(String lector, int librosLeidos) {

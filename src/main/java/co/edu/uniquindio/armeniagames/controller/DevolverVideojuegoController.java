@@ -51,9 +51,9 @@ public class DevolverVideojuegoController implements Initializable {
         boolean devuelta;
         String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\devolucion.jpg";
 
-        devuelta = subcontroller.devolverCompra(factura, doc);
+        devuelta = subcontroller.devolverCompra(factura, txtDocumento.getText());
 
-        if (devuelta) {
+        if (devuelta && jugadore != null) {
             subcontroller.actualizarHistorial(jugadore.getDocumento(), (jugadore.getVideojuegosComprados() - 1));
             subcontroller.email(mensajes.MENSAJE_DEVOLUCION, (mensajes.MENSAJE_DEVOLUCION_CUERPO + com.getNombreVideojuego()), jugadore.getCorreo(), img);
             cerrarVentana();
