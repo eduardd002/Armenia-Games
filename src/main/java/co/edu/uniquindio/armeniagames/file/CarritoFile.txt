@@ -1,2 +1,3 @@
-123456789--Raul--Rivera--654987--Call Of Duty Modern Warfare 2 Xbox--CD--Accion--3--180000
-123456789--Raul--Rivera--987654--Fifa 23 PC--CD--Deportes--2--80000
+123456789--Raul--Rivera--654987--Call Of Duty Modern Warfare 2 Xbox--CD--Accion--5--180000
+123456789--Raul--Rivera--987654--Fifa 23 PC--CD--Deportes--3--80000
+123456789--Raul--Rivera--549854--Dragon Ball Z Kakarot--CD--Estrategia--1--110000

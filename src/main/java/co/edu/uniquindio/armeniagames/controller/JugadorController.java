@@ -352,12 +352,10 @@ public class JugadorController implements Initializable {
         imgVideojuego.setImage(img);
         txtUnidadesComprar.setDisable(false);
 
-        /*
+
         if (videojuego.getUnidades() == 0) {
             txtUnidadesComprar.setDisable(true);
         }
-        */
-
     }
 
     public void actualizarInventario() {
