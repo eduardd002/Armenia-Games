@@ -31,8 +31,8 @@ public class DevolverVideojuegoSubcontroller {
         factoryController.correo(titulo, cuerpo, correo, img);
     }
 
-    public boolean devolverCompra(int factura, String documento) {
-        return factoryController.devolverCompra(factura, documento);
+    public boolean devolverCompra(int factura, String documento, int unidades, String videojuego) {
+        return factoryController.devolverCompra(factura, documento, unidades, videojuego);
     }
 
     public ModelFactory getFactoryController() {

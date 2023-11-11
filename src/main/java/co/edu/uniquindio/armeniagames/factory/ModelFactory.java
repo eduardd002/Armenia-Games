@@ -289,11 +289,11 @@ public class ModelFactory {
         return jugador;
     }
 
-    public boolean devolverCompra(int factura, String documento){
+    public boolean devolverCompra(int factura, String documento, int unidades, String videojuego){
         boolean videojuegoDevuleto = false;
 
         try {
-            videojuegoDevuleto = getTienda().devolverVideojuego(factura, documento);
+            videojuegoDevuleto = getTienda().devolverVideojuego(factura, documento, unidades, videojuego);
             persistencia.guardarVideojuego(getListaVideojuegos());
             persistencia.guardarCompra(getListaCompras2());
             persistencia.guardarJugador(getListaJugadores());

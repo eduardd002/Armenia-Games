@@ -213,19 +213,16 @@ public class JugadorController implements Initializable {
     }
 
     public void comprarElCarrito() {
-        for (Carrito car : listaCarritoNueva) {
-            Compra compra;
-            Compra comp = new Compra();
-            MensajesEmailConstant mensajes = new MensajesEmailConstant();
-            String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
-
-            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(car.getNombreVideojuegoCarrito());
-            Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
-            LocalDate fecha = LocalDate.now();
-            int unidades = car.getUnidadesCarrito();
-
-            int bandera = subcontroller.traerAlquileres().size();
-
+        Compra compra;
+        Compra comp = new Compra();
+        Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
+        LocalDate fecha = LocalDate.now();
+        int bandera = subcontroller.traerAlquileres().size();
+        MensajesEmailConstant mensajes = new MensajesEmailConstant();
+        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
+        for (Carrito c : listaCarritoNueva) {
+            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(c.getNombreVideojuegoCarrito());
+            int unidades = Integer.parseInt(String.valueOf(c.getUnidadesCarrito()));
             comp.setFactura(bandera + 1);
             comp.setDocumentoJugador(jugador.getDocumento());
             comp.setJugador(jugador.getNombrePersona());

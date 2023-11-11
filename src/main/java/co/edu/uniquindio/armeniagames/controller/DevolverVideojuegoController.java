@@ -28,7 +28,7 @@ public class DevolverVideojuegoController implements Initializable {
     private Button btnSalir, btnDevolver;
 
     @FXML
-    private TextField txtFactura, txtDocumento;
+    private TextField txtFactura, txtDocumento, txtUnidades, txtVideojuego;
 
     @FXML
     public void salir(){
@@ -45,16 +45,18 @@ public class DevolverVideojuegoController implements Initializable {
 
         String doc = txtFactura.getText();
         int factura = Integer.parseInt(doc);
+        String videojuego = txtVideojuego.getText();
+        int unidades = Integer.parseInt(txtUnidades.getText());
         Jugador jugadore = subcontroller.traerJugador(txtDocumento.getText());
         Compra com = subcontroller.traerCompra(factura);
         MensajesEmailConstant mensajes = new MensajesEmailConstant();
         boolean devuelta;
         String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\devolucion.jpg";
 
-        devuelta = subcontroller.devolverCompra(factura, txtDocumento.getText());
+        devuelta = subcontroller.devolverCompra(factura, txtDocumento.getText(), unidades, videojuego);
 
         if (devuelta && jugadore != null) {
-            subcontroller.actualizarHistorial(jugadore.getDocumento(), (jugadore.getVideojuegosComprados() - 1));
+            subcontroller.actualizarHistorial(jugadore.getDocumento(), jugadore.getVideojuegosComprados());
             subcontroller.email(mensajes.MENSAJE_DEVOLUCION, (mensajes.MENSAJE_DEVOLUCION_CUERPO + com.getNombreVideojuego()), jugadore.getCorreo(), img);
             cerrarVentana();
             main.cargarVentanaAdministrador();
@@ -86,7 +88,35 @@ public class DevolverVideojuegoController implements Initializable {
                     !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
                 txtDocumento.deletePreviousChar();
             }
-            btnDevolver.setDisable(txtDocumento.getText().isEmpty());
+            txtVideojuego.setDisable(txtDocumento.getText().isEmpty());
+        }
+    }
+
+    @FXML
+    public void eventoText3(KeyEvent event) {
+        Object evt = event.getSource();
+
+        if (evt.equals(txtVideojuego)) {
+
+            if (Character.isLetter(event.getCharacter().charAt(0)) ||
+                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+                txtVideojuego.deletePreviousChar();
+            }
+            txtUnidades.setDisable(txtVideojuego.getText().isEmpty());
+        }
+    }
+
+    @FXML
+    public void eventoText4(KeyEvent event) {
+        Object evt = event.getSource();
+
+        if (evt.equals(txtUnidades)) {
+
+            if (Character.isLetter(event.getCharacter().charAt(0)) ||
+                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+                txtUnidades.deletePreviousChar();
+            }
+            btnDevolver.setDisable(txtUnidades.getText().isEmpty());
         }
     }
 

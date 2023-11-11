@@ -524,12 +524,11 @@ public class Tienda{
         return vid;
     }
 
-    public boolean devolverVideojuego(int factura, String documento) throws CompraNoExisteException, JugadorNoExisteException, FechaPasoException {
+    public boolean devolverVideojuego(int factura, String documento, int unidades, String videojuego) throws CompraNoExisteException, JugadorNoExisteException, FechaPasoException {
 
         Compra com;
         com = obtenerCompra(factura);
         Jugador jug = obtenerJugador(documento);
-        System.out.println(documento);
         if(jug == null){
             throw new JugadorNoExisteException();
         }
@@ -538,9 +537,13 @@ public class Tienda{
             if(com.getFechaCompraFinal().isBefore(LocalDate.now())){
                 throw new FechaPasoException();
             }else{
-                getListaCompras().remove(com);
+                com.setUnidades(com.getUnidades()-unidades);
+                if(com.getUnidades() == 0){
+                    getListaCompras().remove(com);
+                    jug.setVideojuegosComprados(0);
+                }
                 Videojuego vd = obtenerVideojuego2(com.getCodigo());
-                incrementarInventario(com.getCodigo(), vd.getUnidades(), com.getUnidades());
+                incrementarInventario(videojuego, vd.getUnidades(), unidades);
             }
         }else{
             throw new CompraNoExisteException();
