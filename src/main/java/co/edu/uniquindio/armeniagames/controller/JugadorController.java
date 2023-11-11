@@ -248,7 +248,8 @@ public class JugadorController implements Initializable {
                 }
                 listaPrestamosNueva.add(compra);
                 tablaPrestamos.setItems(listaPrestamosNueva);
-                actualizarInventario2();
+                subcontroller.actualizarVideojuego(comp.getNombreVideojuego(), videojuego.getUnidades(), comp.getUnidades());
+                txtUnidadesDisponibles.setText(String.valueOf(videojuego.getUnidades()));
                 actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
             }
         }
@@ -367,18 +368,6 @@ public class JugadorController implements Initializable {
 
         subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual, compradas);
         txtUnidadesDisponibles.setText(String.valueOf(vid.getUnidades()));
-    }
-
-    public void actualizarInventario2() {
-
-        for(int i = 0; i < listaCarritoNueva.size(); i++){
-            Videojuego v = subcontroller.traerVideojuegoAuxiliar(listaCarritoNueva.get(i).getNombreVideojuegoCarrito());
-            int inventarioActual = Integer.parseInt(String.valueOf(v.getUnidades()));
-            int compradas = Integer.parseInt(String.valueOf(listaCarritoNueva.get(i).getUnidadesCarrito()));
-
-            subcontroller.actualizarVideojuego(v.getNombreVideojuego(), inventarioActual, compradas);
-            txtUnidadesDisponibles.setText(String.valueOf(v.getUnidades()));
-        }
     }
 
     public void actualizarHistorial(String lector, int librosLeidos) {

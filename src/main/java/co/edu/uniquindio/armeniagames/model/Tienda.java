@@ -540,7 +540,7 @@ public class Tienda{
                 com.setUnidades(com.getUnidades()-unidades);
                 if(com.getUnidades() == 0){
                     getListaCompras().remove(com);
-                    jug.setVideojuegosComprados(0);
+                    jug.setVideojuegosComprados(jug.getVideojuegosComprados()-1);
                 }
                 Videojuego vd = obtenerVideojuego2(com.getCodigo());
                 incrementarInventario(videojuego, vd.getUnidades(), unidades);
