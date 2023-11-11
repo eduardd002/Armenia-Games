@@ -213,16 +213,19 @@ public class JugadorController implements Initializable {
     }
 
     public void comprarElCarrito() {
-        Compra compra;
-        Compra comp = new Compra();
-        Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
-        LocalDate fecha = LocalDate.now();
-        int bandera = subcontroller.traerAlquileres().size();
-        MensajesEmailConstant mensajes = new MensajesEmailConstant();
-        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
-        for (Carrito c : listaCarritoNueva) {
-            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(c.getNombreVideojuegoCarrito());
-            int unidades = Integer.parseInt(String.valueOf(c.getUnidadesCarrito()));
+        for(int i = 0; i < listaCarritoNueva.size(); i++){
+            Compra compra;
+            Compra comp = new Compra();
+            MensajesEmailConstant mensajes = new MensajesEmailConstant();
+            String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
+
+            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(listaCarritoNueva.get(i).getNombreVideojuegoCarrito());
+            Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
+            LocalDate fecha = LocalDate.now();
+            int unidades = listaCarritoNueva.get(i).getUnidadesCarrito();
+
+            int bandera = subcontroller.traerAlquileres().size();
+
             comp.setFactura(bandera + 1);
             comp.setDocumentoJugador(jugador.getDocumento());
             comp.setJugador(jugador.getNombrePersona());
@@ -349,9 +352,12 @@ public class JugadorController implements Initializable {
         imgVideojuego.setImage(img);
         txtUnidadesComprar.setDisable(false);
 
+        /*
         if (videojuego.getUnidades() == 0) {
             txtUnidadesComprar.setDisable(true);
         }
+        */
+
     }
 
     public void actualizarInventario() {
@@ -367,13 +373,13 @@ public class JugadorController implements Initializable {
 
     public void actualizarInventario2() {
 
-        Videojuego vid = subcontroller.obtenerVideojuego(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
+        for(int i = 0; i < listaCarritoNueva.size(); i++){
+            Videojuego v = subcontroller.traerVideojuegoAuxiliar(listaCarritoNueva.get(i).getNombreVideojuegoCarrito());
+            int inventarioActual = Integer.parseInt(String.valueOf(v.getUnidades()));
+            int compradas = Integer.parseInt(String.valueOf(listaCarritoNueva.get(i).getUnidadesCarrito()));
 
-        for (Carrito car : listaCarritoNueva) {
-            int compradas = Integer.parseInt(String.valueOf(car.getUnidadesCarrito()));
-
-            subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), vid.getUnidades(), compradas);
-            txtUnidadesDisponibles.setText(String.valueOf(vid.getUnidades()));
+            subcontroller.actualizarVideojuego(v.getNombreVideojuego(), inventarioActual, compradas);
+            txtUnidadesDisponibles.setText(String.valueOf(v.getUnidades()));
         }
     }
 
