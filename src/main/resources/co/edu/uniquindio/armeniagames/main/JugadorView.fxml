@@ -97,7 +97,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView fx:id="tablaCarrito" layoutX="82.0" layoutY="72.0" prefHeight="325.0" prefWidth="536.0">
+                              <TableView fx:id="tablaCarrito" layoutX="82.0" layoutY="32.0" prefHeight="261.0" prefWidth="536.0">
                                  <columns>
                                     <TableColumn fx:id="colCodigoCarrito" prefWidth="75.0" text="Codigo" />
                                     <TableColumn fx:id="colVideojuegoCarrito" prefWidth="86.66670227050781" text="Videojuego" />
@@ -108,7 +108,9 @@
                                  </columns>
                               </TableView>
                               <Button id="btn" fx:id="btnEliminarCarrito" layoutX="218.0" layoutY="418.0" mnemonicParsing="false" onAction="#eliminarCarrito" text="Eliminar" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnComprarCarrito" layoutX="440.0" layoutY="418.0" mnemonicParsing="false" onAction="#comprarCarrito" text="Comprar" textFill="WHITE" />
+                              <Button id="btn" fx:id="btnComprarCarrito" layoutX="390.0" layoutY="418.0" mnemonicParsing="false" onAction="#comprarCarrito" text="Comprar" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtTotalCarrito" editable="false" layoutX="276.0" layoutY="341.0" />
+                              <Label layoutX="218.0" layoutY="347.0" text="Total:" textFill="WHITE" />
                            </children></AnchorPane>
                     </content>
                   </Tab>

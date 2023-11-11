@@ -73,7 +73,7 @@ public class JugadorController implements Initializable {
     @FXML
     private TextField txtUnidadesDisponibles, txtCuenta,
             txtNombre, txtTelefono, txtApellido, txtTitular, txtPostal, txtDireccion,
-            txtBarrio, txtCorreo, txtPrecio, txtUnidadesComprar;
+            txtBarrio, txtCorreo, txtPrecio, txtUnidadesComprar, txtTotalCarrito;
 
     @FXML
     private TableView<Compra> tablaPrestamos;
@@ -1477,6 +1477,14 @@ public class JugadorController implements Initializable {
         Stage stage = (Stage) this.btnEliminarCuenta.getScene().getWindow();
         stage.close();
     }
+    
+    public void totalCarro(){
+        int acum = 0;
+        for (Carrito c : listaCarritoNueva) {
+            acum += (c.getUnidadesCarrito()*c.getTotalCarrito());
+            txtTotalCarrito.setText(String.valueOf(acum));
+        }
+    }
 
     public void iniciarDatos() {
         factoryController = ModelFactory.getInstance();
@@ -1492,6 +1500,7 @@ public class JugadorController implements Initializable {
         inicializarComprasView();
         inicializarCarritoView();
         inicializarFavoritoView();
+        totalCarro();
     }
 
     @Override
