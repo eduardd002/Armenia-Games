@@ -278,6 +278,11 @@ public class JugadorController implements Initializable {
         if (car != null) {
             listaCarritoNueva.add(car);
             tablaCarrito.setItems(listaCarritoNueva);
+            int acum = 0;
+            for (Carrito c : listaCarritoNueva) {
+                acum += (c.getUnidadesCarrito()*c.getTotalCarrito());
+                txtTotalCarrito.setText(String.valueOf(acum));
+            }
         }
     }
 
@@ -1477,14 +1482,6 @@ public class JugadorController implements Initializable {
         Stage stage = (Stage) this.btnEliminarCuenta.getScene().getWindow();
         stage.close();
     }
-    
-    public void totalCarro(){
-        int acum = 0;
-        for (Carrito c : listaCarritoNueva) {
-            acum += (c.getUnidadesCarrito()*c.getTotalCarrito());
-            txtTotalCarrito.setText(String.valueOf(acum));
-        }
-    }
 
     public void iniciarDatos() {
         factoryController = ModelFactory.getInstance();
@@ -1500,7 +1497,6 @@ public class JugadorController implements Initializable {
         inicializarComprasView();
         inicializarCarritoView();
         inicializarFavoritoView();
-        totalCarro();
     }
 
     @Override
