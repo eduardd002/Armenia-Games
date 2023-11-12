@@ -23,6 +23,9 @@ public class MensajesExcepcionConstant {
     public final String ERROR_INTENTO_NO_ACTUALIZADO = "El intento no ha sido actualizado";
     public final String ERROR_VIDEOJUEGO_NO_ACTUALIZADO = "El videojuego no se ha actualizado existosamente";
     public final String ERROR_VIDEOJUEGO_NO_DEVUELTO = "El videojuego no se ha devuelto existosamente";
+    public final String ERROR_COMPRA_NO_EXISTE = "Esta compra no se ha realizado";
+    public final String ERROR_COMPRA_NO_COINCIDE = "Esta compra no coincide";
+    public final String ERROR_CANTIDAD_EXCEDE = "La cantidad ingresada es superior a la de la compra";
     public final String ERROR_ADMINISTRADOR_NO_ACTUALIZADO = "El administrador no se ha actualizado existosamente";
     public final String ERROR_ADMINISTRADOR_NO_ELIMINADO = "El administrador no se ha eliminado existosamente";
     public final String ERROR_JUGADOR_NO_ACTUALIZADO = "El jugador no se ha actualizado existosamente";

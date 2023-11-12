@@ -301,9 +301,9 @@ public class ModelFactory {
                     Alert.AlertType.INFORMATION);
             persistencia.guardaRegistroLog("Videojuego Devuelto", 1, mensajesInformacionConstant.INFORMACION_VIDEOJUEGO_DEVUELTO);
         }catch (CompraNoExisteException e) {
-            mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO,
+            mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_COMPRA_NO_EXISTE,
                     Alert.AlertType.ERROR);
-            persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO);
+            persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_COMPRA_NO_EXISTE);
         }catch (JugadorNoExisteException e) {
             mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_JUGADOR_NO_EXISTE,
                     Alert.AlertType.ERROR);
@@ -313,9 +313,24 @@ public class ModelFactory {
                     Alert.AlertType.ERROR);
             persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_FECHA_PASO);
         } catch (IOException e){
-            mostrarMensaje("Notificación No Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO,
+            mostrarMensaje("Notificación Devolucion", "Videojuego No Devuelto", mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO,
                     Alert.AlertType.ERROR);
             persistencia.guardaRegistroLog("Videojuego No Devuelto", 1, mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_DEVUELTO);
+        } catch (VideojuegoNoExisteException e) {
+            persistencia.guardaRegistroLog("Videojuego No Devuelto", 3,
+                    mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_EXISTE + e.getMessage());
+            mostrarMensaje("Notificacion Devolucion", "Videojuego No Devuelto",
+                    mensajesExcepcionConstant.ERROR_VIDEOJUEGO_NO_EXISTE, Alert.AlertType.ERROR);
+        } catch (CompraNoCoincideException e) {
+            persistencia.guardaRegistroLog("Videojuego No Devuelto", 3,
+                    mensajesExcepcionConstant.ERROR_COMPRA_NO_COINCIDE + e.getMessage());
+            mostrarMensaje("Notificacion Devolucion", "Videojuego No Devuelto",
+                    mensajesExcepcionConstant.ERROR_COMPRA_NO_COINCIDE, Alert.AlertType.ERROR);
+        } catch (CantidadExcedeException e) {
+            persistencia.guardaRegistroLog("Videojuego No Devuelto", 3,
+                    mensajesExcepcionConstant.ERROR_CANTIDAD_EXCEDE + e.getMessage());
+            mostrarMensaje("Notificacion Devolucion", "Videojuego No Devuelto",
+                    mensajesExcepcionConstant.ERROR_CANTIDAD_EXCEDE, Alert.AlertType.ERROR);
         }
         return videojuegoDevuleto;
     }
