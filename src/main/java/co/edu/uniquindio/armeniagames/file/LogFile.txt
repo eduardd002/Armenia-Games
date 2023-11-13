@@ -12,3 +12,45 @@ nov 12, 2023 3:52:30 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoU
 INFO: El videojuego se ha guardado en favoritos exitosamente,Videojuego Guardado En Favorito,2023-11-12
 nov 12, 2023 3:52:32 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
 INFO: El videojuego se ha guardado en el carrito exitosamente,Videojuego Guardado En Carrito,2023-11-12
+nov 12, 2023 7:35:17 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-11-12
+nov 12, 2023 7:35:19 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-11-12
+nov 12, 2023 7:35:25 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-12
+nov 12, 2023 7:35:26 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-11-12
+nov 12, 2023 7:35:31 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El prestamo se ha guardado exitosamente,Compra Guardada,2023-11-12
+nov 12, 2023 7:35:35 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-12
+nov 12, 2023 7:35:38 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-12
+nov 12, 2023 7:35:38 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El videojuego se ha actualizado exitosamente,Videojuego Encontrado,2023-11-12
+nov 12, 2023 7:35:38 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El inventario se ha actualizado exitosamente,Inventario Actualizado,2023-11-12
+nov 12, 2023 7:35:38 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El historial se aumentado exitosamente,Historial Aumentado,2023-11-12
+nov 12, 2023 7:35:48 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+SEVERE: El videojuego no se encuentra registradonull,Videojuego No Encontrado,2023-11-12
+nov 12, 2023 7:37:40 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-11-12
+nov 12, 2023 7:37:42 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-11-12
+nov 12, 2023 7:37:48 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-12
+nov 12, 2023 7:37:49 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-11-12
+nov 12, 2023 7:37:52 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El videojuego se ha actualizado exitosamente,Videojuego Encontrado,2023-11-12
+nov 12, 2023 7:42:42 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-11-12
+nov 12, 2023 7:42:54 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El usuario ha ingresado exitosamente,Ingreso Autorizado,2023-11-12
+nov 12, 2023 7:42:58 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El correo ha sido enviado correctamente,Correo Enviado,2023-11-12
+nov 12, 2023 7:42:59 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: Cargar Ventana Jugador,La ventana se ha cargado exitosamente,2023-11-12
+nov 12, 2023 7:43:05 P. M. co.edu.uniquindio.armeniagames.persistence.ArchivoUtil guardarRegistroLog
+INFO: El videojuego se ha actualizado exitosamente,Videojuego Encontrado,2023-11-12

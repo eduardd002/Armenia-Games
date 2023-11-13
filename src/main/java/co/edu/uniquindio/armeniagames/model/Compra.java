@@ -9,7 +9,6 @@ public class Compra {
 
     private int factura;
     private int total;
-
     private int unidades;
     private String documentoJugador, jugador, apellido, codigo, nombreVideojuego;
 

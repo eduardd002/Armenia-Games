@@ -7,6 +7,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -86,7 +87,7 @@
                         </AnchorPane>
                   </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="124.0" text="Ventana Principal">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="Ventana Principal">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -150,12 +151,54 @@
                         </AnchorPane>
                      </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="119.0" text="Mis Videojuegos">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="89.0" text="Mis Videojuegos">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
                      </graphic>
+                  </Tab>
+                  <Tab text="Detalle">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField id="txt" fx:id="txtFacturaDetalle" layoutX="184.0" layoutY="40.0" onKeyTyped="#eventoTextx" />
+                              <Label layoutX="124.0" layoutY="46.0" text="Factura:" textFill="WHITE" />
+                              <Button id="btn" fx:id="btnGenerarDetalle" disable="true" layoutX="397.0" layoutY="42.0" mnemonicParsing="false" onAction="#generarDetalle" text="Generar detallado de la compra" textFill="WHITE" />
+                              <Separator layoutX="29.0" layoutY="99.0" prefWidth="650.0" />
+                              <Label layoutX="29.0" layoutY="171.0" text="Videojuego:" textFill="WHITE" />
+                              <Label layoutX="29.0" layoutY="218.0" text="Tipo de formato:" textFill="WHITE" />
+                              <Label layoutX="29.0" layoutY="268.0" text="Genero:" textFill="WHITE" />
+                              <Label layoutX="388.0" layoutY="116.0" text="Fecha de compra: " textFill="WHITE" />
+                              <Label layoutX="397.0" layoutY="157.0" text="Fecha maxima" textFill="WHITE" />
+                              <Label layoutX="397.0" layoutY="174.0" text="para devolucion:" textFill="WHITE" />
+                              <Label layoutX="29.0" layoutY="131.0" text="Codigo:" textFill="WHITE" />
+                              <Label layoutX="397.0" layoutY="221.0" text="Banco:" textFill="WHITE" />
+                              <Label layoutX="397.0" layoutY="261.0" text="Tipo cuenta:" textFill="WHITE" />
+                              <Label layoutX="397.0" layoutY="308.0" text="Departamento:" textFill="WHITE" />
+                              <Label layoutX="397.0" layoutY="358.0" text="Municipio:" textFill="WHITE" />
+                              <Label layoutX="388.0" layoutY="412.0" text="Direccion:" textFill="WHITE" />
+                              <Label layoutX="11.0" layoutY="308.0" text="Valor:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtCodigoDetalle" editable="false" layoutX="94.0" layoutY="125.0" />
+                              <TextField id="txt" fx:id="txtVideojuegoDetalle" editable="false" layoutX="94.0" layoutY="165.0" />
+                              <TextField id="txt" fx:id="txtFormatoDetalle" editable="false" layoutX="138.0" layoutY="212.0" />
+                              <TextField id="txt" fx:id="txtGeneroDetalle" editable="false" layoutX="77.0" layoutY="262.0" />
+                              <TextField id="txt" fx:id="txtBancoDetalle" editable="false" layoutX="476.0" layoutY="215.0" />
+                              <TextField id="txt" fx:id="txtCuentaDetalle" editable="false" layoutX="476.0" layoutY="255.0" />
+                              <TextField id="txt" fx:id="txtDepartamentoDetalle" editable="false" layoutX="476.0" layoutY="302.0" />
+                              <TextField id="txt" fx:id="txtMunicipioDetalle" editable="false" layoutX="465.0" layoutY="352.0" />
+                              <TextField id="txt" fx:id="txtValorDetalle" editable="false" layoutX="99.0" layoutY="302.0" />
+                              <TextField id="txt" fx:id="txtDireccionDetalle" editable="false" layoutX="465.0" layoutY="414.0" />
+                              <TextField id="txt" fx:id="txtCompraDetalle" editable="false" layoutX="497.0" layoutY="110.0" />
+                              <TextField id="txt" fx:id="txtDevolucionDetalle" editable="false" layoutX="506.0" layoutY="168.0" />
+                              <Separator layoutX="361.0" layoutY="119.0" orientation="VERTICAL" prefHeight="330.0" />
+                              <Label layoutX="24.0" layoutY="353.0" text="Unidades:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtUnidadesDetalle" editable="false" layoutX="72.0" layoutY="347.0" />
+                              <Label layoutX="24.0" layoutY="397.0" text="Total:" textFill="WHITE" />
+                              <TextField id="txt" fx:id="txtTotalDetalle" editable="false" layoutX="72.0" layoutY="391.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
                   </Tab>
                   <Tab id="Tab">
                     <content>

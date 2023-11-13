@@ -770,6 +770,18 @@ public class ModelFactory {
         return jug;
     }
 
+    public Compra traerCompra(int factura) {
+
+        Compra com = null;
+
+        for (Compra compra : getTienda().getListaCompras()) {
+            if (compra.getFactura() == factura) {
+                com = compra;
+            }
+        }
+        return com;
+    }
+
     public Jugador traerJugadorEnvioYPago2(String documento) {
 
         Jugador jug = null;

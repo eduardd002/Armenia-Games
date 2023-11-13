@@ -30,6 +30,10 @@ public class JugadorSubcontroller {
         return factoryController.traerJugadorEnvioYPago(documento);
     }
 
+    public Compra traerCompra(int factura) {
+        return factoryController.traerCompra(factura);
+    }
+
     public ArrayList<Videojuego> traerListaVideojuegos() {
         return factoryController.getTienda().getListaVideojuegos();
     }

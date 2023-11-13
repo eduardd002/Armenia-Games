@@ -565,6 +565,50 @@ public class JugadorController implements Initializable {
     }
 
     /*
+     ******************************   Apartado detalle   ************************************
+     */
+
+    @FXML
+    private TextField txtFacturaDetalle, txtCodigoDetalle, txtVideojuegoDetalle, txtFormatoDetalle,
+            txtGeneroDetalle, txtCompraDetalle, txtDevolucionDetalle, txtBancoDetalle, txtCuentaDetalle,
+            txtDepartamentoDetalle, txtMunicipioDetalle, txtValorDetalle, txtDireccionDetalle,
+            txtUnidadesDetalle, txtTotalDetalle;
+
+    @FXML
+    private Button btnGenerarDetalle;
+
+    @FXML
+    public void generarDetalle() {
+        generarDetalleCompra();
+    }
+
+    public void generarDetalleCompra(){
+
+        Compra compra = subcontroller.traerCompra(Integer.parseInt(txtFacturaDetalle.getText()));
+        Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
+        Videojuego vid = subcontroller.obtenerVideojuego(compra.getNombreVideojuego());
+
+        int unidades = compra.getUnidades();
+        int precio = vid.getPrecio();
+        int total = unidades * precio;
+
+        txtCodigoDetalle.setText(vid.getCodigo());
+        txtUnidadesDetalle.setText(String.valueOf(unidades));
+        txtTotalDetalle.setText(String.valueOf(total));
+        txtVideojuegoDetalle.setText(vid.getNombreVideojuego());
+        txtFormatoDetalle.setText(String.valueOf(vid.getTipoFormatoVideojuego()));
+        txtGeneroDetalle.setText(String.valueOf(vid.getTipoGeneroVideojuego()));
+        txtCompraDetalle.setText(String.valueOf(compra.getFechaCompraInicial()));
+        txtDevolucionDetalle.setText(String.valueOf(compra.getFechaCompraFinal()));
+        txtBancoDetalle.setText(String.valueOf(jugador.getTipoBanco()));
+        txtCuentaDetalle.setText(String.valueOf(jugador.getTipoCuenta()));
+        txtDepartamentoDetalle.setText(String.valueOf(jugador.getTipoDepartamento()));
+        txtMunicipioDetalle.setText(jugador.getMunicipio());
+        txtValorDetalle.setText(String.valueOf(precio));
+        txtDireccionDetalle.setText(jugador.getDireccion());
+    }
+
+    /*
      ******************************   Apartado mi pago   ************************************
      */
     @FXML
@@ -601,6 +645,20 @@ public class JugadorController implements Initializable {
             btnActualizarPago.setDisable(txtCuenta.getText().isEmpty() ||
                     dateCaducidad.getValue() == null ||
                     txtTitular.getText().isEmpty());
+        }
+    }
+
+    @FXML
+    public void eventoTextx(KeyEvent event) {
+        Object evt = event.getSource();
+
+        if (evt.equals(txtFacturaDetalle)) {
+
+            if (Character.isLetter(event.getCharacter().charAt(0)) ||
+                    !Character.isLetterOrDigit(event.getCharacter().charAt(0))) {
+                txtFacturaDetalle.deletePreviousChar();
+            }
+            btnGenerarDetalle.setDisable(txtFacturaDetalle.getText().isEmpty());
         }
     }
 
