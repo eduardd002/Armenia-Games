@@ -461,6 +461,21 @@ public class Tienda{
         return comp;
     }
 
+    public Compra obtenerCompra2(int factura) throws CompraNoExisteException {
+
+        Compra comp = null;
+
+        for (Compra compra : listaCompras) {
+            if (compra.getFactura() == factura) {
+                comp = compra;
+                break;
+            }else{
+                throw new CompraNoExisteException();
+            }
+        }
+        return comp;
+    }
+
     public boolean verificarVideojuegoExiste(String codigo) {
 
         Videojuego videojuego;

@@ -774,10 +774,15 @@ public class ModelFactory {
 
         Compra com = null;
 
-        for (Compra compra : getTienda().getListaCompras()) {
-            if (compra.getFactura() == factura) {
-                com = compra;
-            }
+        try {
+            com = getTienda().obtenerCompra2(factura);
+            persistencia.guardaRegistroLog("Datos Mostrados", 3,
+                    mensajesInformacionConstant.INFORMACION_COMPRA_ENCONTRADA);
+        }catch (CompraNoExisteException e){
+            persistencia.guardaRegistroLog("Datos No Mostrados", 3,
+                    mensajesExcepcionConstant.ERROR_COMPRA_NO_EXISTE + e.getMessage());
+            mostrarMensaje("Notificacion Mostrar Datos", "Datos No Mostrados",
+                    mensajesExcepcionConstant.ERROR_COMPRA_NO_EXISTE, Alert.AlertType.ERROR);
         }
         return com;
     }

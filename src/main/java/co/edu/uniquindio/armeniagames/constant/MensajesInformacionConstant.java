@@ -5,6 +5,7 @@ public class MensajesInformacionConstant {
     public final String INFORMACION_VIDEOJUEGO_DEVUELTO = "El videojuego ha sido devuelto exitosamente";
     public final String INFORMACION_ADMINISTRADOR_GUARDADO = "El administrador se ha guardado exitosamente";
     public final String INFORMACION_JUGADOR_GUARDADO = "El jugador se ha guardado exitosamente";
+    public final String INFORMACION_COMPRA_ENCONTRADA = "Los datos de la compra se han cargado exitosamente";
     public final String INFORMACION_CARGAR_VENTANA = "La ventana se ha cargado exitosamente";
     public final String INFORMACION_INGRESO_USUARIO = "El usuario ha ingresado exitosamente";
     public final String INFORMACION_BIENVENIDA = "Bienvenido(a) ";
