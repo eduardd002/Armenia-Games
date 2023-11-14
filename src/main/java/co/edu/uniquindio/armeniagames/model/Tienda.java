@@ -319,7 +319,7 @@ public class Tienda{
         Compra comp = new Compra();
 
         comp.setDocumentoJugador(compra.getDocumentoJugador());
-        comp.setFactura(compra.getFactura());
+        comp.setFactura(getListaCompras().size()+1);
         comp.setJugador(compra.getJugador());
         comp.setApellido(compra.getApellido());
         comp.setCodigo(compra.getCodigo());

@@ -157,6 +157,7 @@ public class JugadorController implements Initializable {
             listaCarritoNueva.remove(carritoSeleccionado);
             tablaCarrito.setItems(listaCarritoNueva);
             tablaCarrito.refresh();
+            cargarPrecioCarrito();
         }
     }
 
@@ -183,9 +184,6 @@ public class JugadorController implements Initializable {
         LocalDate fecha = LocalDate.now();
         int unidades = Integer.parseInt(txtUnidadesComprar.getText());
 
-        int bandera = subcontroller.traerAlquileres().size();
-
-        comp.setFactura(bandera + 1);
         comp.setDocumentoJugador(jugador.getDocumento());
         comp.setJugador(jugador.getNombrePersona());
         comp.setApellido(jugador.getApellido());
@@ -278,11 +276,7 @@ public class JugadorController implements Initializable {
         if (car != null) {
             listaCarritoNueva.add(car);
             tablaCarrito.setItems(listaCarritoNueva);
-            int acum = 0;
-            for (Carrito c : listaCarritoNueva) {
-                acum += (c.getUnidadesCarrito()*c.getTotalCarrito());
-                txtTotalCarrito.setText(String.valueOf(acum));
-            }
+            cargarPrecioCarrito();
         }
     }
 
@@ -1546,6 +1540,14 @@ public class JugadorController implements Initializable {
         stage.close();
     }
 
+    public void cargarPrecioCarrito(){
+        int total = 0;
+        for(int i = 0; i < listaCarritoNueva.size(); i++){
+            total += listaCarritoNueva.get(i).getUnidadesCarrito() * listaCarritoNueva.get(i).getTotalCarrito();
+        }
+        txtTotalCarrito.setText(String.valueOf(total));
+    }
+
     public void iniciarDatos() {
         factoryController = ModelFactory.getInstance();
         subcontroller = new JugadorSubcontroller(factoryController);
@@ -1560,6 +1562,7 @@ public class JugadorController implements Initializable {
         inicializarComprasView();
         inicializarCarritoView();
         inicializarFavoritoView();
+        cargarPrecioCarrito();
     }
 
     @Override
