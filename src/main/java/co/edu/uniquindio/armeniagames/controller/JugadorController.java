@@ -57,12 +57,16 @@ public class JugadorController implements Initializable {
     private ImageView imgVideojuego;
 
     @FXML
-    private Button btnEliminarCuenta, btnConsulta, btnPrestamo, btnSalir,
+    private Button btnEliminarCuenta, btnPrestamo, btnSalir,
             btnActualizarPago, btnActualizar, btnActualizarEnvio, btnCarrito, btnFavorito,
             btnEliminarCarrito, btnEliminarFavorito, btnComprarCarrito;
 
     @FXML
     private DatePicker dateCaducidad;
+
+    @FXML
+    private Label lblSgno, lblUnidades, lblFormato, lblGeneroJugador, lblClasificacion, lblMas,
+    lblAComprar;
 
     @FXML
     private TableColumn<Compra, LocalDate> colFechaFinalizacion, colFechaPrestamo;
@@ -71,9 +75,9 @@ public class JugadorController implements Initializable {
     private TableColumn<Compra, String> colNombre, colCodigo;
 
     @FXML
-    private TextField txtUnidadesDisponibles, txtCuenta,
+    private TextField txtUnidadesDisponibles, txtCuenta, txtEdad, txtGeneroJugador,
             txtNombre, txtTelefono, txtApellido, txtTitular, txtPostal, txtDireccion,
-            txtBarrio, txtCorreo, txtPrecio, txtUnidadesComprar, txtTotalCarrito;
+            txtBarrio, txtCorreo, txtPrecio, txtUnidadesComprar, txtTotalCarrito, comboTipoFormato;
 
     @FXML
     private TableView<Compra> tablaPrestamos;
@@ -86,9 +90,6 @@ public class JugadorController implements Initializable {
 
     @FXML
     private ComboBox<TipoEstadoCivil> comboEstadoCivil;
-
-    @FXML
-    private ComboBox<TipoFormatoVideojuego> comboTipoFormato;
 
     @FXML
     private ComboBox<String> comboMunicipio;
@@ -159,11 +160,6 @@ public class JugadorController implements Initializable {
             tablaCarrito.refresh();
             cargarPrecioCarrito();
         }
-    }
-
-    @FXML
-    public void consulta() {
-        consultaJugador();
     }
 
     @FXML
@@ -249,6 +245,7 @@ public class JugadorController implements Initializable {
                 subcontroller.actualizarVideojuego(comp.getNombreVideojuego(), videojuego.getUnidades(), comp.getUnidades());
                 txtUnidadesDisponibles.setText(String.valueOf(videojuego.getUnidades()));
                 actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
+                listaCarritoNueva.clear();
             }
         }
     }
@@ -331,31 +328,11 @@ public class JugadorController implements Initializable {
     public void limpiarCampos(){
         comboVideojuegosDisponiblesAlquiler.setValue(null);
         txtUnidadesComprar.setText(null);
-        comboTipoFormato.setValue(null);
+        comboTipoFormato.setText(null);
         txtPrecio.setText(null);
         txtUnidadesDisponibles.setText(null);
         btnPrestamo.setDisable(true);
-        btnConsulta.setDisable(false);
         imgVideojuego.setImage(null);
-    }
-
-    public void consultaJugador() {
-
-        String codigo = comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem();
-
-        Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(codigo);
-
-        txtUnidadesDisponibles.setText(String.valueOf(videojuego.getUnidades()));
-        txtPrecio.setText(String.valueOf(videojuego.getPrecio()));
-        comboTipoFormato.setValue(videojuego.getTipoFormatoVideojuego());
-        Image img = new Image(videojuego.getImagenVideojuego());
-        imgVideojuego.setImage(img);
-        txtUnidadesComprar.setDisable(false);
-
-
-        if (videojuego.getUnidades() == 0) {
-            txtUnidadesComprar.setDisable(true);
-        }
     }
 
     public void actualizarInventario() {
@@ -387,7 +364,30 @@ public class JugadorController implements Initializable {
         Object evt = event.getSource();
 
         if (evt.equals(comboVideojuegosDisponiblesAlquiler)) {
-            btnConsulta.setDisable(comboVideojuegosDisponiblesAlquiler.getSelectionModel().isEmpty());
+            String codigo = comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem();
+
+            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(codigo);
+
+            txtUnidadesDisponibles.setText(String.valueOf(videojuego.getUnidades()));
+            txtEdad.setText(String.valueOf(videojuego.getClasificacion()));
+            txtPrecio.setText(String.valueOf(videojuego.getPrecio()));
+            txtGeneroJugador.setText(String.valueOf(videojuego.getTipoGeneroVideojuego()));
+            comboTipoFormato.setText(String.valueOf(videojuego.getTipoFormatoVideojuego()));
+            Image img = new Image(videojuego.getImagenVideojuego());
+            imgVideojuego.setImage(img);
+            txtUnidadesComprar.setDisable(false);
+            lblSgno.setVisible(true);
+            lblUnidades.setVisible(true);
+            lblFormato.setVisible(true);
+            lblClasificacion.setVisible(true);
+            lblGeneroJugador.setVisible(true);
+            lblMas.setVisible(true);
+            lblAComprar.setVisible(true);
+            txtUnidadesComprar.setVisible(true);
+
+            if (videojuego.getUnidades() == 0) {
+                txtUnidadesComprar.setDisable(true);
+            }
         }
     }
 

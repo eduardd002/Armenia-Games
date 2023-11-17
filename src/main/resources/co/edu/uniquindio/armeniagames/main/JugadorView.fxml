@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -29,20 +30,18 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ComboBox id="txt" fx:id="comboVideojuegosDisponiblesAlquiler" layoutX="77.0" layoutY="120.0" onAction="#eventoComboBox" prefWidth="150.0">
+                              <ComboBox id="txt" fx:id="comboVideojuegosDisponiblesAlquiler" layoutX="228.0" layoutY="36.0" onAction="#eventoComboBox" prefWidth="150.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <Label id="LabelText" layoutX="77.0" layoutY="90.0" text="Videojuegos disponibles:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="77.0" layoutY="300.0" text="Unidades disponibles:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="299.0" layoutY="200.0" text="Precio (unidad):" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnPrestamo" disable="true" layoutX="245.0" layoutY="400.0" mnemonicParsing="false" onAction="#prestamo" text="Comprar" textFill="WHITE">
+                              <Label id="LabelText" layoutX="84.0" layoutY="42.0" text="Videojuegos disponibles:" textFill="WHITE" />
+                              <Button id="btn" fx:id="btnPrestamo" disable="true" layoutX="503.0" layoutY="424.0" mnemonicParsing="false" onAction="#prestamo" text="Comprar Ahora" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <TextField id="txt" fx:id="txtUnidadesDisponibles" disable="true" layoutX="77.0" layoutY="325.0" />
+                              <TextField id="txt2" fx:id="txtUnidadesDisponibles" layoutX="451.0" layoutY="227.0" />
                               <Button id="btn" fx:id="btnSalir" layoutX="634.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -55,34 +54,59 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <ComboBox id="txt" fx:id="comboTipoFormato" disable="true" layoutX="77.0" layoutY="225.0" prefWidth="150.0">
+                              <TextField id="txtTres" fx:id="txtUnidadesComprar" disable="true" layoutX="592.0" layoutY="376.0" onKeyTyped="#stock" visible="false" />
+                              <TextField id="txt2" fx:id="txtPrecio" layoutX="461.0" layoutY="114.0" />
+                              <ImageView fx:id="imgVideojuego" fitHeight="320.0" fitWidth="320.0" layoutX="105.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button id="btn" fx:id="btnCarrito" disable="true" layoutX="444.0" layoutY="36.0" mnemonicParsing="false" onAction="#carrito" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
-                              </ComboBox>
-                              <Label id="LabelText" layoutX="77.0" layoutY="200.0" text="Formato:" textFill="WHITE" />
-                              <TextField id="txt" fx:id="txtUnidadesComprar" disable="true" layoutX="299.0" layoutY="325.0" onKeyTyped="#stock" />
-                              <Label id="LabelText" layoutX="299.0" layoutY="300.0" text="Unidades a comprar:" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnConsulta" disable="true" layoutX="307.0" layoutY="120.0" mnemonicParsing="false" onAction="#consulta" text="Consultar información" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../logo/carrito.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="btn" fx:id="btnFavorito" disable="true" layoutX="498.0" layoutY="36.0" mnemonicParsing="false" onAction="#favorito" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../logo/estrella.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Separator layoutX="34.0" layoutY="92.0" prefWidth="650.0" />
+                              <TextField id="txt2" fx:id="comboTipoFormato" layoutX="451.0" layoutY="175.0" />
+                              <Label fx:id="lblSgno" layoutX="460.0" layoutY="116.0" prefHeight="20.0" prefWidth="11.0" text="\$" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <rotationAxis>
+                                    <Point3D x="-1.0" z="1.0" />
+                                 </rotationAxis>
+                              </Label>
+                              <Label fx:id="lblUnidades" layoutX="460.0" layoutY="217.0" text="Unidades disponibles:" textFill="WHITE" visible="false" />
+                              <Label fx:id="lblFormato" layoutX="460.0" layoutY="165.0" text="Formato" textFill="WHITE" visible="false" />
+                              <TextField id="txt2" fx:id="txtEdad" layoutX="461.0" layoutY="282.0" />
+                              <Label fx:id="lblClasificacion" layoutX="460.0" layoutY="272.0" text="Clasificacion" textFill="WHITE" visible="false" />
+                              <TextField id="txt2" fx:id="txtGeneroJugador" layoutX="451.0" layoutY="338.0" />
+                              <Label fx:id="lblGeneroJugador" layoutX="460.0" layoutY="328.0" text="Genero" textFill="WHITE" visible="false" />
+                              <Label fx:id="lblMas" layoutX="460.0" layoutY="284.0" prefHeight="20.0" prefWidth="11.0" text="+" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblAComprar" layoutX="460.0" layoutY="382.0" text="Unidades a comprar:" textFill="WHITE" visible="false">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <TextField id="txt" fx:id="txtPrecio" disable="true" layoutX="299.0" layoutY="225.0" />
-                              <ImageView fx:id="imgVideojuego" fitHeight="150.0" fitWidth="200.0" layoutX="537.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button id="btn" fx:id="btnCarrito" disable="true" layoutX="77.0" layoutY="400.0" mnemonicParsing="false" onAction="#carrito" text="Agregar al carrito" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button id="btn" fx:id="btnFavorito" disable="true" layoutX="359.0" layoutY="400.0" mnemonicParsing="false" onAction="#favorito" text="Agregar a favoritos" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                              </Label>
                            </children>
                         </AnchorPane>
                   </content>
@@ -151,7 +175,7 @@
                         </AnchorPane>
                      </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="89.0" text="Mis Videojuegos">
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="89.0" text="Mis Pedidos">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
