@@ -61,17 +61,6 @@ public class Persistencia  implements PersistenciaService {
                  append(jugador.getConfirmacionClave()).append("--").
                  append(jugador.getTipoUsuario()).append("--").
                  append(jugador.getTelefono()).append("--").
-                 append(jugador.getTipoBanco()).append("--").
-                 append(jugador.getTipoCuenta()).append("--").
-                 append(jugador.getNumeroCuenta()).append("--").
-                 append(jugador.getTitular()).append("--").
-                 append(jugador.getFechaCaducidad()).append("--").
-                 append(jugador.getTipoResidencia()).append("--").
-                 append(jugador.getCodigoPostal()).append("--").
-                 append(jugador.getDireccion()).append("--").
-                 append(jugador.getBarrio()).append("--").
-                 append(jugador.getTipoDepartamento()).append("--").
-                 append(jugador.getMunicipio()).append("--").
                  append(jugador.getVideojuegosComprados()).append("--").
                  append(jugador.getImagen()).append("--").
                  append(jugador.getIntentos()).append("--").
@@ -180,23 +169,11 @@ public class Persistencia  implements PersistenciaService {
          jug.setTipoUsuario(TipoUsuario.valueOf(linea.split("--")[9]));
          jug.setTelefono(linea.split("--")[10]);
 
-         jug.setTipoBanco(TipoBanco.valueOf(linea.split("--")[11]));
-         jug.setTipoCuenta(TipoCuenta.valueOf(linea.split("--")[12]));
-         jug.setNumeroCuenta(linea.split("--")[13]);
-         jug.setTitular(linea.split("--")[14]);
-         jug.setFechaCaducidad(LocalDate.parse(linea.split("--")[15]));
+         jug.setVideojuegosComprados(Integer.parseInt(linea.split("--")[11]));
+         jug.setImagen(linea.split("--")[12]);
 
-         jug.setTipoResidencia(TipoResidencia.valueOf(linea.split("--")[16]));
-         jug.setCodigoPostal(linea.split("--")[17]);
-         jug.setDireccion(linea.split("--")[18]);
-         jug.setBarrio(linea.split("--")[19]);
-         jug.setTipoDepartamento(TipoDepartamento.valueOf(linea.split("--")[20]));
-         jug.setMunicipio(linea.split("--")[21]);
-         jug.setVideojuegosComprados(Integer.parseInt(linea.split("--")[22]));
-         jug.setImagen(linea.split("--")[23]);
-
-         jug.setIntentos(Integer.parseInt(linea.split("--")[24]));
-         jug.setTipoRestriccion(TipoRestriccion.valueOf(linea.split("--")[25]));
+         jug.setIntentos(Integer.parseInt(linea.split("--")[13]));
+         jug.setTipoRestriccion(TipoRestriccion.valueOf(linea.split("--")[14]));
 
          jugadores.add(jug);
       }

@@ -291,18 +291,6 @@ public class Tienda{
             jugador.setTipoUsuario(jug.getTipoUsuario());
             jugador.setTelefono(jug.getTelefono());
 
-            jugador.setTipoBanco(jug.getTipoBanco());
-            jugador.setTipoCuenta(jug.getTipoCuenta());
-            jugador.setNumeroCuenta(jug.getNumeroCuenta());
-            jugador.setFechaCaducidad(jug.getFechaCaducidad());
-            jugador.setTitular(jug.getTitular());
-
-            jugador.setTipoResidencia(jug.getTipoResidencia());
-            jugador.setCodigoPostal(jug.getCodigoPostal());
-            jugador.setDireccion(jug.getDireccion());
-            jugador.setBarrio(jug.getBarrio());
-            jugador.setTipoDepartamento(jug.getTipoDepartamento());
-            jugador.setMunicipio(jug.getMunicipio());
             jugador.setVideojuegosComprados(jug.getVideojuegosComprados());
 
             jugador.setImagen(jug.getImagen());

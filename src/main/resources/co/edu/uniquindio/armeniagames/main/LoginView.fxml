@@ -53,7 +53,7 @@
             <Label layoutX="335.0" layoutY="245.0" text="Correo:" textFill="WHITE" />
             <TextField id="txt" fx:id="txtUsuario" disable="true" layoutX="425.0" layoutY="237.0" onKeyTyped="#eventoText" text="eraul4912@gmail.com" />
             <Label layoutX="335.0" layoutY="300.0" text="Contraseña:" textFill="WHITE" />
-            <PasswordField id="txt" fx:id="txtContrasenia" disable="true" layoutX="425.0" layoutY="292.0" onKeyTyped="#eventoText2" text="Aa&amp;5wdfsdf" />
+            <PasswordField id="txt" fx:id="txtContrasenia" disable="true" layoutX="425.0" layoutY="292.0" onKeyTyped="#eventoText2" text="Ad7D%AS88" />
             <Button id="btn" fx:id="btnChat" layoutX="18.0" layoutY="13.0" mnemonicParsing="false" onAction="#chat" prefHeight="30.0" prefWidth="47.0">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">

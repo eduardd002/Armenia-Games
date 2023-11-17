@@ -5,7 +5,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
@@ -56,7 +55,10 @@
                               </Button>
                               <TextField id="txtTres" fx:id="txtUnidadesComprar" disable="true" layoutX="592.0" layoutY="376.0" onKeyTyped="#stock" visible="false" />
                               <TextField id="txt2" fx:id="txtPrecio" layoutX="461.0" layoutY="114.0" />
-                              <ImageView fx:id="imgVideojuego" fitHeight="320.0" fitWidth="320.0" layoutX="105.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="imgVideojuego" fitHeight="320.0" fitWidth="320.0" layoutX="105.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../logo/boton.png" />
+                                 </image></ImageView>
                               <Button id="btn" fx:id="btnCarrito" disable="true" layoutX="444.0" layoutY="36.0" mnemonicParsing="false" onAction="#carrito" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -83,7 +85,7 @@
                               </Button>
                               <Separator layoutX="34.0" layoutY="92.0" prefWidth="650.0" />
                               <TextField id="txt2" fx:id="comboTipoFormato" layoutX="451.0" layoutY="175.0" />
-                              <Label fx:id="lblSgno" layoutX="460.0" layoutY="116.0" prefHeight="20.0" prefWidth="11.0" text="\$" textFill="WHITE" visible="false">
+                              <Label fx:id="lblSgno" layoutX="460.0" layoutY="116.0" prefHeight="20.0" prefWidth="11.0" text="\$" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -91,18 +93,18 @@
                                     <Point3D x="-1.0" z="1.0" />
                                  </rotationAxis>
                               </Label>
-                              <Label fx:id="lblUnidades" layoutX="460.0" layoutY="217.0" text="Unidades disponibles:" textFill="WHITE" visible="false" />
-                              <Label fx:id="lblFormato" layoutX="460.0" layoutY="165.0" text="Formato" textFill="WHITE" visible="false" />
+                              <Label fx:id="lblUnidades" layoutX="460.0" layoutY="217.0" text="Unidades disponibles:" textFill="WHITE" />
+                              <Label fx:id="lblFormato" layoutX="460.0" layoutY="165.0" text="Formato" textFill="WHITE" />
                               <TextField id="txt2" fx:id="txtEdad" layoutX="461.0" layoutY="282.0" />
-                              <Label fx:id="lblClasificacion" layoutX="460.0" layoutY="272.0" text="Clasificacion" textFill="WHITE" visible="false" />
+                              <Label fx:id="lblClasificacion" layoutX="460.0" layoutY="272.0" text="Clasificacion" textFill="WHITE" />
                               <TextField id="txt2" fx:id="txtGeneroJugador" layoutX="451.0" layoutY="338.0" />
-                              <Label fx:id="lblGeneroJugador" layoutX="460.0" layoutY="328.0" text="Genero" textFill="WHITE" visible="false" />
-                              <Label fx:id="lblMas" layoutX="460.0" layoutY="284.0" prefHeight="20.0" prefWidth="11.0" text="+" textFill="WHITE" visible="false">
+                              <Label fx:id="lblGeneroJugador" layoutX="460.0" layoutY="328.0" text="Genero" textFill="WHITE" />
+                              <Label fx:id="lblMas" layoutX="460.0" layoutY="284.0" prefHeight="20.0" prefWidth="11.0" text="+" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lblAComprar" layoutX="460.0" layoutY="382.0" text="Unidades a comprar:" textFill="WHITE" visible="false">
+                              <Label fx:id="lblAComprar" layoutX="460.0" layoutY="382.0" text="Unidades a comprar:" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -176,189 +178,6 @@
                      </content>
                      <graphic>
                         <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="89.0" text="Mis Pedidos">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </graphic>
-                  </Tab>
-                  <Tab text="Detalle">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TextField id="txt" fx:id="txtFacturaDetalle" layoutX="184.0" layoutY="40.0" onKeyTyped="#eventoTextx" />
-                              <Label layoutX="124.0" layoutY="46.0" text="Factura:" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnGenerarDetalle" disable="true" layoutX="397.0" layoutY="42.0" mnemonicParsing="false" onAction="#generarDetalle" text="Generar detallado de la compra" textFill="WHITE" />
-                              <Separator layoutX="30.0" layoutY="99.0" prefWidth="650.0" />
-                              <Label layoutX="30.0" layoutY="178.0" text="Videojuego:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="30.0" layoutY="226.0" text="Tipo de formato:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="30.0" layoutY="275.0" text="Genero:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="130.0" text="Fecha de compra: " textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="178.0" text="Fecha maxima" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="193.0" text="para devolucion:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="30.0" layoutY="130.0" text="Codigo:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="226.0" text="Banco:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="275.0" text="Tipo cuenta:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="323.0" text="Departamento:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="371.0" text="Municipio:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="375.0" layoutY="419.0" text="Direccion:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <Label layoutX="30.0" layoutY="323.0" text="Valor:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <TextField id="txt2" fx:id="txtCodigoDetalle" editable="false" layoutX="130.0" layoutY="124.0" />
-                              <TextField id="txt2" fx:id="txtVideojuegoDetalle" editable="false" layoutX="130.0" layoutY="172.0" />
-                              <TextField id="txt2" fx:id="txtFormatoDetalle" editable="false" layoutX="130.0" layoutY="220.0" />
-                              <TextField id="txt2" fx:id="txtGeneroDetalle" editable="false" layoutX="130.0" layoutY="268.0" />
-                              <TextField id="txt2" fx:id="txtBancoDetalle" editable="false" layoutX="495.0" layoutY="220.0" />
-                              <TextField id="txt2" fx:id="txtCuentaDetalle" editable="false" layoutX="495.0" layoutY="268.0" />
-                              <TextField id="txt2" fx:id="txtDepartamentoDetalle" editable="false" layoutX="495.0" layoutY="316.0" />
-                              <TextField id="txt2" fx:id="txtMunicipioDetalle" editable="false" layoutX="495.0" layoutY="364.0" />
-                              <TextField id="txt2" fx:id="txtValorDetalle" editable="false" layoutX="130.0" layoutY="316.0" />
-                              <TextField id="txt2" fx:id="txtDireccionDetalle" editable="false" layoutX="495.0" layoutY="412.0" />
-                              <TextField id="txt2" fx:id="txtCompraDetalle" editable="false" layoutX="495.0" layoutY="124.0" />
-                              <TextField id="txt2" fx:id="txtDevolucionDetalle" editable="false" layoutX="495.0" layoutY="172.0" />
-                              <Separator layoutX="342.0" layoutY="114.0" orientation="VERTICAL" prefHeight="330.0" />
-                              <Label layoutX="30.0" layoutY="371.0" text="Unidades:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <TextField id="txt2" fx:id="txtUnidadesDetalle" editable="false" layoutX="130.0" layoutY="364.0" />
-                              <Label layoutX="30.0" layoutY="419.0" text="Total:" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font></Label>
-                              <TextField id="txt2" fx:id="txtTotalDetalle" editable="false" layoutX="130.0" layoutY="412.0" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
-                  <Tab id="Tab">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TextField id="txt" fx:id="txtTitular" layoutX="216.0" layoutY="194.0" onKeyTyped="#eventoText2" />
-                              <TextField id="txt" fx:id="txtCuenta" layoutX="216.0" layoutY="264.0" onKeyTyped="#eventoText2" />
-                              <ComboBox id="txt" fx:id="comboTipoCuenta" layoutX="216.0" layoutY="124.0" prefWidth="150.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ComboBox>
-                              <Label id="LabelText" layoutX="100.0" layoutY="340.0" text="Fecha de caducidad:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="270.0" text="Numero de cuenta:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="200.0" text="Titular:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="130.0" text="Tipo de Cuenta:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="60.0" text="Banco:" textFill="WHITE" />
-                              <ComboBox id="txt" fx:id="comboBanco" layoutX="216.0" layoutY="54.0" prefWidth="150.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ComboBox>
-                              <Button id="btn" fx:id="btnActualizarPago" layoutX="280.0" layoutY="408.0" mnemonicParsing="false" onAction="#actualizarPago" text="Actualizar datos de pago" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <DatePicker id="txt" fx:id="dateCaducidad" layoutX="216.0" layoutY="334.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </DatePicker>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="480.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../logo/pago.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                     <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="74.0" text="Mi Pago">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </graphic>
-                  </Tab>
-                  <Tab id="Tab">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ComboBox id="txt" fx:id="comboMunicipio" layoutX="213.0" layoutY="345.0" prefWidth="150.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ComboBox>
-                              <ComboBox id="txt" fx:id="comboDepartamento" layoutX="213.0" layoutY="285.0" onAction="#eventoDepartamento" prefWidth="150.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ComboBox>
-                              <ComboBox id="txt" fx:id="comboResidencia" layoutX="213.0" layoutY="45.0" prefWidth="150.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ComboBox>
-                              <TextField id="txt" fx:id="txtDireccion" layoutX="213.0" layoutY="225.0" onKeyTyped="#eventoText3" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="352.0" text="Municipio:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="292.0" text="Departamento:" textFill="WHITE" />
-                              <TextField id="txt" fx:id="txtBarrio" layoutX="213.0" layoutY="165.0" onKeyTyped="#eventoText3" />
-                              <TextField id="txt" fx:id="txtPostal" layoutX="213.0" layoutY="105.0" onKeyTyped="#eventoText3" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="52.0" text="Tipo de Residencia:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="232.0" text="Direccion:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="172.0" text="Barrio:" textFill="WHITE" />
-                              <Label id="LabelText" layoutX="100.0" layoutY="112.0" text="Codigo Postal:" textFill="WHITE" />
-                              <Button id="btn" fx:id="btnActualizarEnvio" layoutX="280.0" layoutY="406.0" mnemonicParsing="false" onAction="#actualizarEnvio" text="Actualizar datos de envio" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="480.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../logo/envio.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                     <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="72.0" text="Mi Envio">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
