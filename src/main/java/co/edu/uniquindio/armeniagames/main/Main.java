@@ -257,6 +257,44 @@ public class Main extends Application implements MainService {
         }
     }
 
+    public void cargarVentanaEnvio() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EnvioView.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.centerOnScreen();
+            newStage.setTitle("Ventana Envio");
+            newStage.setResizable(false);
+            newStage.setScene(scene);
+            newStage.show();
+            persistencia.guardaRegistroLog(mensajesInformacionConstant.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Envio");
+        } catch (Exception e) {
+            e.printStackTrace();
+            persistencia.guardaRegistroLog(mensajesExcepcionConstant.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Envio" + e.getMessage());
+        }
+    }
+
+    public void cargarVentanaPago() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("PagoView.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.centerOnScreen();
+            newStage.setTitle("Ventana Pago");
+            newStage.setResizable(false);
+            newStage.setScene(scene);
+            newStage.show();
+            persistencia.guardaRegistroLog(mensajesInformacionConstant.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Pago");
+        } catch (Exception e) {
+            e.printStackTrace();
+            persistencia.guardaRegistroLog(mensajesExcepcionConstant.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Pago" + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         launch();
     }

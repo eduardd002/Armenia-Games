@@ -148,41 +148,8 @@ public class JugadorController implements Initializable {
     }
 
     public void compraJugador() {
-
-        Compra compra;
-        Compra comp = new Compra();
-        MensajesEmailConstant mensajes = new MensajesEmailConstant();
-        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
-
-        Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
-        Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
-        LocalDate fecha = LocalDate.now();
-        int unidades = Integer.parseInt(txtUnidadesComprar.getText());
-
-        comp.setDocumentoJugador(jugador.getDocumento());
-        comp.setJugador(jugador.getNombrePersona());
-        comp.setApellido(jugador.getApellido());
-        comp.setCodigo(videojuego.getCodigo());
-        comp.setNombreVideojuego(videojuego.getNombreVideojuego());
-        comp.setTipoGeneroVideojuego(videojuego.getTipoGeneroVideojuego());
-        comp.setTipoFormatoVideojuego(videojuego.getTipoFormatoVideojuego());
-        comp.setFechaCompraInicial(fecha);
-        comp.setFechaCompraFinal(fecha);
-        comp.setUnidades(unidades);
-        comp.setTotal(videojuego.getPrecio()*unidades);
-
-        compra = subcontroller.guardarPrestamo(comp);
-
-        if (compra != null) {
-            subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + comp.getNombreVideojuego()), jugador.getCorreo(), img);
-            for (Administrador admin : subcontroller.traerAdmins()) {
-                subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
-            }
-            listaPrestamosNueva.add(compra);
-            tablaPrestamos.setItems(listaPrestamosNueva);
-            actualizarInventario();
-            actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
-        }
+        cerrarVentana(btnPrestamo);
+        main.cargarVentanaEnvio();
     }
 
     public void comprarElCarrito() {
@@ -305,7 +272,6 @@ public class JugadorController implements Initializable {
     }
 
     public void limpiarCampos(){
-        comboVideojuegosDisponiblesAlquiler.setValue(null);
         txtUnidadesComprar.setText(null);
         comboTipoFormato.setText(null);
         txtPrecio.setText(null);

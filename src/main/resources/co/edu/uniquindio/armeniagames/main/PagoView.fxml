@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.armeniagames.controller.PagoController">
+   <children>
+      <Pane id="panel" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <ComboBox id="txt" fx:id="comboTipoCuenta" disable="true" layoutX="85.0" layoutY="270.0" onAction="#eventoComboBox3" prefWidth="150.0" />
+            <Label id="LabelText" layoutX="85.0" layoutY="320.0" text="Titular:" textFill="WHITE" />
+            <TextField id="txt" fx:id="txtTitular" disable="true" layoutX="85.0" layoutY="340.0" onKeyTyped="#eventoText10" />
+            <TextField id="txt" fx:id="txtCuenta" disable="true" layoutX="405.0" layoutY="270.0" onKeyTyped="#eventoText9" />
+            <Label id="LabelText" layoutX="405.0" layoutY="320.0" text="Fecha de caducidad:" textFill="WHITE" />
+            <Label id="LabelText" layoutX="405.0" layoutY="250.0" text="Numero de cuenta:" textFill="WHITE" />
+            <DatePicker id="txt" fx:id="dateCaducidad" disable="true" editable="false" layoutX="405.0" layoutY="340.0" onAction="#eventoText11" />
+            <RadioButton fx:id="radioDavivienda" layoutX="85.0" layoutY="50.0" mnemonicParsing="false" onAction="#eventoRadioDavivienda">
+               <graphic>
+                  <ImageView fitHeight="63.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/davivienda.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="radioBancolombia" layoutX="405.0" layoutY="21.0" mnemonicParsing="false" onAction="#eventoRadioBancolombia">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/bamcolombia.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="radioOccidente" layoutX="85.0" layoutY="150.0" mnemonicParsing="false" onAction="#eventoRadioOccidente">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/occidente.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="radioBogota" layoutX="404.0" layoutY="160.0" mnemonicParsing="false" onAction="#eventoRadioBogota">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/bogota.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <Button id="btn" fx:id="btnComprar" disable="true" layoutX="272.0" layoutY="422.0" mnemonicParsing="false" onAction="#comprarVideojuego" text="Confirmar compra" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button id="btn" fx:id="btnSalir" layoutX="647.0" layoutY="10.0" mnemonicParsing="false" onAction="#salir">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../logo/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <stylesheets>
+            <URL value="@AplicacionStyle.css" />
+            <URL value="@LoginStyle.css" />
+         </stylesheets>
+      </Pane>
+      <Label id="LabelText" layoutX="85.0" layoutY="250.0" text="Tipo de Cuenta:" textFill="WHITE" />
+   </children>
+</AnchorPane>

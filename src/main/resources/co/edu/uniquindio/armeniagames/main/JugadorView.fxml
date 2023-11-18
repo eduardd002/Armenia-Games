@@ -55,10 +55,7 @@
                               </Button>
                               <TextField id="txtTres" fx:id="txtUnidadesComprar" disable="true" layoutX="592.0" layoutY="376.0" onKeyTyped="#stock" visible="false" />
                               <TextField id="txt2" fx:id="txtPrecio" layoutX="461.0" layoutY="114.0" />
-                              <ImageView fx:id="imgVideojuego" fitHeight="320.0" fitWidth="320.0" layoutX="105.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../logo/boton.png" />
-                                 </image></ImageView>
+                              <ImageView fx:id="imgVideojuego" fitHeight="320.0" fitWidth="320.0" layoutX="105.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
                               <Button id="btn" fx:id="btnCarrito" disable="true" layoutX="444.0" layoutY="36.0" mnemonicParsing="false" onAction="#carrito" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
