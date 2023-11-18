@@ -73,10 +73,27 @@ public class PagoController implements Initializable {
         comp.setUnidades(unidades);
         comp.setTotal(videojuego.getPrecio()*unidades);
 
+        int total = comp.getTotal();
+
         compra = subcontroller.guardarPrestamo(comp);
 
         if (compra != null) {
-            subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + comp.getNombreVideojuego()), jugador.getCorreo(), img);
+            subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + "<br>" + "<br>" + "DATOS DEL VIDEOJUEGO" + "<br>" + "<br>" +
+                    "Nombre: " + videojuego.getNombreVideojuego() + "<br>" +
+                    "Precio: " + videojuego.getPrecio() + "<br>" +
+                    "Formato: " + videojuego.getTipoFormatoVideojuego() + "<br>" +
+                    "Genero: " + videojuego.getTipoGeneroVideojuego() + "<br>" +
+                    "Clasificacion: " + videojuego.getClasificacion() + "<br>" +
+                    "Unidades: " + videojuego.getUnidades() + "<br>" +
+                    "Total: " + total + "<br>" + "<br>" + "DATOS DE PAGO"+ "<br>" + "<br>" +
+                    "Banco: " + tipoBanco + "<br>" +
+                    "Tipo de cuenta: " + comboTipoCuenta.getSelectionModel().getSelectedItem() + "<br>" +
+                    "Numero de cuenta: " + txtCuenta.getText() + "<br>" +
+                    "Titular: " + txtTitular.getText() + "<br>" + "<br>"  + "DATOS DE ENVIO" + "<br>" + "<br>" +
+                    "Departamento: " + subcontroller.obtenerDepartamentoSegundoMomento() + "<br>" +
+                    "Muncipio: " + subcontroller.obtenerMunicipioSegundoMomento() + "<br>" +
+                    "Codigo postal: " + subcontroller.obtenerPostalSegundoMomento() + "<br>" +
+                    "Direccion: " + subcontroller.obtenerDireccionSegundoMomento()), jugador.getCorreo(), img);
             for (Administrador admin : subcontroller.traerAdmins()) {
                 subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
             }

@@ -24,7 +24,7 @@ public class ModelFactory {
     public Tienda tienda;
     public Usuario usuarioAuxiliar;
     public Videojuego videojuegoAuxiliar;
-    public String vidMomementaneo;
+    public String vidMomementaneo, depMomentaneo, munMomentaneo, codigMomentaneo, direMomentaneo;
     public int cantMomentanea, cantMomentanea2;
 
 
@@ -795,6 +795,13 @@ public class ModelFactory {
         cantMomentanea2 = c2;
     }
 
+    public void compraSegundaEtapa(String departamento, String municipio, String postal, String direccion){
+        depMomentaneo = departamento;
+        munMomentaneo = municipio;
+        codigMomentaneo = postal;
+        direMomentaneo = direccion;
+    }
+
     public Jugador traerJugadorEnvioYPago2(String documento) {
 
         Jugador jug = null;
@@ -898,6 +905,38 @@ public class ModelFactory {
 
     public ArrayList<Compra> getListaCompras2() {
         return getTienda().getListaCompras();
+    }
+
+    public String getDepMomentaneo() {
+        return depMomentaneo;
+    }
+
+    public void setDepMomentaneo(String depMomentaneo) {
+        this.depMomentaneo = depMomentaneo;
+    }
+
+    public String getMunMomentaneo() {
+        return munMomentaneo;
+    }
+
+    public void setMunMomentaneo(String munMomentaneo) {
+        this.munMomentaneo = munMomentaneo;
+    }
+
+    public String getCodigMomentaneo() {
+        return codigMomentaneo;
+    }
+
+    public void setCodigMomentaneo(String codigMomentaneo) {
+        this.codigMomentaneo = codigMomentaneo;
+    }
+
+    public String getDireMomentaneo() {
+        return direMomentaneo;
+    }
+
+    public void setDireMomentaneo(String direMomentaneo) {
+        this.direMomentaneo = direMomentaneo;
     }
 
     public String getVidMomementaneo() {

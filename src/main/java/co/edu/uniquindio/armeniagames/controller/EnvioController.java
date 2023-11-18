@@ -6,6 +6,7 @@ import co.edu.uniquindio.armeniagames.enumm.TipoResidencia;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.main.Main;
 import co.edu.uniquindio.armeniagames.subcontroller.ChatSubcontroller;
+import co.edu.uniquindio.armeniagames.subcontroller.EnvioSubcontroller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,7 +22,7 @@ import java.util.ResourceBundle;
 public class EnvioController implements Initializable {
 
     public Main main = new Main();
-    //public EnvioSubcontroller subcontroller;
+    public EnvioSubcontroller subcontroller;
 
     private final ObservableList<TipoResidencia>listaTipoResidencia = FXCollections.observableArrayList();
     private final ObservableList<TipoDepartamento> listaTipoDepartamento = FXCollections.observableArrayList();
@@ -49,6 +50,7 @@ public class EnvioController implements Initializable {
 
     @FXML
     public void registro() {
+        compraSegundaEtapa();
         realizarRegistro();
     }
 
@@ -787,6 +789,16 @@ public class EnvioController implements Initializable {
         comboResidencia.setItems(listaTipoResidencia);
     }
 
+    public void compraSegundaEtapa(){
+
+        String departamento = String.valueOf(comboDepartamento.getSelectionModel().getSelectedItem());
+        String municipio = comboMunicipio.getSelectionModel().getSelectedItem();
+        String codigoPostal = txtPostal.getText();
+        String direccion = txtDireccion.getText();
+
+        subcontroller.compraSegundaEtapa(departamento, municipio, codigoPostal, direccion);
+    }
+
     @FXML
     public void salir() {
         cerrarVentana(btnSalir);
@@ -799,7 +811,7 @@ public class EnvioController implements Initializable {
 
     public void iniciarDatos() {
         ModelFactory factoryController = ModelFactory.getInstance();
-        //subcontroller = new ChatSubcontroller(factoryController);
+        subcontroller = new EnvioSubcontroller(factoryController);
         cargarTipoDepartamento();
         cargarTipoResidencia();
         new EnvioController();

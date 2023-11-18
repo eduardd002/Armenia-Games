@@ -54,7 +54,7 @@ public class JugadorSubcontroller {
         return factoryController.getListaFavorito(jug);
     }
 
-        public void eliminarFavorito(Favorito favorito) {
+    public void eliminarFavorito(Favorito favorito) {
         factoryController.eliminarFavorito(favorito);
     }
 

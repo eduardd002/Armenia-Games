@@ -1,2 +1,2 @@
-123456789--Raul Yulbraynner--Rivera Galvez--1990-08-14--Casado--Masculino--eraul4912@gmail.com--Ad7D%AS88--Ad7D%AS88--Jugador--3126548798--1--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\logo\usuario.png--0--CONFIRMADO
+123456789--Raul Yulbraynner--Rivera Galvez--1990-08-14--Casado--Masculino--cortespeduard2002@gmail.com--Ad7D%AS88--Ad7D%AS88--Jugador--3126548798--2--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\logo\usuario.png--0--CONFIRMADO
 987654321--Jhon Oscar--Salazar--1991-07-12--Soltero--Masculino--raulbarcelona4912@gmail.com--Ad7D%AS88--Ad7D%AS88--Jugador--3159876636--0--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\logo\usuario.png--0--CONFIRMADO

@@ -5,58 +5,26 @@ import co.edu.uniquindio.armeniagames.model.*;
 
 import java.util.ArrayList;
 
-public class PagoSubcontroller {
+public class EnvioSubcontroller {
 
     private ModelFactory factoryController;
     private Tienda tienda;
 
-    public PagoSubcontroller(ModelFactory factoryController) {
+    public EnvioSubcontroller(ModelFactory factoryController) {
         this.factoryController = factoryController;
         tienda = factoryController.getTienda();
     }
 
-    public String obtenerVideojuegoPrimerMomento(){
+    public void compraSegundaEtapa(String departamento, String municipio, String postal, String direccion){
+        factoryController.compraSegundaEtapa(departamento, municipio, postal, direccion);
+    }
+
+    public String obtenerVideojuegoSegundoMomento(){
         return factoryController.getVidMomementaneo();
-    }
-
-    public String obtenerMunicipioSegundoMomento(){
-        return factoryController.getMunMomentaneo();
-    }
-
-    public String obtenerDepartamentoSegundoMomento(){
-        return factoryController.getDepMomentaneo();
-    }
-
-    public String obtenerPostalSegundoMomento(){
-        return factoryController.getCodigMomentaneo();
-    }
-
-    public String obtenerDireccionSegundoMomento(){
-        return factoryController.getDireMomentaneo();
-    }
-
-    public void actualizarHistorial(String jugador, int jugados){
-        factoryController.actualizarHistorial(jugador, jugados);
     }
 
     public Videojuego obtenerVideojuego(String codigo) {
         return factoryController.obtenerVideojuego(codigo);
-    }
-
-    public void actualizarVideojuego(String videojuego, int inventarioActual, int compradas) {
-        factoryController.actualizarInventario(videojuego, inventarioActual, compradas);
-    }
-
-    public int obtenerCantidadPrimerMomento(){
-        return factoryController.getCantMomentanea();
-    }
-
-    public int obtenerCantidad2PrimerMomento(){
-        return factoryController.getCantMomentanea2();
-    }
-
-    public Usuario traerUsuarioAuxiliar() {
-        return factoryController.getUsuarioAuxiliar();
     }
 
     public void email(String titulo, String cuerpo, String correo, String img) {
