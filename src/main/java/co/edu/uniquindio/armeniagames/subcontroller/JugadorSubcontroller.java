@@ -30,6 +30,10 @@ public class JugadorSubcontroller {
         return factoryController.traerJugadorEnvioYPago(documento);
     }
 
+    public void compraPrimeraEtapa(String v, int cantidad, int disponibles){
+        factoryController.compraPrimeraEtapa(v, cantidad, disponibles);
+    }
+
     public Compra traerCompra(int factura) {
         return factoryController.traerCompra(factura);
     }

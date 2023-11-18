@@ -1,6 +1,6 @@
 654987--Call Of Duty Modern Warfare 2 Xbox--180000--Accion--CD--2022--18--100--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\codmw2.jpg
-987654--Fifa 23 Play Station 5--80000--Deportes--CD--2022--12--94--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\f24.jpg
-956249--Minecraft PlayStation 4--13000--Estrategia--CD--2010--5--96--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\m.png
+987654--Fifa 23 Play Station 5--80000--Deportes--CD--2022--12--100--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\f24.jpg
+956249--Minecraft PlayStation 4--13000--Estrategia--CD--2010--5--95--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\m.png
 124599--NBA 2K 22 Xbox--180000--Deportes--CD--2022--15--100--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\nba2k.jpg
 236654--Halo Reach Xbox--90000--Accion--CD--2022--15--100--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\h.jpg
 322365--Injustice Xbox--260000--Aventura--CD--2023--15--100--C:\Users\eduar\IdeaProjects\AGE\src\main\resources\images\i.jpg

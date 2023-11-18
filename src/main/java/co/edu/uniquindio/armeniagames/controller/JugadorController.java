@@ -148,8 +148,13 @@ public class JugadorController implements Initializable {
     }
 
     public void compraJugador() {
+        compraPrimeraEtapa();
         cerrarVentana(btnPrestamo);
         main.cargarVentanaEnvio();
+    }
+
+    public void compraPrimeraEtapa(){
+        subcontroller.compraPrimeraEtapa(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem(), Integer.parseInt(txtUnidadesComprar.getText()), Integer.parseInt(txtUnidadesDisponibles.getText()));
     }
 
     public void comprarElCarrito() {

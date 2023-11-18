@@ -24,6 +24,8 @@ public class ModelFactory {
     public Tienda tienda;
     public Usuario usuarioAuxiliar;
     public Videojuego videojuegoAuxiliar;
+    public String vidMomementaneo;
+    public int cantMomentanea, cantMomentanea2;
 
 
     public static class SingletonHolder {
@@ -787,6 +789,12 @@ public class ModelFactory {
         return com;
     }
 
+    public void compraPrimeraEtapa(String v, int c, int c2){
+        vidMomementaneo = v;
+        cantMomentanea = c;
+        cantMomentanea2 = c2;
+    }
+
     public Jugador traerJugadorEnvioYPago2(String documento) {
 
         Jugador jug = null;
@@ -890,6 +898,26 @@ public class ModelFactory {
 
     public ArrayList<Compra> getListaCompras2() {
         return getTienda().getListaCompras();
+    }
+
+    public String getVidMomementaneo() {
+        return vidMomementaneo;
+    }
+
+    public void setVidMomementaneo(String vidMomementaneo) {
+        this.vidMomementaneo = vidMomementaneo;
+    }
+
+    public int getCantMomentanea() {
+        return cantMomentanea;
+    }
+
+    public int getCantMomentanea2() {
+        return cantMomentanea2;
+    }
+
+    public void setCantMomentanea(int cantMomentanea) {
+        this.cantMomentanea = cantMomentanea;
     }
 
     public ArrayList<Favorito> getListaFavorito(String jug) {

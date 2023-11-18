@@ -1,9 +1,15 @@
 package co.edu.uniquindio.armeniagames.controller;
 
+import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.TipoBanco;
 import co.edu.uniquindio.armeniagames.enumm.TipoCuenta;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.main.Main;
+import co.edu.uniquindio.armeniagames.model.Administrador;
+import co.edu.uniquindio.armeniagames.model.Compra;
+import co.edu.uniquindio.armeniagames.model.Jugador;
+import co.edu.uniquindio.armeniagames.model.Videojuego;
+import co.edu.uniquindio.armeniagames.subcontroller.PagoSubcontroller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,12 +20,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class PagoController implements Initializable {
 
     public Main main = new Main();
-    //public EnvioSubcontroller subcontroller;
+    public PagoSubcontroller subcontroller;
 
     private final ObservableList<TipoCuenta> listaTipoCuenta = FXCollections.observableArrayList();
 
@@ -42,16 +49,17 @@ public class PagoController implements Initializable {
 
     @FXML
     public void comprarVideojuego() {
-           /*
+
         Compra compra;
         Compra comp = new Compra();
         MensajesEmailConstant mensajes = new MensajesEmailConstant();
         String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
 
-        Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
+        Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(subcontroller.obtenerVideojuegoPrimerMomento());
+        System.out.println(videojuego.getNombreVideojuego());
         Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
         LocalDate fecha = LocalDate.now();
-        int unidades = Integer.parseInt(txtUnidadesComprar.getText());
+        int unidades = Integer.parseInt(String.valueOf(subcontroller.obtenerCantidadPrimerMomento()));
 
         comp.setDocumentoJugador(jugador.getDocumento());
         comp.setJugador(jugador.getNombrePersona());
@@ -72,17 +80,26 @@ public class PagoController implements Initializable {
             for (Administrador admin : subcontroller.traerAdmins()) {
                 subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
             }
-            listaPrestamosNueva.add(compra);
-            tablaPrestamos.setItems(listaPrestamosNueva);
             actualizarInventario();
             actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
+            cerrarVentana(btnComprar);
+            main.cargarVentanaJugador();
         }
-        */
-
     }
 
+    public void actualizarInventario() {
 
+        Videojuego vid = subcontroller.obtenerVideojuego(subcontroller.obtenerVideojuegoPrimerMomento());
 
+        int inventarioActual = Integer.parseInt(String.valueOf(subcontroller.obtenerCantidad2PrimerMomento()));
+        int compradas = Integer.parseInt(String.valueOf(subcontroller.obtenerCantidadPrimerMomento()));
+
+        subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual, compradas);
+    }
+
+    public void actualizarHistorial(String lector, int librosLeidos) {
+        subcontroller.actualizarHistorial(lector, librosLeidos);
+    }
 
     @FXML
     public void eventoRadioDavivienda() {
@@ -234,7 +251,7 @@ public class PagoController implements Initializable {
 
     public void iniciarDatos() {
         ModelFactory factoryController = ModelFactory.getInstance();
-        //subcontroller = new ChatSubcontroller(factoryController);
+        subcontroller = new PagoSubcontroller(factoryController);
         new PagoController();
         cargarTipoCuenta();
     }
