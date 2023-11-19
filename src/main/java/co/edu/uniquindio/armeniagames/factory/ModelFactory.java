@@ -438,8 +438,6 @@ public class ModelFactory {
             prestamo = getTienda().guardarCompraCarrito(comp);
             persistencia.guardarCompra(getListaCompras(comp.getJugador()));
             persistencia.guardaRegistroLog("Compra Guardada", 1, mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO);
-            mostrarMensaje("Notificacion Guardado", "Compra Guardada", mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO,
-                    Alert.AlertType.INFORMATION);
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Compra No Guardado", 3,
                     mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
