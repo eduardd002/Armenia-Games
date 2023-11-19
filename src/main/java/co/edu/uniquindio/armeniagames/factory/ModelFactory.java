@@ -4,6 +4,7 @@ import co.edu.uniquindio.armeniagames.constant.MensajesInformacionConstant;
 import co.edu.uniquindio.armeniagames.exception.*;
 import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import java.io.File;
@@ -25,8 +26,8 @@ public class ModelFactory {
     public Usuario usuarioAuxiliar;
     public Videojuego videojuegoAuxiliar;
     public String vidMomementaneo, depMomentaneo, munMomentaneo, codigMomentaneo, direMomentaneo;
-    public int cantMomentanea, cantMomentanea2;
-
+    public int cantMomentanea, cantMomentanea2, canAuxiliar;
+    public ObservableList<Carrito> carAuxiliar;
 
     public static class SingletonHolder {
         private final static ModelFactory eINSTANCE = new ModelFactory();
@@ -429,6 +430,25 @@ public class ModelFactory {
         return prestamo;
     }
 
+    public Compra guardarCompraCarrito(Compra comp) {
+
+        Compra prestamo = null;
+
+        try {
+            prestamo = getTienda().guardarCompraCarrito(comp);
+            persistencia.guardarCompra(getListaCompras(comp.getJugador()));
+            persistencia.guardaRegistroLog("Compra Guardada", 1, mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO);
+            mostrarMensaje("Notificacion Guardado", "Compra Guardada", mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO,
+                    Alert.AlertType.INFORMATION);
+        } catch (IOException e) {
+            persistencia.guardaRegistroLog("Compra No Guardado", 3,
+                    mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
+            mostrarMensaje("Notificacion Guardado", "Compra No Guardado",
+                    mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
+        }
+        return prestamo;
+    }
+
     public Carrito guardarCarrito(Carrito car) {
 
         Carrito carrit = null;
@@ -795,6 +815,13 @@ public class ModelFactory {
         cantMomentanea2 = c2;
     }
 
+    public void compraPrimeraEtapa2(ObservableList<Carrito> carrito){
+        for (Carrito c : carrito) {
+            vidMomementaneo = c.getNombreVideojuegoCarrito();
+            cantMomentanea = c.getUnidadesCarrito();
+            cantMomentanea2 = c.getTotalCarrito();
+        }
+    }
     public void compraSegundaEtapa(String departamento, String municipio, String postal, String direccion){
         depMomentaneo = departamento;
         munMomentaneo = municipio;
@@ -879,6 +906,10 @@ public class ModelFactory {
         return videojuegoAuxiliar;
     }
 
+    public int traerVideojuegos(){
+        return getTienda().getCompras();
+    }
+
     public Tienda getTienda() {
         return tienda;
     }
@@ -905,6 +936,14 @@ public class ModelFactory {
 
     public ArrayList<Compra> getListaCompras2() {
         return getTienda().getListaCompras();
+    }
+
+    public void car(ObservableList<Carrito>car){
+        carAuxiliar = car;
+    }
+
+    public ObservableList<Carrito> getCarAuxiliar() {
+        return carAuxiliar;
     }
 
     public String getDepMomentaneo() {
@@ -955,8 +994,12 @@ public class ModelFactory {
         return cantMomentanea2;
     }
 
-    public void setCantMomentanea(int cantMomentanea) {
-        this.cantMomentanea = cantMomentanea;
+    public int getCanAuxiliar() {
+        return canAuxiliar;
+    }
+
+    public void actualizarVid(int cantidad){
+        getTienda().setCompras(cantidad);
     }
 
     public ArrayList<Favorito> getListaFavorito(String jug) {

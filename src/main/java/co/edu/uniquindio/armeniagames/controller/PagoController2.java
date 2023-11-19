@@ -5,11 +5,9 @@ import co.edu.uniquindio.armeniagames.enumm.TipoBanco;
 import co.edu.uniquindio.armeniagames.enumm.TipoCuenta;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.main.Main;
-import co.edu.uniquindio.armeniagames.model.Administrador;
-import co.edu.uniquindio.armeniagames.model.Compra;
-import co.edu.uniquindio.armeniagames.model.Jugador;
-import co.edu.uniquindio.armeniagames.model.Videojuego;
+import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.subcontroller.PagoSubcontroller;
+import co.edu.uniquindio.armeniagames.subcontroller.PagoSubcontroller2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,10 +21,10 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class PagoController implements Initializable {
+public class PagoController2 implements Initializable {
 
     public Main main = new Main();
-    public PagoSubcontroller subcontroller;
+    public PagoSubcontroller2 subcontroller;
 
     private final ObservableList<TipoCuenta> listaTipoCuenta = FXCollections.observableArrayList();
 
@@ -48,73 +46,66 @@ public class PagoController implements Initializable {
     private RadioButton radioBancolombia, radioDavivienda, radioOccidente, radioBogota;
 
     @FXML
-    public void comprarVideojuego() {
+    public void comprarCarrito() {
 
-        Compra compra;
-        Compra comp = new Compra();
-        MensajesEmailConstant mensajes = new MensajesEmailConstant();
-        String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
-
+        ObservableList<Carrito> lista = subcontroller.obtenerCarrito();
         int videojuegos = subcontroller.traerVideojuegos();
-
-        Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(subcontroller.obtenerVideojuegoPrimerMomento());
         Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
-        LocalDate fecha = LocalDate.now();
-        int unidades = Integer.parseInt(String.valueOf(subcontroller.obtenerCantidadPrimerMomento()));
 
-        comp.setFactura(videojuegos+1);
-        comp.setDocumentoJugador(jugador.getDocumento());
-        comp.setJugador(jugador.getNombrePersona());
-        comp.setApellido(jugador.getApellido());
-        comp.setCodigo(videojuego.getCodigo());
-        comp.setNombreVideojuego(videojuego.getNombreVideojuego());
-        comp.setTipoGeneroVideojuego(videojuego.getTipoGeneroVideojuego());
-        comp.setTipoFormatoVideojuego(videojuego.getTipoFormatoVideojuego());
-        comp.setFechaCompraInicial(fecha);
-        comp.setFechaCompraFinal(fecha);
-        comp.setUnidades(unidades);
-        comp.setTotal(videojuego.getPrecio() * unidades);
+        for(int i = 0; i < lista.size(); i++){
+            Compra compra;
+            Compra comp = new Compra();
+            MensajesEmailConstant mensajes = new MensajesEmailConstant();
+            String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
 
-        int total = comp.getTotal();
+            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(lista.get(i).getNombreVideojuegoCarrito());
+            LocalDate fecha = LocalDate.now();
+            int unidades = lista.get(i).getUnidadesCarrito();
 
-        compra = subcontroller.guardarPrestamo(comp);
+            comp.setFactura(videojuegos+1);
+            comp.setDocumentoJugador(jugador.getDocumento());
+            comp.setJugador(jugador.getNombrePersona());
+            comp.setApellido(jugador.getApellido());
+            comp.setCodigo(videojuego.getCodigo());
+            comp.setNombreVideojuego(videojuego.getNombreVideojuego());
+            comp.setTipoGeneroVideojuego(videojuego.getTipoGeneroVideojuego());
+            comp.setTipoFormatoVideojuego(videojuego.getTipoFormatoVideojuego());
+            comp.setFechaCompraInicial(fecha);
+            comp.setFechaCompraFinal(fecha);
+            comp.setUnidades(unidades);
+            comp.setTotal(videojuego.getPrecio()*unidades);
 
-        if (compra != null) {
-            subcontroller.acualizarVid(videojuegos+1);
-            subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + "<br>" + "<br>" + "DATOS DEL VIDEOJUEGO" + "<br>" + "<br>" +
-                    "Nombre: " + videojuego.getNombreVideojuego() + "<br>" +
-                    "Precio: " + videojuego.getPrecio() + "<br>" +
-                    "Formato: " + videojuego.getTipoFormatoVideojuego() + "<br>" +
-                    "Genero: " + videojuego.getTipoGeneroVideojuego() + "<br>" +
-                    "Clasificacion: " + videojuego.getClasificacion() + "<br>" +
-                    "Unidades: " + comp.getUnidades() + "<br>" +
-                    "Total: " + total + "<br>" + "<br>" + "DATOS DE PAGO" + "<br>" + "<br>" +
-                    "Banco: " + tipoBanco + "<br>" +
-                    "Tipo de cuenta: " + comboTipoCuenta.getSelectionModel().getSelectedItem() + "<br>" +
-                    "Numero de cuenta: " + txtCuenta.getText() + "<br>" +
-                    "Titular: " + txtTitular.getText() + "<br>" + "<br>" + "DATOS DE ENVIO" + "<br>" + "<br>" +
-                    "Departamento: " + subcontroller.obtenerDepartamentoSegundoMomento() + "<br>" +
-                    "Muncipio: " + subcontroller.obtenerMunicipioSegundoMomento() + "<br>" +
-                    "Codigo postal: " + subcontroller.obtenerPostalSegundoMomento() + "<br>" +
-                    "Direccion: " + subcontroller.obtenerDireccionSegundoMomento()), jugador.getCorreo(), img);
-            for (Administrador admin : subcontroller.traerAdmins()) {
-                subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
+            int total = comp.getTotal();
+
+            compra = subcontroller.guardarPrestamo(comp);
+
+            if (compra != null) {
+                subcontroller.email(mensajes.MENSAJE_CARRITO, (mensajes.MENSAJE_CARRITO_CUERPO + "<br>" + "<br>" + "DATOS DEL VIDEOJUEGO" + "<br>" + "<br>" +
+                        "Nombre: " + videojuego.getNombreVideojuego() + "<br>" +
+                        "Precio: " + videojuego.getPrecio() + "<br>" +
+                        "Formato: " + videojuego.getTipoFormatoVideojuego() + "<br>" +
+                        "Genero: " + videojuego.getTipoGeneroVideojuego() + "<br>" +
+                        "Clasificacion: " + videojuego.getClasificacion() + "<br>" +
+                        "Unidades: " + comp.getUnidades() + "<br>" +
+                        "Total: " + total + "<br>" + "<br>" + "DATOS DE PAGO" + "<br>" + "<br>" +
+                        "Banco: " + tipoBanco + "<br>" +
+                        "Tipo de cuenta: " + comboTipoCuenta.getSelectionModel().getSelectedItem() + "<br>" +
+                        "Numero de cuenta: " + txtCuenta.getText() + "<br>" +
+                        "Titular: " + txtTitular.getText() + "<br>" + "<br>" + "DATOS DE ENVIO" + "<br>" + "<br>" +
+                        "Departamento: " + subcontroller.obtenerDepartamentoSegundoMomento() + "<br>" +
+                        "Muncipio: " + subcontroller.obtenerMunicipioSegundoMomento() + "<br>" +
+                        "Codigo postal: " + subcontroller.obtenerPostalSegundoMomento() + "<br>" +
+                        "Direccion: " + subcontroller.obtenerDireccionSegundoMomento()), jugador.getCorreo(), img);
+                for (Administrador admin : subcontroller.traerAdmins()) {
+                    subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
+                }
+                subcontroller.actualizarVideojuego(comp.getNombreVideojuego(), videojuego.getUnidades(), comp.getUnidades());
             }
-            actualizarInventario();
-            actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
-            cerrarVentana(btnComprar);
-            main.cargarVentanaJugador();
         }
-    }
-
-    public void actualizarInventario() {
-
-        Videojuego vid = subcontroller.obtenerVideojuego(subcontroller.obtenerVideojuegoPrimerMomento());
-
-        int inventarioActual = Integer.parseInt(String.valueOf(subcontroller.obtenerCantidad2PrimerMomento()));
-        int compradas = Integer.parseInt(String.valueOf(subcontroller.obtenerCantidadPrimerMomento()));
-
-        subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual, compradas);
+        subcontroller.acualizarVid(videojuegos+1);
+        actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
+        cerrarVentana(btnComprar);
+        main.cargarVentanaJugador();
     }
 
     public void actualizarHistorial(String lector, int librosLeidos) {
@@ -271,8 +262,8 @@ public class PagoController implements Initializable {
 
     public void iniciarDatos() {
         ModelFactory factoryController = ModelFactory.getInstance();
-        subcontroller = new PagoSubcontroller(factoryController);
-        new PagoController();
+        subcontroller = new PagoSubcontroller2(factoryController);
+        new PagoController2();
         cargarTipoCuenta();
     }
 

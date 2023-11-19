@@ -2,6 +2,8 @@ package co.edu.uniquindio.armeniagames.subcontroller;
 
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.*;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 public class JugadorSubcontroller {
@@ -18,6 +20,10 @@ public class JugadorSubcontroller {
         factoryController.actualizarJugador(lector);
     }
 
+    public void car(ObservableList<Carrito>carrito){
+        factoryController.car(carrito);
+    }
+
     public boolean eliminarJugador(String documento) {
         return factoryController.eliminarJugador(documento);
     }
@@ -32,6 +38,10 @@ public class JugadorSubcontroller {
 
     public void compraPrimeraEtapa(String v, int cantidad, int disponibles){
         factoryController.compraPrimeraEtapa(v, cantidad, disponibles);
+    }
+
+    public void compraPrimeraEtapa2(ObservableList<Carrito> carrito){
+        factoryController.compraPrimeraEtapa2(carrito);
     }
 
     public Compra traerCompra(int factura) {

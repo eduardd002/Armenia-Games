@@ -6,18 +6,14 @@ import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
-public class PagoSubcontroller {
+public class PagoSubcontroller2 {
 
     private ModelFactory factoryController;
     private Tienda tienda;
 
-    public PagoSubcontroller(ModelFactory factoryController) {
+    public PagoSubcontroller2(ModelFactory factoryController) {
         this.factoryController = factoryController;
         tienda = factoryController.getTienda();
-    }
-
-    public void acualizarVid(int cantidad){
-        factoryController.actualizarVid(cantidad);
     }
 
     public String obtenerVideojuegoPrimerMomento(){
@@ -44,6 +40,10 @@ public class PagoSubcontroller {
         factoryController.actualizarHistorial(jugador, jugados);
     }
 
+    public int cantidad(){
+        return factoryController.getCanAuxiliar();
+    }
+
     public Videojuego obtenerVideojuego(String codigo) {
         return factoryController.obtenerVideojuego(codigo);
     }
@@ -68,6 +68,10 @@ public class PagoSubcontroller {
         factoryController.correo(titulo, cuerpo, correo, img);
     }
 
+    public ObservableList<Carrito> obtenerCarrito(){
+        return factoryController.getCarAuxiliar();
+    }
+
     public ArrayList<Administrador> traerAdmins(){
         return factoryController.getListaAdministradores();
     }
@@ -76,12 +80,16 @@ public class PagoSubcontroller {
         return factoryController.getVideojuegoAuxiliar(nombre);
     }
 
-    public int traerVideojuegos(){
-        return factoryController.traerVideojuegos();
+    public Compra guardarPrestamo(Compra prestamo){
+        return factoryController.guardarCompraCarrito(prestamo);
     }
 
-    public Compra guardarPrestamo(Compra prestamo){
-        return factoryController.guardarCompra(prestamo);
+    public void acualizarVid(int cantidad){
+        factoryController.actualizarVid(cantidad);
+    }
+
+    public int traerVideojuegos(){
+        return factoryController.traerVideojuegos();
     }
 
     public ModelFactory getFactoryController() {

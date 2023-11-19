@@ -21,6 +21,7 @@ public class Tienda{
     private final ArrayList<Compra> listaCompras = new ArrayList<>();
     private final ArrayList<Favorito> listaFavorito = new ArrayList<>();
     private final ArrayList<Carrito> listaCarrito = new ArrayList<>();
+    private int compras;
 
     public Tienda() {
     }
@@ -307,7 +308,29 @@ public class Tienda{
         Compra comp = new Compra();
 
         comp.setDocumentoJugador(compra.getDocumentoJugador());
-        comp.setFactura(getListaCompras().size()+1);
+        comp.setFactura(compra.getFactura());
+        comp.setJugador(compra.getJugador());
+        comp.setApellido(compra.getApellido());
+        comp.setCodigo(compra.getCodigo());
+        comp.setTotal(compra.getTotal());
+        comp.setNombreVideojuego(compra.getNombreVideojuego());
+        comp.setTipoFormatoVideojuego(compra.getTipoFormatoVideojuego());
+        comp.setTipoGeneroVideojuego(compra.getTipoGeneroVideojuego());
+        comp.setFechaCompraInicial(compra.getFechaCompraInicial());
+        comp.setUnidades(compra.getUnidades());
+        comp.setFechaCompraFinal(compra.getFechaCompraFinal().plusMonths(3));
+
+        getListaCompras().add(comp);
+
+        return comp;
+    }
+
+    public Compra guardarCompraCarrito(Compra compra) {
+
+        Compra comp = new Compra();
+
+        comp.setFactura(compra.getFactura());
+        comp.setDocumentoJugador(compra.getDocumentoJugador());
         comp.setJugador(compra.getJugador());
         comp.setApellido(compra.getApellido());
         comp.setCodigo(compra.getCodigo());
@@ -939,6 +962,14 @@ public class Tienda{
         }else{
             throw new JugadorNoExisteException();
         }
+    }
+
+    public int getCompras() {
+        return compras;
+    }
+
+    public void setCompras(int compras) {
+        this.compras = compras;
     }
 
     public ArrayList<Videojuego> getListaVideojuegos() {

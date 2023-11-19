@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class JugadorController implements Initializable {
@@ -153,52 +154,19 @@ public class JugadorController implements Initializable {
         main.cargarVentanaEnvio();
     }
 
+    public void comprarElCarrito() {
+        car();
+        compraPrimeraEtapa2();
+        cerrarVentana(btnPrestamo);
+        main.cargarVentanaEnvio2();
+    }
+
     public void compraPrimeraEtapa(){
         subcontroller.compraPrimeraEtapa(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem(), Integer.parseInt(txtUnidadesComprar.getText()), Integer.parseInt(txtUnidadesDisponibles.getText()));
     }
 
-    public void comprarElCarrito() {
-        for(int i = 0; i < listaCarritoNueva.size(); i++){
-            Compra compra;
-            Compra comp = new Compra();
-            MensajesEmailConstant mensajes = new MensajesEmailConstant();
-            String img = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\resources\\images\\compra.jpg";
-
-            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(listaCarritoNueva.get(i).getNombreVideojuegoCarrito());
-            Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
-            LocalDate fecha = LocalDate.now();
-            int unidades = listaCarritoNueva.get(i).getUnidadesCarrito();
-
-            int bandera = subcontroller.traerAlquileres().size();
-
-            comp.setFactura(bandera + 1);
-            comp.setDocumentoJugador(jugador.getDocumento());
-            comp.setJugador(jugador.getNombrePersona());
-            comp.setApellido(jugador.getApellido());
-            comp.setCodigo(videojuego.getCodigo());
-            comp.setNombreVideojuego(videojuego.getNombreVideojuego());
-            comp.setTipoGeneroVideojuego(videojuego.getTipoGeneroVideojuego());
-            comp.setTipoFormatoVideojuego(videojuego.getTipoFormatoVideojuego());
-            comp.setFechaCompraInicial(fecha);
-            comp.setFechaCompraFinal(fecha);
-            comp.setUnidades(unidades);
-            comp.setTotal(videojuego.getPrecio()*unidades);
-
-            compra = subcontroller.guardarPrestamo(comp);
-
-            if (compra != null) {
-                subcontroller.email(mensajes.MENSAJE_COMPRA, (mensajes.MENSAJE_COMPRA_CUERPO + comp.getNombreVideojuego()), jugador.getCorreo(), img);
-                for (Administrador admin : subcontroller.traerAdmins()) {
-                    subcontroller.email(mensajes.MENSAJE_VENTA, (mensajes.MENSAJE_VENTA_CUERPO + comp.getNombreVideojuego() + mensajes.MENSAJE_VENTA_CUERPO2 + jugador.getNombrePersona()), admin.getCorreo(), img);
-                }
-                listaPrestamosNueva.add(compra);
-                tablaPrestamos.setItems(listaPrestamosNueva);
-                subcontroller.actualizarVideojuego(comp.getNombreVideojuego(), videojuego.getUnidades(), comp.getUnidades());
-                txtUnidadesDisponibles.setText(String.valueOf(videojuego.getUnidades()));
-                actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
-                listaCarritoNueva.clear();
-            }
-        }
+    public void compraPrimeraEtapa2(){
+        subcontroller.compraPrimeraEtapa2(listaCarritoNueva);
     }
 
     public void agregarCarrito() {
@@ -479,6 +447,10 @@ public class JugadorController implements Initializable {
         Image img = new Image(jugador.getImagen());
         imgUsuario.setImage(img);
 
+    }
+
+    public void car(){
+        subcontroller.car(listaCarritoNueva);
     }
 
     /*
