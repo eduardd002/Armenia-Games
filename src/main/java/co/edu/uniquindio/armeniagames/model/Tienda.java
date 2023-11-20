@@ -902,7 +902,7 @@ public class Tienda{
                 ->
                  {
                     Thread.sleep(1500);
-                    respuesta = "Armenia Games es una empresa dedicada al alquile de videojuegos en" +
+                    respuesta = "Armenia Games es una empresa dedicada a la venta de videojegos en" +
                             "multiples formatos, contando con una gran variedad y gama junto con exclusivos" +
                             "que solo podrás encontrar aquí, ¡BIENVENIDO Y ANIMATE A COMPRAR!";
                 }
@@ -910,17 +910,15 @@ public class Tienda{
                 ->
                  {
                     Thread.sleep(1500);
-                    respuesta = "Nuestra dirección es Parque residencial San José torre 13 apartamento 402" +
-                            " Armenia, Quindio";
+                    respuesta = "Nuestra dirección es Universidad del Quindio Carrera 15 #12N · " +
+                            "67359300";
                 }
             case 3
                 ->
                  {
                     Thread.sleep(1500);
                     respuesta = """
-                            armeniagamess@gmail.com\s
-
-                            armeniaagames@hotmail.com""";
+                         armeniaagames@hotmail.com""";
                 }
             case 4
                 ->
@@ -934,8 +932,9 @@ public class Tienda{
                     Thread.sleep(1500);
                     respuesta = """
                             Eduardo Cortes Pineda\s
-                            Contacto: eduardcpineda@gmail.com
-                            eduardcpineda@hotmail.com""";
+                            Contacto: eduardo.cortesp@uqvirtual.edu.co \n
+                            Juan Jose Lopez Bedoya  \s
+                            Contacto: juanj.lopezb@uqvirtual.edu.co""";
                 }
 
             default

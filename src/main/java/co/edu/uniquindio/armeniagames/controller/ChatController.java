@@ -59,9 +59,9 @@ public class ChatController implements Initializable {
         switch (opcion) {
             case 1 -> medida = 105;
             case 2 -> medida = 75;
-            case 3 -> medida = 65;
+            case 3 -> medida = 41;
             case 4 -> medida = 40;
-            case 5 -> medida = 70;
+            case 5 -> medida = 100;
         }
         return medida;
     }
