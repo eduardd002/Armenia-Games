@@ -96,6 +96,10 @@ public class JugadorSubcontroller {
         return factoryController.guardarCarrito(carrito);
     }
 
+    public Observacion guardarObservacion(Observacion observacion){
+        return factoryController.guardarObservacion(observacion);
+    }
+
     public Favorito guardarFavorito(Favorito favorito){
         return factoryController.guardarFavorito(favorito);
     }

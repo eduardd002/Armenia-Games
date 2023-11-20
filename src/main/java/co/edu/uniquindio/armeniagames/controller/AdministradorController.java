@@ -1,10 +1,7 @@
 package co.edu.uniquindio.armeniagames.controller;
 
 import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
-import co.edu.uniquindio.armeniagames.enumm.TipoEstadoCivil;
-import co.edu.uniquindio.armeniagames.enumm.TipoGeneroVideojuego;
-import co.edu.uniquindio.armeniagames.enumm.TipoFormatoVideojuego;
-import co.edu.uniquindio.armeniagames.enumm.TipoRestriccion;
+import co.edu.uniquindio.armeniagames.enumm.*;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.*;
 import co.edu.uniquindio.armeniagames.main.Main;
@@ -35,6 +32,7 @@ public class AdministradorController implements Initializable {
     public AdministradorSubcontroller subcontroller;
     private final ObservableList<Videojuego> listaVideojuegos = FXCollections.observableArrayList();
     private final ObservableList<Jugador> listaJugadores = FXCollections.observableArrayList();
+    private final ObservableList<Observacion> listaObservaciones = FXCollections.observableArrayList();
     private final ObservableList<Compra> listaAlquileres = FXCollections.observableArrayList();
 
     @FXML
@@ -310,6 +308,7 @@ public class AdministradorController implements Initializable {
      */
 
     private Jugador jugadorSeleccionado;
+    private Observacion observacionSeleccionada;
 
     @FXML
     public void desbloquear() {
@@ -347,6 +346,43 @@ public class AdministradorController implements Initializable {
         }
     }
 
+    /*
+     ******************************   Apartado PQRSF  ************************************
+     */
+
+    @FXML
+    private TableView<Observacion> tablaObservaciones;
+
+    @FXML
+    private TextArea area;
+
+    @FXML
+    private TableColumn<Observacion, TipoObservacion> colTipoObservacion;
+
+    @FXML
+    private TableColumn<Observacion, String> colDocumentoObservacion, colNombreObservacion, colApellidoObservacion;
+
+
+    public ObservableList<Observacion> getObservaciones() {
+        listaObservaciones.addAll(subcontroller.obtenerObservaciones());
+        return listaObservaciones;
+    }
+
+    public void inicializarObservaciones() {
+
+        colDocumentoObservacion.setCellValueFactory(new PropertyValueFactory<>("documentoObservacion"));
+        colNombreObservacion.setCellValueFactory(new PropertyValueFactory<>("nombreObservacion"));
+        colApellidoObservacion.setCellValueFactory(new PropertyValueFactory<>("apellidoObservacion"));
+        colTipoObservacion.setCellValueFactory(new PropertyValueFactory<>("tipoObservacion"));
+
+        tablaObservaciones.getItems().clear();
+        tablaObservaciones.setItems(getObservaciones());
+        tablaObservaciones.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            observacionSeleccionada = newSelection;
+            area.setText(observacionSeleccionada.getObservacion());
+        });
+    }
+
     public void cerrarVentana(Button btn) {
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.close();
@@ -365,6 +401,7 @@ public class AdministradorController implements Initializable {
         inicializarClientesView();
         inicializarComprasView();
         mostrarDatosAdministrador();
+        inicializarObservaciones();
     }
 
     @Override

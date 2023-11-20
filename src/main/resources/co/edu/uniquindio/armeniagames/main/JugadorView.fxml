@@ -12,6 +12,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -223,6 +224,19 @@
                         </Label>
                      </graphic>
                 </Tab>
+                  <Tab text="PQRSF">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="336.0" layoutY="43.0" text="Tipo:" textFill="WHITE" />
+                              <Label layoutX="330.0" layoutY="162.0" text="Asunto:" textFill="WHITE" />
+                              <ComboBox id="txt" fx:id="comboPqrsf" layoutX="260.0" layoutY="69.0" onAction="#eventoComboBox2" prefWidth="150.0" />
+                              <TextArea fx:id="areaAsunto" disable="true" layoutX="175.0" layoutY="191.0" onKeyTyped="#eventoArea" prefHeight="200.0" prefWidth="347.0" promptText="Escribe tu asunto aqui..." />
+                              <Button id="btn" fx:id="btnPqrsf" disable="true" layoutX="325.0" layoutY="415.0" mnemonicParsing="false" onAction="#enviarObservacion" text="Enviar" textFill="WHITE" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
               </tabs>
             </TabPane>
          </children>

@@ -7,7 +7,6 @@ import co.edu.uniquindio.armeniagames.enumm.TipoCuenta;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.main.Main;
 import co.edu.uniquindio.armeniagames.model.*;
-import co.edu.uniquindio.armeniagames.subcontroller.PagoSubcontroller;
 import co.edu.uniquindio.armeniagames.subcontroller.PagoSubcontroller2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +22,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class PagoController2 implements Initializable {
+public class PagoCarritoController implements Initializable {
 
     public Main main = new Main();
     public PagoSubcontroller2 subcontroller;
@@ -121,8 +120,8 @@ public class PagoController2 implements Initializable {
                     "Departamento: " + subcontroller.obtenerDepartamentoSegundoMomento() + "<br>" +
                     "Muncipio: " + subcontroller.obtenerMunicipioSegundoMomento() + "<br>" +
                     "Codigo postal: " + subcontroller.obtenerPostalSegundoMomento() + "<br>" +
-                    "Direccion: " + subcontroller.obtenerDireccionSegundoMomento() +
-                    "---------------------------------------------------------";
+                    "Direccion: " + subcontroller.obtenerDireccionSegundoMomento() + "<br>" + "<br>" +
+                    "--------------------------------------------------------------------------------------------";
         }
          return mensaje;
     }
@@ -286,7 +285,7 @@ public class PagoController2 implements Initializable {
     public void iniciarDatos() {
         ModelFactory factoryController = ModelFactory.getInstance();
         subcontroller = new PagoSubcontroller2(factoryController);
-        new PagoController2();
+        new PagoCarritoController();
         cargarTipoCuenta();
     }
 

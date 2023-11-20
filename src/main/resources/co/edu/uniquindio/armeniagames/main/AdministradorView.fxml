@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -119,7 +120,7 @@
                         </AnchorPane>
                      </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="127.0" text="Perfil" />
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Perfil" />
                      </graphic>
                   </Tab>
                   <Tab id="Tab">
@@ -147,7 +148,7 @@
                         </AnchorPane>
                      </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="192.0" text="Compras" />
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="126.0" text="Compras" />
                      </graphic>
                   </Tab>
                   <Tab id="Tab">
@@ -169,8 +170,25 @@
                         </AnchorPane>
                      </content>
                      <graphic>
-                        <Label id="LabelText" alignment="CENTER" prefHeight="15.0" prefWidth="167.0" text="Mis Clientes" />
+                        <Label id="LabelText" alignment="CENTER" prefHeight="17.0" prefWidth="129.0" text="Mis Clientes" />
                      </graphic>
+                  </Tab>
+                  <Tab text="PQRSF">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablaObservaciones" layoutX="125.0" layoutY="37.0" prefHeight="168.0" prefWidth="450.0">
+                                <columns>
+                                  <TableColumn fx:id="colDocumentoObservacion" prefWidth="106.0000228881836" text="Documento" />
+                                  <TableColumn fx:id="colNombreObservacion" prefWidth="102.66667175292969" text="Nombre" />
+                                    <TableColumn fx:id="colApellidoObservacion" prefWidth="108.6666259765625" text="Apellido" />
+                                    <TableColumn fx:id="colTipoObservacion" prefWidth="131.99996948242188" text="Tipo" />
+                                </columns>
+                              </TableView>
+                              <TextArea fx:id="area" editable="false" layoutX="126.0" layoutY="274.0" prefHeight="159.0" prefWidth="448.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
                   </Tab>
               </tabs>
             </TabPane>

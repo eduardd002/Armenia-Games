@@ -39,6 +39,10 @@ public class AdministradorSubcontroller {
         return factoryController.getListaJugadores();
     }
 
+    public ArrayList<Observacion> obtenerObservaciones(){
+        return factoryController.getListaObservaciones();
+    }
+
     public ArrayList<Compra> obtenerAlquileres(){
         return factoryController.getListaCompras2();
     }

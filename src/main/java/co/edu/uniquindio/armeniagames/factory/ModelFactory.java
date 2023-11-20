@@ -52,6 +52,7 @@ public class ModelFactory {
             ArrayList<Compra> listaCompras;
             ArrayList<Carrito> listaCarrito;
             ArrayList<Favorito> listaFavorito;
+            ArrayList<Observacion> listaObservaciones;
 
             listaAdministradores = persistencia.cargarAdministrador();
             listaJugadores = persistencia.cargarJugador();
@@ -59,6 +60,7 @@ public class ModelFactory {
             listaCompras = persistencia.cargarCompra();
             listaCarrito = persistencia.cargarCarrito();
             listaFavorito = persistencia.cargarFavorito();
+            listaObservaciones = persistencia.cargarObservacion();
 
             getTienda().getListaAdministradores().addAll(listaAdministradores);
             getTienda().getListaJugadores().addAll(listaJugadores);
@@ -66,6 +68,7 @@ public class ModelFactory {
             getTienda().getListaCompras().addAll(listaCompras);
             getTienda().getListaCarrito().addAll(listaCarrito);
             getTienda().getListaFavoritos().addAll(listaFavorito);
+            getTienda().getListaObservaciones().addAll(listaObservaciones);
 
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Datos no cargados", 3, mensajesExcepcionConstant.ERROR_CARGAR_DATOS);
@@ -290,6 +293,25 @@ public class ModelFactory {
                     mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
         }
         return jugador;
+    }
+
+    public Observacion guardarObservacion(Observacion ob) {
+
+        Observacion observacion = null;
+
+        try {
+            observacion = getTienda().guardarObservacion(ob);
+            persistencia.guardarObservacion(getListaObservaciones());
+            mostrarMensaje("Notificación Guardado", "Observacion Guardada", mensajesInformacionConstant.INFORMACION_OBSERVACION_GUARDADA,
+                    Alert.AlertType.INFORMATION);
+            persistencia.guardaRegistroLog("Observacion Guardada", 1, mensajesInformacionConstant.INFORMACION_OBSERVACION_GUARDADA);
+        } catch (IOException e) {
+            persistencia.guardaRegistroLog("Observacion No Guardada", 3,
+                    mensajesExcepcionConstant.ERROR_GENERAL + e.getMessage());
+            mostrarMensaje("Notificación Guardado", "Observacion No Guardada",
+                    mensajesExcepcionConstant.ERROR_GENERAL, Alert.AlertType.ERROR);
+        }
+        return observacion;
     }
 
     public boolean devolverCompra(int factura, String documento, int unidades, String videojuego){
@@ -922,6 +944,10 @@ public class ModelFactory {
 
     public ArrayList<Jugador> getListaJugadores() {
         return getTienda().getListaJugadores();
+    }
+
+    public ArrayList<Observacion> getListaObservaciones() {
+        return getTienda().getListaObservaciones();
     }
 
     public ArrayList<Videojuego> getListaVideojuegos() {

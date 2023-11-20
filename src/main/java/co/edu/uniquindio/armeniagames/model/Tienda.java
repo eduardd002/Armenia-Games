@@ -18,6 +18,7 @@ public class Tienda{
     private final ArrayList<Videojuego> listaVideojuegos = new ArrayList<>();
     private final ArrayList<Jugador> listaJugadores = new ArrayList<>();
     private final ArrayList<Administrador> listaAdministradores = new ArrayList<>();
+    private final ArrayList<Observacion> listaObservaciones = new ArrayList<>();
     private final ArrayList<Compra> listaCompras = new ArrayList<>();
     private final ArrayList<Favorito> listaFavorito = new ArrayList<>();
     private final ArrayList<Carrito> listaCarrito = new ArrayList<>();
@@ -550,6 +551,23 @@ public class Tienda{
         return vid;
     }
 
+    public Observacion guardarObservacion(Observacion observacion) {
+
+        Observacion ob;
+
+        ob = new Observacion();
+
+        ob.setTipoObservacion(observacion.getTipoObservacion());
+        ob.setObservacion(observacion.getObservacion());
+        ob.setDocumentoObservacion(observacion.getDocumentoObservacion());
+        ob.setApellidoObservacion(observacion.getApellidoObservacion());
+        ob.setNombreObservacion(observacion.getNombreObservacion());
+
+        getListaObservaciones().add(ob);
+
+        return ob;
+    }
+
     public boolean devolverVideojuego(int factura, String documento, int unidades, String videojuego) throws CompraNoExisteException, JugadorNoExisteException, FechaPasoException, VideojuegoNoExisteException, CompraNoCoincideException, CantidadExcedeException {
 
         Compra com;
@@ -986,6 +1004,10 @@ public class Tienda{
 
     public ArrayList<Compra> getListaCompras() {
         return listaCompras;
+    }
+
+    public ArrayList<Observacion> getListaObservaciones() {
+        return listaObservaciones;
     }
 
     public ArrayList<Favorito> getListaFavoritos() {

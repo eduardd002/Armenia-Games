@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EnvioController2 implements Initializable {
+public class EnvioCarritoController implements Initializable {
 
     public Main main = new Main();
     public EnvioSubcontroller subcontroller;
@@ -816,7 +816,7 @@ public class EnvioController2 implements Initializable {
         subcontroller = new EnvioSubcontroller(factoryController);
         cargarTipoDepartamento();
         cargarTipoResidencia();
-        new EnvioController2();
+        new EnvioCarritoController();
     }
 
     @Override

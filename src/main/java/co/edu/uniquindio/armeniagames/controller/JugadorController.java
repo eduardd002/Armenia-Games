@@ -39,6 +39,7 @@ public class JugadorController implements Initializable {
     public JugadorSubcontroller subcontroller;
     private final ObservableList<TipoEstadoCivil> listaTipoEstadoCivil = FXCollections.observableArrayList();
     private final ObservableList<String> listaVideojuegos = FXCollections.observableArrayList();
+    private final ObservableList<TipoObservacion> listaTipoObservacion = FXCollections.observableArrayList();
     private final ObservableList<Compra> listaPrestamos = FXCollections.observableArrayList();
     private final ObservableList<Compra> listaPrestamosNueva = FXCollections.observableArrayList();
     private final ObservableList<Carrito> listaCarrito = FXCollections.observableArrayList();
@@ -253,17 +254,6 @@ public class JugadorController implements Initializable {
         imgVideojuego.setImage(null);
     }
 
-    public void actualizarInventario() {
-
-        Videojuego vid = subcontroller.obtenerVideojuego(comboVideojuegosDisponiblesAlquiler.getSelectionModel().getSelectedItem());
-
-        int inventarioActual = Integer.parseInt(txtUnidadesDisponibles.getText());
-        int compradas = Integer.parseInt(txtUnidadesComprar.getText());
-
-        subcontroller.actualizarVideojuego(vid.getNombreVideojuego(), inventarioActual, compradas);
-        txtUnidadesDisponibles.setText(String.valueOf(vid.getUnidades()));
-    }
-
     public void actualizarHistorial(String lector, int librosLeidos) {
         subcontroller.actualizarHistorial(lector, librosLeidos);
     }
@@ -402,7 +392,6 @@ public class JugadorController implements Initializable {
 
         comboEstadoCivil.setItems(listaTipoEstadoCivil);
     }
-
 
     @FXML
     public void eventoText(KeyEvent event) {
@@ -600,6 +589,72 @@ public class JugadorController implements Initializable {
         });
     }
 
+    /*
+    lkjlkjljlkjlkjlkj
+     */
+
+    @FXML
+    private TextArea areaAsunto;
+
+    @FXML
+    private ComboBox<TipoObservacion> comboPqrsf;
+
+    @FXML
+    private Button btnPqrsf;
+
+    public void cargarTipoObservacion() {
+
+        listaTipoObservacion.add(TipoObservacion.Peticion);
+        listaTipoObservacion.add(TipoObservacion.Queja);
+        listaTipoObservacion.add(TipoObservacion.Reclamo);
+        listaTipoObservacion.add(TipoObservacion.Sugerencia);
+        listaTipoObservacion.add(TipoObservacion.Felicitacion);
+
+        comboPqrsf.setItems(listaTipoObservacion);
+    }
+
+    @FXML
+    public void eventoComboBox2(ActionEvent event) {
+
+        Object evt = event.getSource();
+
+        if (evt.equals(comboPqrsf)) {
+            areaAsunto.setDisable(comboPqrsf.getSelectionModel().isEmpty());
+        }
+    }
+
+    @FXML
+    public void eventoArea(KeyEvent event) {
+        Object evt = event.getSource();
+
+        if (evt.equals(areaAsunto)) {
+            btnPqrsf.setDisable(areaAsunto.getText().isEmpty());
+        }
+    }
+
+    @FXML
+    public void enviarObservacion(){
+        crearPqrsf();
+    }
+
+    private void crearPqrsf() {
+        Observacion ob;
+        Observacion obser = new Observacion();
+        Jugador jugador = (Jugador) subcontroller.traerUsuarioAuxiliar();
+
+        obser.setTipoObservacion(comboPqrsf.getSelectionModel().getSelectedItem());
+        obser.setObservacion(areaAsunto.getText());
+        obser.setNombreObservacion(jugador.getNombrePersona());
+        obser.setApellidoObservacion(jugador.getApellido());
+        obser.setDocumentoObservacion(jugador.getDocumento());
+
+        ob = subcontroller.guardarObservacion(obser);
+
+        if (ob != null) {
+            areaAsunto.clear();
+        }
+    }
+
     public void cerrarVentana(Button btn) {
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.close();
@@ -624,6 +679,7 @@ public class JugadorController implements Initializable {
         new JugadorController();
         cargarVideojuegos();
         cargarTipoEstadoCivil();
+        cargarTipoObservacion();
         mostrarDatosJugador();
         inicializarComprasView();
         inicializarCarritoView();

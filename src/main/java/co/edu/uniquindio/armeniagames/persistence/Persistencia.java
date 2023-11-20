@@ -20,6 +20,8 @@ public class Persistencia  implements PersistenciaService {
    public static final String rutaCompra = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\CompraFile.txt";
    public static final String rutaCarrito = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\CarritoFile.txt";
    public static final String rutaFavorito = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\FavoritoFile.txt";
+   public static final String rutaObservacion = "C:\\Users\\eduar\\IdeaProjects\\AGE\\src\\main\\java\\co\\edu\\uniquindio\\armeniagames\\file\\ObservacionFile.txt";
+
 
    public void guardaRegistroLog(String mensajeLog, int nivel, String accion) {
       archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLog);
@@ -98,6 +100,42 @@ public class Persistencia  implements PersistenciaService {
          administrador.add(admin);
       }
       return administrador;
+   }
+
+   public void guardarObservacion(ArrayList<Observacion> listaObservaciones) throws IOException {
+      StringBuilder contenido = new StringBuilder();
+
+      for (Observacion obser : listaObservaciones) {
+         contenido.append(obser.getDocumentoObservacion()).append("--").
+                 append(obser.getNombreObservacion()).append("--").
+                 append(obser.getApellidoObservacion()).append("--").
+                 append(obser.getTipoObservacion()).append("--").
+                 append(obser.getObservacion()).append("\n");
+      }
+      archivoUtil.guardarArchivo(rutaObservacion, contenido.toString(), false);
+   }
+
+   public ArrayList<Observacion> cargarObservacion() throws IOException {
+
+      ArrayList<Observacion> observacion = new ArrayList<>();
+      ArrayList<String> contenido = archivoUtil.leerArchivo(rutaObservacion);
+
+      String linea;
+
+      for (String s : contenido) {
+
+         linea = s;
+         Observacion ob = new Observacion();
+
+         ob.setDocumentoObservacion(linea.split("--")[0]);
+         ob.setNombreObservacion(linea.split("--")[1]);
+         ob.setApellidoObservacion(linea.split("--")[2]);
+         ob.setTipoObservacion(TipoObservacion.valueOf(linea.split("--")[3]));
+         ob.setObservacion(linea.split("--")[4]);
+
+         observacion.add(ob);
+      }
+      return observacion;
    }
 
    public void guardarVideojuego(ArrayList<Videojuego> listaVideojuegos) throws IOException {

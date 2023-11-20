@@ -297,7 +297,7 @@ public class Main extends Application implements MainService {
 
     public void cargarVentanaEnvio2() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Envio2View.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EnvioCarritoView.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
@@ -316,7 +316,7 @@ public class Main extends Application implements MainService {
 
     public void cargarVentanaPago2() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Pago2View.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("PagoCarritoView.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
