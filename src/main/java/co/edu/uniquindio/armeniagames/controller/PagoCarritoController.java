@@ -60,7 +60,7 @@ public class PagoCarritoController implements Initializable {
         Compra compra;
         Compra comp = new Compra();
 
-        int total = comp.getTotal();
+        int total = 0;
 
         for(int i = 0; i < lista.size(); i++){
 
@@ -93,7 +93,7 @@ public class PagoCarritoController implements Initializable {
         }
         mostrarMensaje("Notificacion Guardado", "Compra Guardada", mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO,
                 Alert.AlertType.INFORMATION);
-        subcontroller.email(mensajes.MENSAJE_CARRITO, (mensajes.MENSAJE_CARRITO_CUERPO + correo(total)), jugador.getCorreo(), img);
+        subcontroller.email(mensajes.MENSAJE_CARRITO, (mensajes.MENSAJE_CARRITO_CUERPO + correo()), jugador.getCorreo(), img);
         subcontroller.acualizarVid(videojuegos+1);
         actualizarHistorial(jugador.getDocumento(), jugador.getVideojuegosComprados() + 1);
         cerrarVentana(btnComprar);
@@ -104,15 +104,19 @@ public class PagoCarritoController implements Initializable {
         subcontroller.actualizarHistorial(lector, librosLeidos);
     }
 
-    public String correo(int total){
+    public String correo(){
         String mensaje = "";
         for (Compra com : compras) {
+
+            int precioUnidad = com.getTotal() / com.getUnidades();
+
             mensaje += "<br>" + "<br>" + "DATOS DEL VIDEOJUEGO" + "<br>" + "<br>" +
                     "Nombre: " + com.getNombreVideojuego() + "<br>" +
+                    "Precio: " + precioUnidad + "<br>" +
                     "Formato: " + com.getTipoFormatoVideojuego() + "<br>" +
                     "Genero: " + com.getTipoGeneroVideojuego() + "<br>" +
                     "Unidades: " + com.getUnidades() + "<br>" +
-                    "Total: " + total + "<br>" + "<br>" + "DATOS DE PAGO" + "<br>" + "<br>" +
+                    "Total: " + com.getTotal() + "<br>" + "<br>" + "DATOS DE PAGO" + "<br>" + "<br>" +
                     "Banco: " + tipoBanco + "<br>" +
                     "Tipo de cuenta: " + comboTipoCuenta.getSelectionModel().getSelectedItem() + "<br>" +
                     "Numero de cuenta: " + txtCuenta.getText() + "<br>" +
