@@ -467,8 +467,6 @@ public class JugadorController implements Initializable {
         for (Carrito prest : listaCarrito) {
             if(prest.getDocumentoJugadorCarrito().equals(documento)) {
                 listaCarritoNueva.add(prest);
-            }else{
-                System.out.println("prest jugador: " + prest.getJugadorCarrito());
             }
         }
         return listaCarritoNueva;
