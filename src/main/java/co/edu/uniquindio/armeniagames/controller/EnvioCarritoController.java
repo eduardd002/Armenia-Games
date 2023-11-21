@@ -1,6 +1,5 @@
 package co.edu.uniquindio.armeniagames.controller;
 
-import co.edu.uniquindio.armeniagames.enumm.TipoBanco;
 import co.edu.uniquindio.armeniagames.enumm.TipoDepartamento;
 import co.edu.uniquindio.armeniagames.enumm.TipoResidencia;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
@@ -12,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -29,11 +27,6 @@ public class EnvioCarritoController implements Initializable {
     private final ObservableList<TipoResidencia>listaTipoResidencia = FXCollections.observableArrayList();
     private final ObservableList<TipoDepartamento> listaTipoDepartamento = FXCollections.observableArrayList();
     private final ObservableList<String> listaTipoMunicipios = FXCollections.observableArrayList();
-
-    private TipoBanco tipoBanco;
-
-    @FXML
-    private CheckBox checkLey, checkLey2;
 
     @FXML
     private TextField txtBarrio, txtDireccion, txtPostal;

@@ -57,7 +57,7 @@ public class AdministradorController implements Initializable {
 
     @FXML
     private Button btnAgregar, btnSalir, btnEliminar, btnActualizar,
-            btnActualizarDatos, btnDevolver, btnDesbloquear;
+            btnActualizarDatos, btnDevolver;
 
     @FXML
     private TableColumn<Videojuego, String> colNombreVideojuegoRegistro,
@@ -331,9 +331,7 @@ public class AdministradorController implements Initializable {
 
         tablaJugadores.getItems().clear();
         tablaJugadores.setItems(getJugadores());
-        tablaJugadores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            jugadorSeleccionado = newSelection;
-        });
+        tablaJugadores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> jugadorSeleccionado = newSelection);
     }
 
     public void desbloquearCuenta() {

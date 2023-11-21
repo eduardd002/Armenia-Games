@@ -1,11 +1,9 @@
 package co.edu.uniquindio.armeniagames.controller;
 
-import co.edu.uniquindio.armeniagames.enumm.TipoBanco;
 import co.edu.uniquindio.armeniagames.enumm.TipoDepartamento;
 import co.edu.uniquindio.armeniagames.enumm.TipoResidencia;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.main.Main;
-import co.edu.uniquindio.armeniagames.subcontroller.ChatSubcontroller;
 import co.edu.uniquindio.armeniagames.subcontroller.EnvioSubcontroller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,11 +25,6 @@ public class EnvioController implements Initializable {
     private final ObservableList<TipoResidencia>listaTipoResidencia = FXCollections.observableArrayList();
     private final ObservableList<TipoDepartamento> listaTipoDepartamento = FXCollections.observableArrayList();
     private final ObservableList<String> listaTipoMunicipios = FXCollections.observableArrayList();
-
-    private TipoBanco tipoBanco;
-
-    @FXML
-    private CheckBox checkLey, checkLey2;
 
     @FXML
     private TextField txtBarrio, txtDireccion, txtPostal;

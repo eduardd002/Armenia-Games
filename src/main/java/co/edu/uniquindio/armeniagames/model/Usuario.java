@@ -9,10 +9,19 @@ public class Usuario extends Persona{
 
     private TipoRestriccion tipoRestriccion;
     private TipoUsuario tipoUsuario;
+    private int intentos;
 
     private String imagen;
 
     public Usuario(){}
+
+    public int getIntentos() {
+        return intentos;
+    }
+
+    public void setIntentos(int intentos) {
+        this.intentos = intentos;
+    }
 
     public String getCorreo() {
         return correo;

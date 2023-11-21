@@ -23,6 +23,8 @@ public class MensajesEmailConstant {
     public final String MENSAJE_VENTA_CUERPO2 = " al jugador ";
     public final String MENSAJE_DESBLOQUEO = "Cuenta desbloqueada";
     public final String MENSAJE_RESTABLECER_CLAVE = "Usted se ha solicitado cambiar la clave";
-    public final String MENSAJE_RESTABLECER_CLAVE_CUERPO = "Para cambiar su contraseña, " +
-            "digite en el campo el codigo que se le brinda a continuación: \n \n";
+    public final String MENSAJE_RESTABLECER_CLAVE_CUERPO = """
+            Para cambiar su contraseña, digite en el campo el codigo que se le brinda a continuación:\s
+            \s
+            """;
 }

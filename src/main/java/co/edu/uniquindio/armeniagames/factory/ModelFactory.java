@@ -92,6 +92,7 @@ public class ModelFactory {
                         mensajesInformacionConstant.INFORMACION_BIENVENIDA, Alert.AlertType.INFORMATION,
                         usu.getNombrePersona());
                 usuarioAuxiliar = usu;
+                usuario.setIntentos(0);
             }
 
         } catch (UsuarioNoExisteException | JugadorNoExisteException | AdministradorNoExisteException e) {
@@ -154,11 +155,23 @@ public class ModelFactory {
         String tiempo;
 
         if (horaActual.isBefore(LocalTime.of(12, 0))) {
-            tiempo = "\n" + "Buenos dias " + "\n" + "\n" ;
+            tiempo = """
+
+                    Buenos dias\s
+
+                    """;
         } else if (horaActual.isBefore(LocalTime.of(18, 0))) {
-            tiempo = "\n" + "Buenas tardes " + "\n" + "\n" ;
+            tiempo = """
+
+                    Buenas tardes\s
+
+                    """;
         } else {
-            tiempo = "\n" + "Buenas noches " + "\n" + "\n" ;
+            tiempo = """
+
+                    Buenas noches\s
+
+                    """;
         }
         return tiempo;
     }
@@ -226,7 +239,6 @@ public class ModelFactory {
 
         String correoEnvia = "armeniagames48@gmail.com";
         String contrasena = "evawjczanrebktjd";
-        String mensaje = titulo;
 
         Properties objetoPEC = new Properties();
 
@@ -243,7 +255,7 @@ public class ModelFactory {
         try {
             mail.setFrom(new InternetAddress(correoEnvia));
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
-            mail.setSubject(mensaje);
+            mail.setSubject(titulo);
             mail.setText(hora() + cuerpo + codigo);
 
             Transport transporte = sesion.getTransport("smtp");
@@ -351,6 +363,7 @@ public class ModelFactory {
                     mensajesExcepcionConstant.ERROR_COMPRA_NO_COINCIDE + e.getMessage());
             mostrarMensaje("Notificacion Devolucion", "Videojuego No Devuelto",
                     mensajesExcepcionConstant.ERROR_COMPRA_NO_COINCIDE, Alert.AlertType.ERROR);
+            e.printStackTrace();
         } catch (CantidadExcedeException e) {
             persistencia.guardaRegistroLog("Videojuego No Devuelto", 3,
                     mensajesExcepcionConstant.ERROR_CANTIDAD_EXCEDE + e.getMessage());
@@ -439,7 +452,7 @@ public class ModelFactory {
 
         try {
             prestamo = getTienda().guardarCompra(comp);
-            persistencia.guardarCompra(getListaCompras(comp.getJugador()));
+            persistencia.guardarCompra(getListaCompras());
             persistencia.guardaRegistroLog("Compra Guardada", 1, mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO);
             mostrarMensaje("Notificacion Guardado", "Compra Guardada", mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO,
                     Alert.AlertType.INFORMATION);
@@ -458,7 +471,7 @@ public class ModelFactory {
 
         try {
             prestamo = getTienda().guardarCompraCarrito(comp);
-            persistencia.guardarCompra(getListaCompras(comp.getJugador()));
+            persistencia.guardarCompra(getListaCompras());
             persistencia.guardaRegistroLog("Compra Guardada", 1, mensajesInformacionConstant.INFORMACION_PRESTAMO_GUARDADO);
         } catch (IOException e) {
             persistencia.guardaRegistroLog("Compra No Guardado", 3,
@@ -475,7 +488,7 @@ public class ModelFactory {
 
         try {
             carrit = getTienda().guardarCarrito(car);
-            persistencia.guardarCarrito(getListaCarrito(car.getJugadorCarrito()));
+            persistencia.guardarCarrito(getListaCarrito());
             persistencia.guardaRegistroLog("Videojuego Guardado En Carrito", 1, mensajesInformacionConstant.INFORMACION_CARRITO_GUARDADO);
             mostrarMensaje("Notificacion Guardado", "Videojuego Guardado En Carrito", mensajesInformacionConstant.INFORMACION_CARRITO_GUARDADO,
                     Alert.AlertType.INFORMATION);
@@ -494,7 +507,7 @@ public class ModelFactory {
 
         try {
             favorito = getTienda().guardarFavorito(fav);
-            persistencia.guardarFavorito(getListaFavorito(fav.getJugadorFavorito()));
+            persistencia.guardarFavorito(getListaFavorito());
             persistencia.guardaRegistroLog("Videojuego Guardado En Favorito", 1, mensajesInformacionConstant.INFORMACION_FAVORITO_GUARDADO);
             mostrarMensaje("Notificacion Guardado", "Videojuego Guardado En Favorito", mensajesInformacionConstant.INFORMACION_FAVORITO_GUARDADO,
                     Alert.AlertType.INFORMATION);
@@ -769,7 +782,7 @@ public class ModelFactory {
     }
 
     public int generarNum2(){
-        return getTienda().generarNumAleatorio2();
+        return Tienda.generarNumAleatorio2();
     }
 
     public void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
@@ -954,7 +967,7 @@ public class ModelFactory {
         return getTienda().getListaVideojuegos();
     }
 
-    public ArrayList<Compra> getListaCompras(String jug) {
+    public ArrayList<Compra> getListaCompras() {
         return getTienda().getListaCompras();
     }
 
@@ -974,40 +987,20 @@ public class ModelFactory {
         return depMomentaneo;
     }
 
-    public void setDepMomentaneo(String depMomentaneo) {
-        this.depMomentaneo = depMomentaneo;
-    }
-
     public String getMunMomentaneo() {
         return munMomentaneo;
-    }
-
-    public void setMunMomentaneo(String munMomentaneo) {
-        this.munMomentaneo = munMomentaneo;
     }
 
     public String getCodigMomentaneo() {
         return codigMomentaneo;
     }
 
-    public void setCodigMomentaneo(String codigMomentaneo) {
-        this.codigMomentaneo = codigMomentaneo;
-    }
-
     public String getDireMomentaneo() {
         return direMomentaneo;
     }
 
-    public void setDireMomentaneo(String direMomentaneo) {
-        this.direMomentaneo = direMomentaneo;
-    }
-
     public String getVidMomementaneo() {
         return vidMomementaneo;
-    }
-
-    public void setVidMomementaneo(String vidMomementaneo) {
-        this.vidMomementaneo = vidMomementaneo;
     }
 
     public int getCantMomentanea() {
@@ -1026,7 +1019,7 @@ public class ModelFactory {
         getTienda().setCompras(cantidad);
     }
 
-    public ArrayList<Favorito> getListaFavorito(String jug) {
+    public ArrayList<Favorito> getListaFavorito() {
         return getTienda().getListaFavoritos();
     }
 
@@ -1034,7 +1027,7 @@ public class ModelFactory {
         return getTienda().getListaFavoritos();
     }
 
-    public ArrayList<Carrito> getListaCarrito(String jug) {
+    public ArrayList<Carrito> getListaCarrito() {
         return getTienda().getListaCarrito();
     }
 

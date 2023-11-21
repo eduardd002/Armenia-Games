@@ -141,10 +141,8 @@ public class Tienda{
                 if (jug.getTipoRestriccion().equals(TipoRestriccion.CONFIRMADO)) {
                     esCorrecto = true;
                     break;
-                }else{
-                    // Si al menos un jugador tiene restricción DENEGADA, marcamos esCorrecto como false y salimos del bucle
-                    esCorrecto = false;
-                }
+                }// Si al menos un jugador tiene restricción DENEGADA, marcamos esCorrecto como false y salimos del bucle
+
             }
         }else{
             esCorrecto = true;
@@ -188,7 +186,7 @@ public class Tienda{
             throw new JugadorExisteException();
         } else if (claveIncorrecta(ad.getClave(), ad.getConfirmacionClave())) {
             throw new ContraseniasNoCoincidenException();
-        } else if (!validarClave(ad.getClave())) {
+        } else if (validarClave(ad.getClave())) {
             throw new ClaveNoSeguraException();
         }else{
 
@@ -275,7 +273,7 @@ public class Tienda{
             throw new JugadorExisteException();
         } else if (claveIncorrecta(jug.getClave(), jug.getConfirmacionClave())) {
             throw new ContraseniasNoCoincidenException();
-        } else if (!validarClave(jug.getClave())) {
+        } else if (validarClave(jug.getClave())) {
             throw new ClaveNoSeguraException();
         }else{
 
@@ -431,7 +429,7 @@ public class Tienda{
         String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(clave);
-        return matcher.matches();
+        return !matcher.matches();
     }
 
     public Videojuego obtenerVideojuego(String codigo) {
@@ -460,19 +458,6 @@ public class Tienda{
         return vid;
     }
 
-    public Compra obtenerCompra(int factura) {
-
-        Compra comp = null;
-
-        for (Compra compra : listaCompras) {
-            if (compra.getFactura() == factura) {
-                comp = compra;
-                break;
-            }
-        }
-        return comp;
-    }
-
     public Compra obtenerCompra2(int factura) throws CompraNoExisteException {
 
         Compra comp = null;
@@ -483,6 +468,19 @@ public class Tienda{
                 break;
             }else{
                 throw new CompraNoExisteException();
+            }
+        }
+        return comp;
+    }
+
+    public Compra obtenerCompra(int factura, String videojego) {
+
+        Compra comp = null;
+
+        for (Compra compra : listaCompras) {
+            if (compra.getFactura() == factura && compra.getCodigo().equals(videojego)) {
+                comp = compra;
+                break;
             }
         }
         return comp;
@@ -571,7 +569,7 @@ public class Tienda{
     public boolean devolverVideojuego(int factura, String documento, int unidades, String videojuego) throws CompraNoExisteException, JugadorNoExisteException, FechaPasoException, VideojuegoNoExisteException, CompraNoCoincideException, CantidadExcedeException {
 
         Compra com;
-        com = obtenerCompra(factura);
+        com = obtenerCompra(factura, videojuego);
         Videojuego vid = obtenerVideojuego2(videojuego);
         Jugador jug = obtenerJugador(documento);
         if(jug == null){
@@ -660,7 +658,7 @@ public class Tienda{
 
         admin = obtenerAdministrador(administrador.getDocumento());
 
-        if (!validarClave(administrador.getClave())) {
+        if (validarClave(administrador.getClave())) {
             throw new ClaveNoSeguraException();
         }
 
@@ -704,7 +702,7 @@ public class Tienda{
 
         jug = obtenerJugador(jugador.getDocumento());
 
-        if (!validarClave(jugador.getClave())) {
+        if (validarClave(jugador.getClave())) {
             throw new ClaveNoSeguraException();
         }
 
@@ -741,7 +739,7 @@ public class Tienda{
 
             throw new ContraseniasNoCoincidenException();
 
-        } else if (!validarClave(clave)) {
+        } else if (validarClave(clave)) {
             throw new ClaveNoSeguraException();
         } else if (jugador != null) {
 
@@ -775,7 +773,7 @@ public class Tienda{
 
             throw new ContraseniasNoCoincidenException();
 
-        } else if (!validarClave(clave)) {
+        } else if (validarClave(clave)) {
             throw new ClaveNoSeguraException();
         } else if (administrador != null) {
 
@@ -828,7 +826,7 @@ public class Tienda{
         }
     }
 
-    public void desbloquearCuenta(Jugador jugador) throws ClaveNoSeguraException{
+    public void desbloquearCuenta(Jugador jugador){
 
         Jugador jug;
 

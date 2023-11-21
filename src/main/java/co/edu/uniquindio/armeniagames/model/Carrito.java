@@ -14,7 +14,7 @@ public class Carrito {
 
     private TipoGeneroVideojuego tipoGeneroVideojuegoCarrito;
 
-    public Carrito(){};
+    public Carrito(){}
 
     public int getTotalCarrito() {
         return totalCarrito;

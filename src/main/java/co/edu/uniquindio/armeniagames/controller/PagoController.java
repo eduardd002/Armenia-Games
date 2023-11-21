@@ -42,7 +42,7 @@ public class PagoController implements Initializable {
     private DatePicker dateCaducidad;
 
     @FXML
-    private Button btnRegresar, btnComprar, btnSalir;
+    private Button btnComprar, btnSalir;
 
     @FXML
     private RadioButton radioBancolombia, radioDavivienda, radioOccidente, radioBogota;

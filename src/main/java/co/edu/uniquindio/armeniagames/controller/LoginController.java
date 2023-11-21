@@ -3,7 +3,6 @@ package co.edu.uniquindio.armeniagames.controller;
 import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
-import co.edu.uniquindio.armeniagames.model.Jugador;
 import co.edu.uniquindio.armeniagames.model.Usuario;
 import co.edu.uniquindio.armeniagames.main.Main;
 import co.edu.uniquindio.armeniagames.subcontroller.LoginSubcontroller;

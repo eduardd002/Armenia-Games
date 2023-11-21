@@ -3,7 +3,6 @@ package co.edu.uniquindio.armeniagames.main;
 import co.edu.uniquindio.armeniagames.constant.MensajesExcepcionConstant;
 import co.edu.uniquindio.armeniagames.constant.MensajesInformacionConstant;
 import co.edu.uniquindio.armeniagames.interfacce.MainService;
-import co.edu.uniquindio.armeniagames.interfacce.TiendaService;
 import co.edu.uniquindio.armeniagames.persistence.Persistencia;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

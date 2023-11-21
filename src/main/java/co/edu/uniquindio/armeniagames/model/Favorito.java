@@ -12,7 +12,7 @@ public class Favorito {
 
     private TipoGeneroVideojuego tipoGeneroVideojuegoFavorito;
 
-    public Favorito (){};
+    public Favorito (){}
 
     public int getTotalFavorito() {
         return totalFavorito;

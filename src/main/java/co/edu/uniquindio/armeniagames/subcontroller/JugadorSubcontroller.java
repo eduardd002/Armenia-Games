@@ -53,15 +53,15 @@ public class JugadorSubcontroller {
     }
 
     public ArrayList<Compra> obtenerPrestamos(String jug){
-        return factoryController.getListaCompras(jug);
+        return factoryController.getListaCompras();
     }
 
     public ArrayList<Carrito> obtenerCarritos(String jug){
-        return factoryController.getListaCarrito(jug);
+        return factoryController.getListaCarrito();
     }
 
     public ArrayList<Favorito> obtenerFavoritos(String jug){
-        return factoryController.getListaFavorito(jug);
+        return factoryController.getListaFavorito();
     }
 
     public void eliminarFavorito(Favorito favorito) {

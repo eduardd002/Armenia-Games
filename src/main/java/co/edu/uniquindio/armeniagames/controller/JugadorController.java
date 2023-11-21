@@ -24,7 +24,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class JugadorController implements Initializable {
@@ -214,7 +213,7 @@ public class JugadorController implements Initializable {
                 btnCarrito.setDisable((comprar > disponibles) || comprar < 1);
                 btnFavorito.setDisable((comprar > disponibles) || comprar < 1);
             }catch (NumberFormatException e){
-
+                e.printStackTrace();
             }
         }
     }
@@ -509,9 +508,7 @@ public class JugadorController implements Initializable {
         tablaCarrito.getItems().clear();
         tablaCarrito.setItems(getCarritos());
 
-        tablaCarrito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            carritoSeleccionado = newSelection;
-        });
+        tablaCarrito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> carritoSeleccionado = newSelection);
     }
 
     /*
@@ -561,9 +558,7 @@ public class JugadorController implements Initializable {
         tablaFavorito.getItems().clear();
         tablaFavorito.setItems(getFavoritos());
 
-        tablaFavorito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            favoritoSeleccionado = newSelection;
-        });
+        tablaFavorito.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> favoritoSeleccionado = newSelection);
     }
 
     /*
@@ -665,8 +660,8 @@ public class JugadorController implements Initializable {
 
     public void cargarPrecioCarrito(){
         int total = 0;
-        for(int i = 0; i < listaCarritoNueva.size(); i++){
-            total += listaCarritoNueva.get(i).getUnidadesCarrito() * listaCarritoNueva.get(i).getTotalCarrito();
+        for (Carrito carrito : listaCarritoNueva) {
+            total += carrito.getUnidadesCarrito() * carrito.getTotalCarrito();
         }
         txtTotalCarrito.setText(String.valueOf(total));
     }

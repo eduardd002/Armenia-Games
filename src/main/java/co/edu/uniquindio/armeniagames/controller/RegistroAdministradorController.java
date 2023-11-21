@@ -3,7 +3,6 @@ package co.edu.uniquindio.armeniagames.controller;
 import co.edu.uniquindio.armeniagames.constant.MensajesEmailConstant;
 import co.edu.uniquindio.armeniagames.enumm.TipoEstadoCivil;
 import co.edu.uniquindio.armeniagames.enumm.TipoGenero;
-import co.edu.uniquindio.armeniagames.enumm.TipoRestriccion;
 import co.edu.uniquindio.armeniagames.enumm.TipoUsuario;
 import co.edu.uniquindio.armeniagames.factory.ModelFactory;
 import co.edu.uniquindio.armeniagames.model.Administrador;

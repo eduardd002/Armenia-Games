@@ -26,7 +26,7 @@ public class PagoCarritoController implements Initializable {
 
     public Main main = new Main();
     public PagoSubcontroller2 subcontroller;
-    private ArrayList<Compra> compras = new ArrayList<>();
+    private final ArrayList<Compra> compras = new ArrayList<>();
 
     private final ObservableList<TipoCuenta> listaTipoCuenta = FXCollections.observableArrayList();
 
@@ -42,7 +42,7 @@ public class PagoCarritoController implements Initializable {
     private DatePicker dateCaducidad;
 
     @FXML
-    private Button btnRegresar, btnComprar, btnSalir;
+    private Button btnComprar, btnSalir;
 
     @FXML
     private RadioButton radioBancolombia, radioDavivienda, radioOccidente, radioBogota;
@@ -60,15 +60,13 @@ public class PagoCarritoController implements Initializable {
         Compra compra;
         Compra comp = new Compra();
 
-        int total = 0;
+        for (Carrito carrito : lista) {
 
-        for(int i = 0; i < lista.size(); i++){
-
-            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(lista.get(i).getNombreVideojuegoCarrito());
+            Videojuego videojuego = subcontroller.traerVideojuegoAuxiliar(carrito.getNombreVideojuegoCarrito());
             LocalDate fecha = LocalDate.now();
-            int unidades = lista.get(i).getUnidadesCarrito();
+            int unidades = carrito.getUnidadesCarrito();
 
-            comp.setFactura(videojuegos+1);
+            comp.setFactura(videojuegos + 1);
             comp.setDocumentoJugador(jugador.getDocumento());
             comp.setJugador(jugador.getNombrePersona());
             comp.setApellido(jugador.getApellido());
@@ -79,7 +77,7 @@ public class PagoCarritoController implements Initializable {
             comp.setFechaCompraInicial(fecha);
             comp.setFechaCompraFinal(fecha);
             comp.setUnidades(unidades);
-            comp.setTotal(videojuego.getPrecio()*unidades);
+            comp.setTotal(videojuego.getPrecio() * unidades);
 
             compra = subcontroller.guardarPrestamo(comp);
 
@@ -105,29 +103,14 @@ public class PagoCarritoController implements Initializable {
     }
 
     public String correo(){
-        String mensaje = "";
+        StringBuilder mensaje = new StringBuilder();
         for (Compra com : compras) {
 
             int precioUnidad = com.getTotal() / com.getUnidades();
 
-            mensaje += "<br>" + "<br>" + "DATOS DEL VIDEOJUEGO" + "<br>" + "<br>" +
-                    "Nombre: " + com.getNombreVideojuego() + "<br>" +
-                    "Precio: " + precioUnidad + "<br>" +
-                    "Formato: " + com.getTipoFormatoVideojuego() + "<br>" +
-                    "Genero: " + com.getTipoGeneroVideojuego() + "<br>" +
-                    "Unidades: " + com.getUnidades() + "<br>" +
-                    "Total: " + com.getTotal() + "<br>" + "<br>" + "DATOS DE PAGO" + "<br>" + "<br>" +
-                    "Banco: " + tipoBanco + "<br>" +
-                    "Tipo de cuenta: " + comboTipoCuenta.getSelectionModel().getSelectedItem() + "<br>" +
-                    "Numero de cuenta: " + txtCuenta.getText() + "<br>" +
-                    "Titular: " + txtTitular.getText() + "<br>" + "<br>" + "DATOS DE ENVIO" + "<br>" + "<br>" +
-                    "Departamento: " + subcontroller.obtenerDepartamentoSegundoMomento() + "<br>" +
-                    "Muncipio: " + subcontroller.obtenerMunicipioSegundoMomento() + "<br>" +
-                    "Codigo postal: " + subcontroller.obtenerPostalSegundoMomento() + "<br>" +
-                    "Direccion: " + subcontroller.obtenerDireccionSegundoMomento() + "<br>" + "<br>" +
-                    "--------------------------------------------------------------------------------------------";
+            mensaje.append("<br>" + "<br>" + "DATOS DEL VIDEOJUEGO" + "<br>" + "<br>" + "Nombre: ").append(com.getNombreVideojuego()).append("<br>").append("Precio: ").append(precioUnidad).append("<br>").append("Formato: ").append(com.getTipoFormatoVideojuego()).append("<br>").append("Genero: ").append(com.getTipoGeneroVideojuego()).append("<br>").append("Unidades: ").append(com.getUnidades()).append("<br>").append("Total: ").append(com.getTotal()).append("<br>").append("<br>").append("DATOS DE PAGO").append("<br>").append("<br>").append("Banco: ").append(tipoBanco).append("<br>").append("Tipo de cuenta: ").append(comboTipoCuenta.getSelectionModel().getSelectedItem()).append("<br>").append("Numero de cuenta: ").append(txtCuenta.getText()).append("<br>").append("Titular: ").append(txtTitular.getText()).append("<br>").append("<br>").append("DATOS DE ENVIO").append("<br>").append("<br>").append("Departamento: ").append(subcontroller.obtenerDepartamentoSegundoMomento()).append("<br>").append("Muncipio: ").append(subcontroller.obtenerMunicipioSegundoMomento()).append("<br>").append("Codigo postal: ").append(subcontroller.obtenerPostalSegundoMomento()).append("<br>").append("Direccion: ").append(subcontroller.obtenerDireccionSegundoMomento()).append("<br>").append("<br>").append("--------------------------------------------------------------------------------------------");
         }
-         return mensaje;
+         return mensaje.toString();
     }
 
     @FXML
